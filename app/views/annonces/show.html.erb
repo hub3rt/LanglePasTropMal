@@ -1,34 +1,38 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Titre:</strong>
-  <%= @annonce.titre %>
-</p>
+<div class='form-group col-md-offset-1'><h1>Informations Utilisateurs</h1></div>
 
-<p>
-  <strong>Typeproduit:</strong>
-  <%= @annonce.typeProduit %>
-</p>
+<div class='form-group col-md-offset-1'>
+  <div class='field'>
+    <strong>Titre:</strong>
+    <%= @annonce.titre %>
+  </div>
 
-<p>
-  <strong>Prixmini:</strong>
-  <%= @annonce.prixMini %>
-</p>
+  <div class='field'>
+    <strong>Typeproduit:</strong>
+    <%= @annonce.typeProduit %>
+  </div>
 
-<p>
-  <strong>Prixmaxi:</strong>
-  <%= @annonce.prixMaxi %>
-</p>
+  <div class='field'>
+    <strong>Prixmini:</strong>
+    <%= @annonce.prixMini %>
+  </div>
 
-<p>
-  <strong>Region:</strong>
-  <%= @annonce.region %>
-</p>
+  <div class='field'>
+    <strong>Prixmaxi:</strong>
+    <%= @annonce.prixMaxi %>
+  </div>
 
-<p>
-  <strong>Codepostal:</strong>
-  <%= @annonce.codePostal %>
-</p>
+  <div class='field'>
+    <strong>Region:</strong>
+    <%= @annonce.region %>
+  </div>
 
-<%= link_to '<button class="btn btn-default">Edit</button>'.html_safe, edit_annonce_path(@annonce) %> |
+  <div class='field'>
+    <strong>Codepostal:</strong>
+    <%= @annonce.codePostal %>
+  </div>
+</div>
+
+<%= link_to '<button class="col-md-offset-1 btn btn-default">Edit</button>'.html_safe, edit_annonce_path(@annonce) %> |
 <%= link_to '<button class="btn btn-default">Back</button>'.html_safe, annonces_path %>
