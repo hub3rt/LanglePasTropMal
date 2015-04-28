@@ -25,5 +25,5 @@
   <%= @user.pass %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to '<button class="btn btn-default">Edit</button>'.html_safe, edit_user_path(@user) %>
+<%= link_to '<button class="btn btn-default">Back</button>'.html_safe, users_path %>

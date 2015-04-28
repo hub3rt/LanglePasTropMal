@@ -22,9 +22,9 @@
         <td><%= user.mail %></td>
         <td><%= user.login %></td>
         <td><%= user.pass %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '<button class="btn btn-default">Show</button>'.html_safe, user %></td>
+        <td><%= link_to '<button class="btn btn-default">Edit</button>'.html_safe, edit_user_path(user) %></td>
+        <td><%= link_to '<button class="btn btn-default">Destroy</button>'.html_safe, user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,5 +32,5 @@
 </div>
 <br />
 <div>
-<%= link_to 'New User', new_user_path %>
+<%= link_to '<button class="btn btn-default">New User</button>'.html_safe, new_user_path %>
 </div>
