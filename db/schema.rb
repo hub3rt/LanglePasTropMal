@@ -11,18 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20150428125423) do
-
-  create_table "users", force: :cascade do |t|
-    t.string   "nom"
-    t.string   "prenom"
-    t.string   "mail"
-    t.string   "login"
-    t.string   "pass"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-=======
 ActiveRecord::Schema.define(version: 20150428125900) do
 
   create_table "annonces", force: :cascade do |t|
@@ -35,7 +23,16 @@ ActiveRecord::Schema.define(version: 20150428125900) do
     t.datetime "dateLastAnnonce"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
->>>>>>> 1fc9510a4fe49ff690a1456de63da34b14722524
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "nom"
+    t.string   "prenom"
+    t.string   "mail"
+    t.string   "login"
+    t.string   "pass"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
