@@ -24,9 +24,9 @@
         <td><%= annonce.prixMaxi %></td>
         <td><%= annonce.region %></td>
         <td><%= annonce.codePostal %></td>
-        <td><%= link_to 'Show', annonce %></td>
-        <td><%= link_to 'Edit', edit_annonce_path(annonce) %></td>
-        <td><%= link_to 'Destroy', annonce, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '<button class="btn btn-default">Show</button>'.html_safe, annonce %></td>
+        <td><%= link_to '<button class="btn btn-default">Edit</button>'.html_safe, edit_annonce_path(annonce) %></td>
+        <td><%= link_to '<button class="btn btn-default">Destroy</button>'.html_safe, annonce, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,5 +34,5 @@
 </div>
 <br />
 <div>
-<%= link_to 'New Annonce', new_annonce_path %>
+<%= link_to '<button class="btn btn-default">New Annonce</button>'.html_safe, new_annonce_path %>
 </div>

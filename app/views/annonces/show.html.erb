@@ -30,5 +30,5 @@
   <%= @annonce.codePostal %>
 </p>
 
-<%= link_to 'Edit', edit_annonce_path(@annonce) %> |
-<%= link_to 'Back', annonces_path %>
+<%= link_to '<button class="btn btn-default">Edit</button>'.html_safe, edit_annonce_path(@annonce) %> |
+<%= link_to '<button class="btn btn-default">Back</button>'.html_safe, annonces_path %>

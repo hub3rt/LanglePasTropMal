@@ -1,6 +1,6 @@
 <%= form_for(@annonce) do |f| %>
   <% if @annonce.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" >
       <h2><%= pluralize(@annonce.errors.count, "error") %> prohibited this annonce from being saved:</h2>
 
       <ul>
@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="col-md-offset-1">
   <div class="field">
     <%= f.label :titre %><br>
     <%= f.text_field :titre %>
@@ -36,6 +36,7 @@
     <%= f.number_field :codePostal %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => 'btn btn-default'%>
+  </div>
   </div>
 <% end %>
