@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  titre: MyString
+  description: MyText
+  adresse: MyString
+  prix_nuit: 1.5
+  nbre_place: 1
+  wifi: false
+
+two:
+  titre: MyString
+  description: MyText
+  adresse: MyString
+  prix_nuit: 1.5
+  nbre_place: 1
+  wifi: false

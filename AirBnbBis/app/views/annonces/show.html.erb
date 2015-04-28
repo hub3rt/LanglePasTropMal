@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Titre:</strong>
+  <%= @annonce.titre %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @annonce.description %>
+</p>
+
+<p>
+  <strong>Adresse:</strong>
+  <%= @annonce.adresse %>
+</p>
+
+<p>
+  <strong>Prix nuit:</strong>
+  <%= @annonce.prix_nuit %>
+</p>
+
+<p>
+  <strong>Nbre place:</strong>
+  <%= @annonce.nbre_place %>
+</p>
+
+<p>
+  <strong>Wifi:</strong>
+  <%= @annonce.wifi %>
+</p>
+
+<%= link_to 'Edit', edit_annonce_path(@annonce) %> |
+<%= link_to 'Back', annonces_path %>

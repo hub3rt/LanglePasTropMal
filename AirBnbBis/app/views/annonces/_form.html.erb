@@ -1,0 +1,41 @@
+<%= form_for(@annonce) do |f| %>
+  <% if @annonce.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@annonce.errors.count, "error") %> prohibited this annonce from being saved:</h2>
+
+      <ul>
+      <% @annonce.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :titre %><br>
+    <%= f.text_field :titre %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :adresse %><br>
+    <%= f.text_field :adresse %>
+  </div>
+  <div class="field">
+    <%= f.label :prix_nuit %><br>
+    <%= f.text_field :prix_nuit %>
+  </div>
+  <div class="field">
+    <%= f.label :nbre_place %><br>
+    <%= f.number_field :nbre_place %>
+  </div>
+  <div class="field">
+    <%= f.label :wifi %><br>
+    <%= f.check_box :wifi %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
