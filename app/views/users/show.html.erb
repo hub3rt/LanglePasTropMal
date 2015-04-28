@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<div class='form-group col-md-offset-1'><h1>Informations Utilisateurs</h1></div>
+
+<div class='form-group col-md-offset-1'>
 <p>
   <strong>Nom:</strong>
   <%= @user.nom %>
@@ -24,6 +27,7 @@
   <strong>Pass:</strong>
   <%= @user.pass %>
 </p>
+</div>
 
-<%= link_to '<button class="btn btn-default">Edit</button>'.html_safe, edit_user_path(@user) %>
-<%= link_to '<button class="btn btn-default">Back</button>'.html_safe, users_path %>
+<%= link_to '<button class="col-md-offset-1 btn btn-default">Edit</button>'.html_safe, edit_user_path(@user) %>
+<%= link_to '<button class="col-md-offset-1 btn btn-default">Back</button>'.html_safe, users_path %>
