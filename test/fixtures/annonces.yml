@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  titre: MyString
+  typeProduit: MyString
+  prixMini: 1
+  prixMaxi: 1
+  region: MyString
+  codePostal: 1
+
+two:
+  titre: MyString
+  typeProduit: MyString
+  prixMini: 1
+  prixMaxi: 1
+  region: MyString
+  codePostal: 1
