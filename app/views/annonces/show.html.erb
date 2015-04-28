@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Titre:</strong>
+  <%= @annonce.titre %>
+</p>
+
+<p>
+  <strong>Typeproduit:</strong>
+  <%= @annonce.typeProduit %>
+</p>
+
+<p>
+  <strong>Prixmini:</strong>
+  <%= @annonce.prixMini %>
+</p>
+
+<p>
+  <strong>Prixmaxi:</strong>
+  <%= @annonce.prixMaxi %>
+</p>
+
+<p>
+  <strong>Region:</strong>
+  <%= @annonce.region %>
+</p>
+
+<p>
+  <strong>Codepostal:</strong>
+  <%= @annonce.codePostal %>
+</p>
+
+<%= link_to 'Edit', edit_annonce_path(@annonce) %> |
+<%= link_to 'Back', annonces_path %>
