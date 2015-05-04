@@ -7,9 +7,6 @@
     <tr>
       <th>Nom</th>
       <th>Prenom</th>
-      <th>Mail</th>
-      <th>Login</th>
-      <th>Pass</th>
       <th colspan="3">TrouveUnTrucQuoi</th>
     </tr>
   </thead>
@@ -19,9 +16,6 @@
       <tr>
         <td><%= user.nom %></td>
         <td><%= user.prenom %></td>
-        <td><%= user.mail %></td>
-        <td><%= user.login %></td>
-        <td><%= user.pass %></td>
         <td><%= link_to '<button class="btn btn-default">Show</button>'.html_safe, user %></td>
         <td><%= link_to '<button class="btn btn-default">Edit</button>'.html_safe, edit_user_path(user) %></td>
         <td><%= link_to '<button class="btn btn-default">Destroy</button>'.html_safe, user, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -12,21 +12,6 @@
   <strong>Prenom:</strong>
   <%= @user.prenom %>
 </p>
-
-<p>
-  <strong>Mail:</strong>
-  <%= @user.mail %>
-</p>
-
-<p>
-  <strong>Login:</strong>
-  <%= @user.login %>
-</p>
-
-<p>
-  <strong>Pass:</strong>
-  <%= @user.pass %>
-</p>
 </div>
 
 <%= link_to '<button class="col-md-offset-1 btn btn-default">Edit</button>'.html_safe, edit_user_path(@user) %>
