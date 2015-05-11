@@ -23,6 +23,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'activejob'
 gem 'actionmailer'
 gem 'devise'
+gem 'nokogiri'
 
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
