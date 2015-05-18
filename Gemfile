@@ -24,6 +24,8 @@ gem 'activejob'
 gem 'actionmailer'
 gem 'devise'
 gem 'nokogiri'
+gem 'sidekiq'
+gem 'redis'
 
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'

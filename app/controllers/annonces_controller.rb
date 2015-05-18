@@ -24,17 +24,21 @@ class AnnoncesController < ApplicationController
   # POST /annonces
   # POST /annonces.json
   def create
-    @annonce = Annonce.new(annonce_params)
-
+    @typeProduit = params["typeProduit"]
+    @region = params["region"]
+    @codePostal = params["codePostal"]
+    @url = "http://www.leboncoin.fr/#{@typeProduit.downcase}/offres/#{@region.downcase}/?f=a&th=1&location=#{@codePostal}"
+    @newAnnonce = {
+      :titre => params["annonce"]["titre"],
+      :urlRecherche => @url
+    }
+    @annonce = Annonce.new(@newAnnonce)
     respond_to do |format|
-      puts
-      puts "qsskjdfhbv"
-      puts annonce_params
-      puts
       if @annonce.save
         format.html { redirect_to @annonce, notice: 'Annonce was successfully created.' }
         format.json { render :show, status: :created, location: @annonce }
-        # puts "http://www.leboncoin.fr/#{@annonce.typeProduit.downcase}/offres/#{@annonce.region.downcase}/?f=a&th=1&location=#{@annonce.codePostal}"
+        # puts "http://www.leboncoin.fr/#{@typeProduit.downcase}/offres/#{@region.downcase}/?f=a&th=1&location=#{@codePostal}"
+        # HardWorker.perform_async("http://www.leboncoin.fr/#{@annonce.typeProduit.downcase}/offres/#{@annonce.region.downcase}/?f=a&th=1&location=#{@annonce.codePostal}")
       else
         format.html { render :new }
         format.json { render json: @annonce.errors, status: :unprocessable_entity }
@@ -45,12 +49,20 @@ class AnnoncesController < ApplicationController
   # PATCH/PUT /annonces/1
   # PATCH/PUT /annonces/1.json
   def update
-
+    @typeProduit = params["typeProduit"]
+    @region = params["region"]
+    @codePostal = params["codePostal"]
+    @url = "http://www.leboncoin.fr/#{@typeProduit.downcase}/offres/#{@region.downcase}/?f=a&th=1&location=#{@codePostal}"
+    @updatedAnnonce = {
+      :titre => params["annonce"]["titre"],
+      :urlRecherche => @url
+    }
     respond_to do |format|
-      if @annonce.update(annonce_params)
+      if @annonce.update(@updatedAnnonce)
         format.html { redirect_to @annonce, notice: 'Annonce was successfully updated.' }
         format.json { render :show, status: :ok, location: @annonce }
         # puts "http://www.leboncoin.fr/#{@annonce.typeProduit.downcase}/offres/#{@annonce.region.downcase}/?f=a&th=1&location=#{@annonce.codePostal}"
+        # HardWorker.perform_async("http://www.leboncoin.fr/#{@annonce.typeProduit.downcase}/offres/#{@annonce.region.downcase}/?f=a&th=1&location=#{@annonce.codePostal}")
       else
         format.html { render :edit }
         format.json { render json: @annonce.errors, status: :unprocessable_entity }
