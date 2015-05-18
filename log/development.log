@@ -1543,3 +1543,1461 @@ NoMethodError - undefined method `downcase' for nil:NilClass:
 
 
 Started POST "/__better_errors/09bc20223673c3d5/variables" for ::1 at 2015-05-18 11:53:19 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-18 12:00:40 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 312ms (Views: 302.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-05-18 12:00:42 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 98ms (Views: 83.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-05-18 12:00:44 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VEciukjwZQ/Bs5+F8aoicelpAtwuCGdT26jVO1PK3dwV15Jp8J2XLdJO8Bv+hmnAIxVfhpsUUJtwWVnjU+J9tA==", "user"=>{"email"=>"baptiste.lanusse@y-nov.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "baptiste.lanusse@y-nov.com"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2015-05-18 08:34:18.061381"], ["current_sign_in_at", "2015-05-18 10:00:44.158620"], ["sign_in_count", 6], ["updated_at", "2015-05-18 10:00:44.159434"], ["id", 8]]
+  [1m[36m (18.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 105ms (ActiveRecord: 19.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-18 12:00:44 +0200
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+  Rendered welcome/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 90ms (Views: 89.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/annonces" for 127.0.0.1 at 2015-05-18 12:00:45 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[36mAnnonce Load (0.1ms)[0m  [1mSELECT "annonces".* FROM "annonces"[0m
+  Rendered annonces/index.html.erb within layouts/application (1.2ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+Completed 200 OK in 73ms (Views: 71.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/annonces/new" for 127.0.0.1 at 2015-05-18 12:00:46 +0200
+Processing by AnnoncesController#new as HTML
+  Rendered annonces/_form.html.erb (7.5ms)
+  Rendered annonces/new.html.erb within layouts/application (8.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+Completed 200 OK in 91ms (Views: 88.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/annonces" for 127.0.0.1 at 2015-05-18 12:03:26 +0200
+Processing by AnnoncesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cNcikznRY+/XOE29tRAfEquDYwSQSBiTcQxIp8t3IoXJqItt/D2xdQZuVwnXIVO/MRwHZiU+fl+x8Z0vxwR/qw==", "annonce"=>{"titre"=>"Peugeot Aquitaine"}, "titre"=>"peugeot", "typeProduit"=>"Voitures", "region"=>"Aquitaine", "codePostal"=>"33300", "commit"=>"Create Annonce"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+NoMethodError - undefined method `downcase' for nil:NilClass:
+  app/controllers/annonces_controller.rb:31:in `create'
+  actionpack (4.2.1) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_process_action_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.1) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:819:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:649:in `call'
+  activerecord (4.2.1) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/baptiste/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/baptiste/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/baptiste/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/e0fe7212e104cb57/variables" for 127.0.0.1 at 2015-05-18 12:03:26 +0200
+
+
+Started POST "/annonces" for 127.0.0.1 at 2015-05-18 12:04:27 +0200
+Processing by AnnoncesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Tz2oveIL6YiqnUQLwZxeLN/tKzNl82LBctGEnXXxx/H2QgFDJ+c7EnvLXr+jrRKBRXJPUdCFBA2yLFEVeYKa3w==", "annonce"=>{"titre"=>"Peugeot Aquitaine"}, "titre"=>"peugeot", "typeProduit"=>"Voitures", "region"=>"Aquitaine", "codePostal"=>"33300", "commit"=>"Create Annonce"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "annonces" ("titre", "urlRecherche", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["titre", "Peugeot Aquitaine"], ["urlRecherche", "http://www.leboncoin.fr/voitures/offres/aquitaine/?f=a&th=1&q=&location=33300"], ["created_at", "2015-05-18 10:04:27.194214"], ["updated_at", "2015-05-18 10:04:27.194214"]]
+  [1m[35m (8.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/annonces/73
+Completed 302 Found in 18ms (ActiveRecord: 9.9ms)
+
+
+Started GET "/annonces/73" for 127.0.0.1 at 2015-05-18 12:04:27 +0200
+Processing by AnnoncesController#show as HTML
+  Parameters: {"id"=>"73"}
+  [1m[36mAnnonce Load (0.1ms)[0m  [1mSELECT  "annonces".* FROM "annonces" WHERE "annonces"."id" = ? LIMIT 1[0m  [["id", 73]]
+  Rendered annonces/show.html.erb within layouts/application (0.7ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+Completed 200 OK in 85ms (Views: 82.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/annonces" for 127.0.0.1 at 2015-05-18 12:04:34 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[36mAnnonce Load (0.2ms)[0m  [1mSELECT "annonces".* FROM "annonces"[0m
+  Rendered annonces/index.html.erb within layouts/application (1.1ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+Completed 200 OK in 81ms (Views: 79.9ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/annonces/73" for 127.0.0.1 at 2015-05-18 12:04:39 +0200
+Processing by AnnoncesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"SZpHdT+ZVUAw3TrFZO8IEnQjeRmdtmm16AgLKi+0X+Dw5e6L+nWH2uGLIHEG3kS/7rwdeyjAD3ko9d6iI8cCzg==", "id"=>"73"}
+  [1m[36mAnnonce Load (0.1ms)[0m  [1mSELECT  "annonces".* FROM "annonces" WHERE "annonces"."id" = ? LIMIT 1[0m  [["id", 73]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "annonces" WHERE "annonces"."id" = ?[0m  [["id", 73]]
+  [1m[35m (10.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/annonces
+Completed 302 Found in 13ms (ActiveRecord: 10.7ms)
+
+
+Started GET "/annonces" for 127.0.0.1 at 2015-05-18 12:04:39 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[36mAnnonce Load (0.1ms)[0m  [1mSELECT "annonces".* FROM "annonces"[0m
+  Rendered annonces/index.html.erb within layouts/application (1.1ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+Completed 200 OK in 88ms (Views: 86.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/annonces/new" for 127.0.0.1 at 2015-05-18 12:05:02 +0200
+Processing by AnnoncesController#new as HTML
+  Rendered annonces/_form.html.erb (4.3ms)
+  Rendered annonces/new.html.erb within layouts/application (5.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+Completed 200 OK in 87ms (Views: 81.1ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/annonces" for 127.0.0.1 at 2015-05-18 12:05:06 +0200
+Processing by AnnoncesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yK9aSs23V5/6sxgXLALS2Nt6RZ+GXpkCuTFJtJfkwLtx0PO0CFuFBSvlAqNOM551QeUh/TMo/855zJw8m5edlQ==", "annonce"=>{"titre"=>""}, "terme"=>"qsdf", "typeProduit"=>"Offres_d_emploi", "region"=>"Auvergne", "codePostal"=>"", "commit"=>"Create Annonce"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "annonces" ("titre", "urlRecherche", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["titre", ""], ["urlRecherche", "http://www.leboncoin.fr/offres_d_emploi/offres/auvergne/?f=a&th=1&q=qsdf&location="], ["created_at", "2015-05-18 10:05:06.623309"], ["updated_at", "2015-05-18 10:05:06.623309"]]
+  [1m[35m (11.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/annonces/74
+Completed 302 Found in 15ms (ActiveRecord: 11.8ms)
+
+
+Started GET "/annonces/74" for 127.0.0.1 at 2015-05-18 12:05:06 +0200
+Processing by AnnoncesController#show as HTML
+  Parameters: {"id"=>"74"}
+  [1m[36mAnnonce Load (0.2ms)[0m  [1mSELECT  "annonces".* FROM "annonces" WHERE "annonces"."id" = ? LIMIT 1[0m  [["id", 74]]
+  Rendered annonces/show.html.erb within layouts/application (0.3ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+Completed 200 OK in 88ms (Views: 86.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/annonces" for 127.0.0.1 at 2015-05-18 12:05:54 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AnnoncesController#index as HTML
+  [1m[35mAnnonce Load (0.1ms)[0m  SELECT "annonces".* FROM "annonces"
+  Rendered annonces/index.html.erb within layouts/application (7.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+Completed 200 OK in 298ms (Views: 285.7ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/annonces/74" for 127.0.0.1 at 2015-05-18 12:05:56 +0200
+Processing by AnnoncesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"nrJylIk6r64MGAhibMOgGEmNVhAd9/CxNlRxnfXtDnQnzdtqTNZ9NN1OEtYO8uy10xIycqiBln32qaQV+Z5TWg==", "id"=>"74"}
+  [1m[35mAnnonce Load (0.1ms)[0m  SELECT  "annonces".* FROM "annonces" WHERE "annonces"."id" = ? LIMIT 1  [["id", 74]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "annonces" WHERE "annonces"."id" = ?  [["id", 74]]
+  [1m[36m (18.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/annonces
+Completed 302 Found in 23ms (ActiveRecord: 19.0ms)
+
+
+Started GET "/annonces" for 127.0.0.1 at 2015-05-18 12:05:56 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[35mAnnonce Load (0.2ms)[0m  SELECT "annonces".* FROM "annonces"
+  Rendered annonces/index.html.erb within layouts/application (1.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+Completed 200 OK in 80ms (Views: 79.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/annonces/new" for 127.0.0.1 at 2015-05-18 12:05:57 +0200
+Processing by AnnoncesController#new as HTML
+  Rendered annonces/_form.html.erb (11.9ms)
+  Rendered annonces/new.html.erb within layouts/application (14.4ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+Completed 200 OK in 95ms (Views: 94.2ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/annonces" for 127.0.0.1 at 2015-05-18 12:05:59 +0200
+Processing by AnnoncesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dL0Trv1zQtKVLzBzQkcUtL4lvdj/WvZuMWkgiWBy45XNwrpQOJ+QSER5KscgdlgZJLrZukoskKLxlPUBbAG+uw==", "annonce"=>{"titre"=>""}, "terme"=>"sdfgh", "typeProduit"=>"Toutes_categories", "region"=>"Alsace", "codePostal"=>"", "commit"=>"Create Annonce"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "annonces" ("titre", "urlRecherche", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["titre", ""], ["urlRecherche", "http://www.leboncoin.fr/toutes_categories/offres/alsace/?f=a&th=1&q=sdfgh&location="], ["created_at", "2015-05-18 10:05:59.726048"], ["updated_at", "2015-05-18 10:05:59.726048"]]
+  [1m[36m (16.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/annonces/75
+Completed 302 Found in 20ms (ActiveRecord: 16.6ms)
+
+
+Started GET "/annonces/75" for 127.0.0.1 at 2015-05-18 12:05:59 +0200
+Processing by AnnoncesController#show as HTML
+  Parameters: {"id"=>"75"}
+  [1m[35mAnnonce Load (0.1ms)[0m  SELECT  "annonces".* FROM "annonces" WHERE "annonces"."id" = ? LIMIT 1  [["id", 75]]
+  Rendered annonces/show.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+Completed 200 OK in 76ms (Views: 74.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/annonces" for 127.0.0.1 at 2015-05-18 12:06:02 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[35mAnnonce Load (0.1ms)[0m  SELECT "annonces".* FROM "annonces"
+  Rendered annonces/index.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+Completed 200 OK in 77ms (Views: 76.3ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/annonces/75" for 127.0.0.1 at 2015-05-18 12:06:05 +0200
+Processing by AnnoncesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"bWSyWic6zGafa4iA4wNiHkkDnEeKyNY47/UAU3KB3nzUGxuk4tYe/E49kjSBMi6z05z4JT++sPQvCNXbfvKDUg==", "id"=>"75"}
+  [1m[35mAnnonce Load (0.1ms)[0m  SELECT  "annonces".* FROM "annonces" WHERE "annonces"."id" = ? LIMIT 1  [["id", 75]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "annonces" WHERE "annonces"."id" = ?  [["id", 75]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/annonces
+Completed 302 Found in 13ms (ActiveRecord: 10.2ms)
+
+
+Started GET "/annonces" for 127.0.0.1 at 2015-05-18 12:06:05 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[35mAnnonce Load (0.3ms)[0m  SELECT "annonces".* FROM "annonces"
+  Rendered annonces/index.html.erb within layouts/application (1.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+Completed 200 OK in 85ms (Views: 83.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/annonces/new" for 127.0.0.1 at 2015-05-18 12:06:05 +0200
+Processing by AnnoncesController#new as HTML
+  Rendered annonces/_form.html.erb (2.6ms)
+  Rendered annonces/new.html.erb within layouts/application (3.2ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+Completed 200 OK in 80ms (Views: 79.9ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/annonces" for 127.0.0.1 at 2015-05-18 12:06:25 +0200
+Processing by AnnoncesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"53Inn5zU6AiMGn3RQ9V3Lbdyt1c7Aa/eagH7E15qRQFeDY5hWTg6kl1MZ2Uh5DuALe3TNY53yRKq/C6bUhkYLw==", "annonce"=>{"titre"=>"Peugeot Aquitaine 33000"}, "terme"=>"peugeot", "typeProduit"=>"Voitures", "region"=>"Aquitaine", "codePostal"=>"33000", "commit"=>"Create Annonce"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "annonces" ("titre", "urlRecherche", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["titre", "Peugeot Aquitaine 33000"], ["urlRecherche", "http://www.leboncoin.fr/voitures/offres/aquitaine/?f=a&th=1&q=peugeot&location=33000"], ["created_at", "2015-05-18 10:06:25.259447"], ["updated_at", "2015-05-18 10:06:25.259447"]]
+  [1m[36m (16.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/annonces/76
+Completed 302 Found in 22ms (ActiveRecord: 16.8ms)
+
+
+Started GET "/annonces/76" for 127.0.0.1 at 2015-05-18 12:06:25 +0200
+Processing by AnnoncesController#show as HTML
+  Parameters: {"id"=>"76"}
+  [1m[35mAnnonce Load (0.1ms)[0m  SELECT  "annonces".* FROM "annonces" WHERE "annonces"."id" = ? LIMIT 1  [["id", 76]]
+  Rendered annonces/show.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+Completed 200 OK in 74ms (Views: 72.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/annonces" for 127.0.0.1 at 2015-05-18 12:06:35 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[35mAnnonce Load (0.1ms)[0m  SELECT "annonces".* FROM "annonces"
+  Rendered annonces/index.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+Completed 200 OK in 84ms (Views: 83.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/annonces/new" for 127.0.0.1 at 2015-05-18 12:07:56 +0200
+Processing by AnnoncesController#new as HTML
+  Rendered annonces/_form.html.erb (3.8ms)
+  Rendered annonces/new.html.erb within layouts/application (4.3ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+Completed 200 OK in 89ms (Views: 88.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/annonces" for 127.0.0.1 at 2015-05-18 12:08:04 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[36mAnnonce Load (0.1ms)[0m  [1mSELECT "annonces".* FROM "annonces"[0m
+  Rendered annonces/index.html.erb within layouts/application (1.1ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+Completed 200 OK in 76ms (Views: 74.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/annonces/76/edit" for 127.0.0.1 at 2015-05-18 12:08:06 +0200
+Processing by AnnoncesController#edit as HTML
+  Parameters: {"id"=>"76"}
+  [1m[36mAnnonce Load (0.1ms)[0m  [1mSELECT  "annonces".* FROM "annonces" WHERE "annonces"."id" = ? LIMIT 1[0m  [["id", 76]]
+  Rendered annonces/_form.html.erb (3.0ms)
+  Rendered annonces/edit.html.erb within layouts/application (4.1ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+Completed 200 OK in 86ms (Views: 84.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/annonces" for 127.0.0.1 at 2015-05-18 12:08:09 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[36mAnnonce Load (0.1ms)[0m  [1mSELECT "annonces".* FROM "annonces"[0m
+  Rendered annonces/index.html.erb within layouts/application (0.8ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+Completed 200 OK in 72ms (Views: 71.8ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/annonces/76" for 127.0.0.1 at 2015-05-18 12:08:24 +0200
+Processing by AnnoncesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"x9PMJT0UbF4okHtCK3bxtqWcN4ZFMRgE+TTxM8CX1wJ+rGXb+Pi+xPnGYfZJR70bPwNT5PBHfsg5ySS7zOSKLA==", "id"=>"76"}
+  [1m[36mAnnonce Load (0.1ms)[0m  [1mSELECT  "annonces".* FROM "annonces" WHERE "annonces"."id" = ? LIMIT 1[0m  [["id", 76]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "annonces" WHERE "annonces"."id" = ?[0m  [["id", 76]]
+  [1m[35m (10.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/annonces
+Completed 302 Found in 13ms (ActiveRecord: 11.0ms)
+
+
+Started GET "/annonces" for 127.0.0.1 at 2015-05-18 12:08:24 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[36mAnnonce Load (0.1ms)[0m  [1mSELECT "annonces".* FROM "annonces"[0m
+  Rendered annonces/index.html.erb within layouts/application (0.6ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+Completed 200 OK in 88ms (Views: 87.1ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2015-05-18 12:08:26 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"XC/SED0JLcOWXVQZvxs0ZD/bLoiXdK34mawGQ7LUpl/lUHvu+OX/WUcLTq3dKnjJpURK6iICyzRZUdPLvqf7cQ=="}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-18 12:08:26 +0200
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 80ms (Views: 79.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-18 12:10:11 +0200
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 83ms (Views: 82.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-05-18 12:10:14 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 121ms (Views: 119.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-05-18 12:10:17 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VHXxP7VcgLlF4eY5hH/YL4gsTauqZ7nyn0yDbCoFbl2pZ/QHe1IMHF0XkrQIIKWtLo5mxoNr3zyrRfhHTCDD8w==", "user"=>{"email"=>"baptiste.lanusse@y-nov.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "baptiste.lanusse@y-nov.com"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2015-05-18 10:00:44.158620"], ["current_sign_in_at", "2015-05-18 10:10:17.147730"], ["sign_in_count", 7], ["updated_at", "2015-05-18 10:10:17.148579"], ["id", 8]]
+  [1m[36m (11.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 94ms (ActiveRecord: 12.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-18 12:10:17 +0200
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+  Rendered welcome/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 76ms (Views: 75.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/annonces" for 127.0.0.1 at 2015-05-18 12:10:18 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[36mAnnonce Load (0.1ms)[0m  [1mSELECT "annonces".* FROM "annonces"[0m
+  Rendered annonces/index.html.erb within layouts/application (0.6ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+Completed 200 OK in 83ms (Views: 82.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/annonces/new" for 127.0.0.1 at 2015-05-18 12:10:19 +0200
+Processing by AnnoncesController#new as HTML
+  Rendered annonces/_form.html.erb (3.2ms)
+  Rendered annonces/new.html.erb within layouts/application (3.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+Completed 200 OK in 77ms (Views: 75.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/annonces/new" for 127.0.0.1 at 2015-05-18 12:12:55 +0200
+Processing by AnnoncesController#new as HTML
+  Rendered annonces/_form.html.erb (4.1ms)
+  Rendered annonces/new.html.erb within layouts/application (4.9ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+Completed 200 OK in 90ms (Views: 88.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/scaffolds.self-ff003c1928c8222235362622cf8b894b486b91e15be516b5adfc39aa234de886.css?body=1" for 127.0.0.1 at 2015-05-18 12:12:55 +0200
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-05-18 12:12:55 +0200
+
+
+Started GET "/assets/annonces.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-05-18 12:12:55 +0200
+
+
+Started GET "/assets/application.self-3696ade8c0e0c3a821ca23816d4dffcf50a3a36914673ff4e7a1098e55bb7833.css?body=1" for 127.0.0.1 at 2015-05-18 12:12:55 +0200
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-05-18 12:12:55 +0200
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-05-18 12:12:55 +0200
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 127.0.0.1 at 2015-05-18 12:12:55 +0200
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-05-18 12:12:55 +0200
+
+
+Started GET "/assets/bootstrap/affix.self-68d1a5161d04ca9fe1b9d9f4114d9426c7798bf90f2703a97aca35c8113469bb.js?body=1" for 127.0.0.1 at 2015-05-18 12:12:55 +0200
+
+
+Started GET "/assets/bootstrap/alert.self-15ce09eba576e56db3edfd87accc0ff48823df915169e350b4fd97290f96aee1.js?body=1" for 127.0.0.1 at 2015-05-18 12:12:55 +0200
+
+
+Started GET "/assets/bootstrap/button.self-37c62bff1d75f86f3348b8679873d5156d8b9938b62841038dca21690f4740f1.js?body=1" for 127.0.0.1 at 2015-05-18 12:12:55 +0200
+
+
+Started GET "/assets/bootstrap/carousel.self-9aaab1a477b9c1156bab751cb8da47f77dace6da88eef8ae830e60f3cff3a8be.js?body=1" for 127.0.0.1 at 2015-05-18 12:12:55 +0200
+
+
+Started GET "/assets/bootstrap/collapse.self-eeece00cd06a3d7cc071ab7845b549d4991edd0f0895e4be70fe40bac2fb5f4b.js?body=1" for 127.0.0.1 at 2015-05-18 12:12:55 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.self-a3998e7ca949c04cb86b5c635deb0abcc7a24dc02e81be66b8acfef02d811e45.js?body=1" for 127.0.0.1 at 2015-05-18 12:12:55 +0200
+
+
+Started GET "/assets/bootstrap/modal.self-f2759e138605770e60526c00c6d86cbb3378da203641f9d6b204c9f0192b9267.js?body=1" for 127.0.0.1 at 2015-05-18 12:12:55 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.self-5ea180afe4404f83fc97d997833f2edefd34475b0b5ddab310e27abc2bbd5f2f.js?body=1" for 127.0.0.1 at 2015-05-18 12:12:56 +0200
+
+
+Started GET "/assets/bootstrap/transition.self-7742dca5e6acf313fbb217811b48468282cddf1a9baea5c89ec92e367ef242cb.js?body=1" for 127.0.0.1 at 2015-05-18 12:12:56 +0200
+
+
+Started GET "/assets/bootstrap/tab.self-e1bba7115c90301056ee94c4716de2fcbe4498015def2dab9ff9879f339bd245.js?body=1" for 127.0.0.1 at 2015-05-18 12:12:56 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.self-c3b5c16f394ab9c0391db4431aac4f2d2ddf1bba4c5d3228ed343de05ecc8e83.js?body=1" for 127.0.0.1 at 2015-05-18 12:12:56 +0200
+
+
+Started GET "/assets/bootstrap/popover.self-2674d99c3ab0415dba0b958a80b3840f70ff6368b155d890306c0291be49453b.js?body=1" for 127.0.0.1 at 2015-05-18 12:12:56 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2015-05-18 12:12:56 +0200
+
+
+Started GET "/assets/annonces.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-05-18 12:12:56 +0200
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-05-18 12:12:56 +0200
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-05-18 12:12:56 +0200
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2015-05-18 12:12:56 +0200
+
+
+Started GET "/annonces/new" for 127.0.0.1 at 2015-05-18 12:14:29 +0200
+Processing by AnnoncesController#new as HTML
+  Rendered annonces/_form.html.erb (4.3ms)
+  Rendered annonces/new.html.erb within layouts/application (4.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+Completed 200 OK in 90ms (Views: 89.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/annonces.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-05-18 12:14:29 +0200
+
+
+Started GET "/assets/scaffolds.self-ff003c1928c8222235362622cf8b894b486b91e15be516b5adfc39aa234de886.css?body=1" for 127.0.0.1 at 2015-05-18 12:14:29 +0200
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-05-18 12:14:29 +0200
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-05-18 12:14:29 +0200
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-05-18 12:14:29 +0200
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-05-18 12:14:29 +0200
+
+
+Started GET "/assets/application.self-3696ade8c0e0c3a821ca23816d4dffcf50a3a36914673ff4e7a1098e55bb7833.css?body=1" for 127.0.0.1 at 2015-05-18 12:14:29 +0200
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 127.0.0.1 at 2015-05-18 12:14:29 +0200
+
+
+Started GET "/assets/bootstrap/affix.self-68d1a5161d04ca9fe1b9d9f4114d9426c7798bf90f2703a97aca35c8113469bb.js?body=1" for 127.0.0.1 at 2015-05-18 12:14:29 +0200
+
+
+Started GET "/assets/bootstrap/alert.self-15ce09eba576e56db3edfd87accc0ff48823df915169e350b4fd97290f96aee1.js?body=1" for 127.0.0.1 at 2015-05-18 12:14:29 +0200
+
+
+Started GET "/assets/bootstrap/button.self-37c62bff1d75f86f3348b8679873d5156d8b9938b62841038dca21690f4740f1.js?body=1" for 127.0.0.1 at 2015-05-18 12:14:29 +0200
+
+
+Started GET "/assets/bootstrap/carousel.self-9aaab1a477b9c1156bab751cb8da47f77dace6da88eef8ae830e60f3cff3a8be.js?body=1" for 127.0.0.1 at 2015-05-18 12:14:29 +0200
+
+
+Started GET "/assets/bootstrap/collapse.self-eeece00cd06a3d7cc071ab7845b549d4991edd0f0895e4be70fe40bac2fb5f4b.js?body=1" for 127.0.0.1 at 2015-05-18 12:14:29 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.self-a3998e7ca949c04cb86b5c635deb0abcc7a24dc02e81be66b8acfef02d811e45.js?body=1" for 127.0.0.1 at 2015-05-18 12:14:29 +0200
+
+
+Started GET "/assets/bootstrap/modal.self-f2759e138605770e60526c00c6d86cbb3378da203641f9d6b204c9f0192b9267.js?body=1" for 127.0.0.1 at 2015-05-18 12:14:29 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.self-5ea180afe4404f83fc97d997833f2edefd34475b0b5ddab310e27abc2bbd5f2f.js?body=1" for 127.0.0.1 at 2015-05-18 12:14:29 +0200
+
+
+Started GET "/assets/bootstrap/tab.self-e1bba7115c90301056ee94c4716de2fcbe4498015def2dab9ff9879f339bd245.js?body=1" for 127.0.0.1 at 2015-05-18 12:14:29 +0200
+
+
+Started GET "/assets/bootstrap/transition.self-7742dca5e6acf313fbb217811b48468282cddf1a9baea5c89ec92e367ef242cb.js?body=1" for 127.0.0.1 at 2015-05-18 12:14:29 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.self-c3b5c16f394ab9c0391db4431aac4f2d2ddf1bba4c5d3228ed343de05ecc8e83.js?body=1" for 127.0.0.1 at 2015-05-18 12:14:29 +0200
+
+
+Started GET "/assets/bootstrap/popover.self-2674d99c3ab0415dba0b958a80b3840f70ff6368b155d890306c0291be49453b.js?body=1" for 127.0.0.1 at 2015-05-18 12:14:29 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2015-05-18 12:14:29 +0200
+
+
+Started GET "/assets/annonces.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-05-18 12:14:29 +0200
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-05-18 12:14:29 +0200
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-05-18 12:14:29 +0200
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2015-05-18 12:14:29 +0200
+
+
+Started GET "/annonces/new" for 127.0.0.1 at 2015-05-18 12:15:21 +0200
+Processing by AnnoncesController#new as HTML
+  Rendered annonces/_form.html.erb (3.9ms)
+  Rendered annonces/new.html.erb within layouts/application (4.5ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+Completed 200 OK in 81ms (Views: 80.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/scaffolds.self-ff003c1928c8222235362622cf8b894b486b91e15be516b5adfc39aa234de886.css?body=1" for 127.0.0.1 at 2015-05-18 12:15:21 +0200
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-05-18 12:15:21 +0200
+
+
+Started GET "/assets/application.self-3696ade8c0e0c3a821ca23816d4dffcf50a3a36914673ff4e7a1098e55bb7833.css?body=1" for 127.0.0.1 at 2015-05-18 12:15:21 +0200
+
+
+Started GET "/assets/annonces.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-05-18 12:15:21 +0200
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-05-18 12:15:21 +0200
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-05-18 12:15:21 +0200
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 127.0.0.1 at 2015-05-18 12:15:21 +0200
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-05-18 12:15:21 +0200
+
+
+Started GET "/assets/bootstrap/affix.self-68d1a5161d04ca9fe1b9d9f4114d9426c7798bf90f2703a97aca35c8113469bb.js?body=1" for 127.0.0.1 at 2015-05-18 12:15:21 +0200
+
+
+Started GET "/assets/bootstrap/alert.self-15ce09eba576e56db3edfd87accc0ff48823df915169e350b4fd97290f96aee1.js?body=1" for 127.0.0.1 at 2015-05-18 12:15:21 +0200
+
+
+Started GET "/assets/bootstrap/button.self-37c62bff1d75f86f3348b8679873d5156d8b9938b62841038dca21690f4740f1.js?body=1" for 127.0.0.1 at 2015-05-18 12:15:21 +0200
+
+
+Started GET "/assets/bootstrap/collapse.self-eeece00cd06a3d7cc071ab7845b549d4991edd0f0895e4be70fe40bac2fb5f4b.js?body=1" for 127.0.0.1 at 2015-05-18 12:15:21 +0200
+
+
+Started GET "/assets/bootstrap/carousel.self-9aaab1a477b9c1156bab751cb8da47f77dace6da88eef8ae830e60f3cff3a8be.js?body=1" for 127.0.0.1 at 2015-05-18 12:15:21 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.self-a3998e7ca949c04cb86b5c635deb0abcc7a24dc02e81be66b8acfef02d811e45.js?body=1" for 127.0.0.1 at 2015-05-18 12:15:21 +0200
+
+
+Started GET "/assets/bootstrap/modal.self-f2759e138605770e60526c00c6d86cbb3378da203641f9d6b204c9f0192b9267.js?body=1" for 127.0.0.1 at 2015-05-18 12:15:21 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.self-5ea180afe4404f83fc97d997833f2edefd34475b0b5ddab310e27abc2bbd5f2f.js?body=1" for 127.0.0.1 at 2015-05-18 12:15:21 +0200
+
+
+Started GET "/assets/bootstrap/tab.self-e1bba7115c90301056ee94c4716de2fcbe4498015def2dab9ff9879f339bd245.js?body=1" for 127.0.0.1 at 2015-05-18 12:15:21 +0200
+
+
+Started GET "/assets/bootstrap/transition.self-7742dca5e6acf313fbb217811b48468282cddf1a9baea5c89ec92e367ef242cb.js?body=1" for 127.0.0.1 at 2015-05-18 12:15:21 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.self-c3b5c16f394ab9c0391db4431aac4f2d2ddf1bba4c5d3228ed343de05ecc8e83.js?body=1" for 127.0.0.1 at 2015-05-18 12:15:21 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2015-05-18 12:15:21 +0200
+
+
+Started GET "/assets/bootstrap/popover.self-2674d99c3ab0415dba0b958a80b3840f70ff6368b155d890306c0291be49453b.js?body=1" for 127.0.0.1 at 2015-05-18 12:15:21 +0200
+
+
+Started GET "/assets/annonces.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-05-18 12:15:21 +0200
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-05-18 12:15:21 +0200
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-05-18 12:15:21 +0200
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2015-05-18 12:15:21 +0200
+
+
+Started POST "/annonces" for 127.0.0.1 at 2015-05-18 12:15:25 +0200
+Processing by AnnoncesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"X6xUf6mTYaZfi/NKeR4QLBF2vSxvt3x6OqiUn552JraGN21F9ThmK45fqs+wuns9LBU8LqrTRTeIEw9NsHMk8g==", "annonce"=>{"titre"=>""}, "terme"=>"", "typeProduit"=>"Toutes_categories", "region"=>"Alsace", "codePostal"=>"33333333333", "commit"=>"Create Annonce"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "annonces" ("titre", "urlRecherche", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["titre", ""], ["urlRecherche", "http://www.leboncoin.fr/toutes_categories/offres/alsace/?f=a&th=1&q=&location=33333333333"], ["created_at", "2015-05-18 10:15:25.238994"], ["updated_at", "2015-05-18 10:15:25.238994"]]
+  [1m[36m (9.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/annonces/77
+Completed 302 Found in 13ms (ActiveRecord: 9.9ms)
+
+
+Started GET "/annonces/77" for 127.0.0.1 at 2015-05-18 12:15:25 +0200
+Processing by AnnoncesController#show as HTML
+  Parameters: {"id"=>"77"}
+  [1m[35mAnnonce Load (0.1ms)[0m  SELECT  "annonces".* FROM "annonces" WHERE "annonces"."id" = ? LIMIT 1  [["id", 77]]
+  Rendered annonces/show.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+Completed 200 OK in 79ms (Views: 78.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/annonces" for 127.0.0.1 at 2015-05-18 12:15:27 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[35mAnnonce Load (0.1ms)[0m  SELECT "annonces".* FROM "annonces"
+  Rendered annonces/index.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+Completed 200 OK in 77ms (Views: 76.6ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/annonces/77" for 127.0.0.1 at 2015-05-18 12:15:29 +0200
+Processing by AnnoncesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"iCIbcVbhwRWjXhV4/RcPSdErxifKUv+JPxFGcnl7nahRuSJLCkrGmHKKTP00s2RY7EhHJQ82xsSNqt2gV36f7A==", "id"=>"77"}
+  [1m[35mAnnonce Load (0.1ms)[0m  SELECT  "annonces".* FROM "annonces" WHERE "annonces"."id" = ? LIMIT 1  [["id", 77]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "annonces" WHERE "annonces"."id" = ?  [["id", 77]]
+  [1m[36m (10.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/annonces
+Completed 302 Found in 13ms (ActiveRecord: 11.1ms)
+
+
+Started GET "/annonces" for 127.0.0.1 at 2015-05-18 12:15:29 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[35mAnnonce Load (0.1ms)[0m  SELECT "annonces".* FROM "annonces"
+  Rendered annonces/index.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+Completed 200 OK in 77ms (Views: 76.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/annonces/new" for 127.0.0.1 at 2015-05-18 12:16:12 +0200
+Processing by AnnoncesController#new as HTML
+  Rendered annonces/_form.html.erb (3.2ms)
+  Rendered annonces/new.html.erb within layouts/application (3.7ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+Completed 200 OK in 76ms (Views: 75.6ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/annonces" for 127.0.0.1 at 2015-05-18 12:16:17 +0200
+Processing by AnnoncesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AcKs8Ae/lcASifV50NyD3oFUkYmNkMJXOgEyQX+R5MrYWZXKWxSSTcNdrPwZeOjPvDcQi0j0+xqIuqmTUZTmjg==", "annonce"=>{"titre"=>""}, "terme"=>"", "typeProduit"=>"Toutes_categories", "region"=>"Alsace", "codePostal"=>"21320321351", "commit"=>"Create Annonce"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "annonces" ("titre", "urlRecherche", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["titre", ""], ["urlRecherche", "http://www.leboncoin.fr/toutes_categories/offres/alsace/?f=a&th=1&q=&location=21320321351"], ["created_at", "2015-05-18 10:16:17.188291"], ["updated_at", "2015-05-18 10:16:17.188291"]]
+  [1m[36m (10.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/annonces/78
+Completed 302 Found in 14ms (ActiveRecord: 11.0ms)
+
+
+Started GET "/annonces/78" for 127.0.0.1 at 2015-05-18 12:16:17 +0200
+Processing by AnnoncesController#show as HTML
+  Parameters: {"id"=>"78"}
+  [1m[35mAnnonce Load (0.1ms)[0m  SELECT  "annonces".* FROM "annonces" WHERE "annonces"."id" = ? LIMIT 1  [["id", 78]]
+  Rendered annonces/show.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+Completed 200 OK in 72ms (Views: 71.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/annonces" for 127.0.0.1 at 2015-05-18 12:16:19 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[35mAnnonce Load (0.1ms)[0m  SELECT "annonces".* FROM "annonces"
+  Rendered annonces/index.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+Completed 200 OK in 74ms (Views: 73.4ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/annonces/78" for 127.0.0.1 at 2015-05-18 12:16:21 +0200
+Processing by AnnoncesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"pk779uNL4RipxaHUYrBAQXSDqIbt6u3S34lC7mq5Vd9/1cLMv+DmlXgR+FGrFCtQSeAphCiO1J9tMtk8RLxXmw==", "id"=>"78"}
+  [1m[35mAnnonce Load (0.1ms)[0m  SELECT  "annonces".* FROM "annonces" WHERE "annonces"."id" = ? LIMIT 1  [["id", 78]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "annonces" WHERE "annonces"."id" = ?  [["id", 78]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/annonces
+Completed 302 Found in 12ms (ActiveRecord: 10.3ms)
+
+
+Started GET "/annonces" for 127.0.0.1 at 2015-05-18 12:16:21 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[35mAnnonce Load (0.2ms)[0m  SELECT "annonces".* FROM "annonces"
+  Rendered annonces/index.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+Completed 200 OK in 83ms (Views: 81.8ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2015-05-18 12:17:03 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"BrXFhOtDi+juc0gxdq8bs2tiXJv1SumlovXO6vKVqxnfLvy+t+iMZT+nEbS/C3CiVgHdmTAu0OgQTlU43JCpXQ=="}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 40ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-18 12:17:03 +0200
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 270ms (Views: 269.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-05-18 12:17:05 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (18.3ms)
+Completed 200 OK in 84ms (Views: 82.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-05-18 12:17:07 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LQWViz+GXeaDgE8rYq0WxrvUL+QfGi4VCz9DTX61yCWfS+mKWR2Pq/Tgnrx/uUfASk1IxB2oAhOt4UxSmCdb2Q==", "user"=>{"email"=>"baptiste.lanusse@y-nov.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "baptiste.lanusse@y-nov.com"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2015-05-18 10:10:17.147730"], ["current_sign_in_at", "2015-05-18 10:17:07.282327"], ["sign_in_count", 8], ["updated_at", "2015-05-18 10:17:07.283098"], ["id", 8]]
+  [1m[35m (14.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 93ms (ActiveRecord: 15.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-18 12:17:07 +0200
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+  Rendered welcome/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 85ms (Views: 84.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/annonces" for 127.0.0.1 at 2015-05-18 12:17:08 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[35mAnnonce Load (0.1ms)[0m  SELECT "annonces".* FROM "annonces"
+  Rendered annonces/index.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+Completed 200 OK in 76ms (Views: 74.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/annonces/new" for 127.0.0.1 at 2015-05-18 12:17:09 +0200
+Processing by AnnoncesController#new as HTML
+  Rendered annonces/_form.html.erb (8.7ms)
+  Rendered annonces/new.html.erb within layouts/application (9.5ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+Completed 200 OK in 99ms (Views: 96.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/annonces" for 127.0.0.1 at 2015-05-18 12:17:15 +0200
+Processing by AnnoncesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rY2Q2qaTmAIvGLX+8rW+J2iggsNqH82HwX5c/IxgH41wHyenDUzXlpegX/w2xz8U/mVMndqtXfq96DJ/XZgvYw==", "annonce"=>{"titre"=>""}, "terme"=>"", "typeProduit"=>"Toutes_categories", "region"=>"Alsace", "codePostal"=>"3333333333", "commit"=>"Create Annonce"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "annonces" ("titre", "urlRecherche", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["titre", ""], ["urlRecherche", "http://www.leboncoin.fr/toutes_categories/offres/alsace/?f=a&th=1&q=&location=3333333333"], ["created_at", "2015-05-18 10:17:15.180958"], ["updated_at", "2015-05-18 10:17:15.180958"]]
+  [1m[36m (9.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/annonces/79
+Completed 302 Found in 13ms (ActiveRecord: 10.2ms)
+
+
+Started GET "/annonces/79" for 127.0.0.1 at 2015-05-18 12:17:15 +0200
+Processing by AnnoncesController#show as HTML
+  Parameters: {"id"=>"79"}
+  [1m[35mAnnonce Load (0.3ms)[0m  SELECT  "annonces".* FROM "annonces" WHERE "annonces"."id" = ? LIMIT 1  [["id", 79]]
+  Rendered annonces/show.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+Completed 200 OK in 84ms (Views: 80.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/annonces" for 127.0.0.1 at 2015-05-18 12:17:17 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[35mAnnonce Load (0.1ms)[0m  SELECT "annonces".* FROM "annonces"
+  Rendered annonces/index.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+Completed 200 OK in 77ms (Views: 76.5ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/annonces/79" for 127.0.0.1 at 2015-05-18 12:17:19 +0200
+Processing by AnnoncesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"snWcEhDm4F3xVezLcuIpBnND9TH6U6TKDRnM0zqApmVv5ytvuzmvyUntBsm2kKg15YY7b0rhNLdxj6JQ63iWiw==", "id"=>"79"}
+  [1m[35mAnnonce Load (0.1ms)[0m  SELECT  "annonces".* FROM "annonces" WHERE "annonces"."id" = ? LIMIT 1  [["id", 79]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "annonces" WHERE "annonces"."id" = ?  [["id", 79]]
+  [1m[36m (10.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/annonces
+Completed 302 Found in 13ms (ActiveRecord: 10.8ms)
+
+
+Started GET "/annonces" for 127.0.0.1 at 2015-05-18 12:17:19 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[35mAnnonce Load (0.2ms)[0m  SELECT "annonces".* FROM "annonces"
+  Rendered annonces/index.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+Completed 200 OK in 82ms (Views: 81.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/annonces/new" for 127.0.0.1 at 2015-05-18 12:18:02 +0200
+Processing by AnnoncesController#new as HTML
+  Rendered annonces/_form.html.erb (3.1ms)
+  Rendered annonces/new.html.erb within layouts/application (3.6ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+Completed 200 OK in 81ms (Views: 80.5ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/annonces" for 127.0.0.1 at 2015-05-18 12:18:06 +0200
+Processing by AnnoncesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"K3Hk6ag1S2wQZ/dovpjE7nZpCHcAxeZAuBV0M62Q9tH241OUA+oE+KjfHWp66kXd4KzGKbB3dj3EgxqwfGjGPw==", "annonce"=>{"titre"=>""}, "terme"=>"", "typeProduit"=>"Toutes_categories", "region"=>"Alsace", "codePostal"=>"33333333", "commit"=>"Create Annonce"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "annonces" ("titre", "urlRecherche", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["titre", ""], ["urlRecherche", "http://www.leboncoin.fr/toutes_categories/offres/alsace/?f=a&th=1&q=&location=33333333"], ["created_at", "2015-05-18 10:18:06.326201"], ["updated_at", "2015-05-18 10:18:06.326201"]]
+  [1m[36m (11.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/annonces/80
+Completed 302 Found in 15ms (ActiveRecord: 11.6ms)
+
+
+Started GET "/annonces/80" for 127.0.0.1 at 2015-05-18 12:18:06 +0200
+Processing by AnnoncesController#show as HTML
+  Parameters: {"id"=>"80"}
+  [1m[35mAnnonce Load (0.1ms)[0m  SELECT  "annonces".* FROM "annonces" WHERE "annonces"."id" = ? LIMIT 1  [["id", 80]]
+  Rendered annonces/show.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+Completed 200 OK in 84ms (Views: 83.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/annonces" for 127.0.0.1 at 2015-05-18 12:18:08 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[35mAnnonce Load (0.1ms)[0m  SELECT "annonces".* FROM "annonces"
+  Rendered annonces/index.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+Completed 200 OK in 75ms (Views: 73.8ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/annonces/80" for 127.0.0.1 at 2015-05-18 12:18:09 +0200
+Processing by AnnoncesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ogHcWtgg/pHAJ/f2WefiaMhjxlZkJHyC+SU+15pk/ht/k2snc/+xBXifHfSdlWNbXqYICNSW7P+Fs1BUS5zO9Q==", "id"=>"80"}
+  [1m[35mAnnonce Load (0.1ms)[0m  SELECT  "annonces".* FROM "annonces" WHERE "annonces"."id" = ? LIMIT 1  [["id", 80]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "annonces" WHERE "annonces"."id" = ?  [["id", 80]]
+  [1m[36m (12.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/annonces
+Completed 302 Found in 15ms (ActiveRecord: 12.3ms)
+
+
+Started GET "/annonces" for 127.0.0.1 at 2015-05-18 12:18:09 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[35mAnnonce Load (0.2ms)[0m  SELECT "annonces".* FROM "annonces"
+  Rendered annonces/index.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+Completed 200 OK in 94ms (Views: 93.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/annonces/new" for 127.0.0.1 at 2015-05-18 12:18:19 +0200
+Processing by AnnoncesController#new as HTML
+  Rendered annonces/_form.html.erb (3.8ms)
+  Rendered annonces/new.html.erb within layouts/application (4.4ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+Completed 200 OK in 77ms (Views: 76.2ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/annonces" for 127.0.0.1 at 2015-05-18 12:18:22 +0200
+Processing by AnnoncesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q7eP4ZLmPaxcVVfAj/4oEQ7Tehf7ZGC9O4lqEnKIVxx2JTicOTlyOOTtvcJLjKkimBa0SUvW8MBHHwSRo3Bn8g==", "annonce"=>{"titre"=>""}, "terme"=>"", "typeProduit"=>"Toutes_categories", "region"=>"Alsace", "codePostal"=>"3333333", "commit"=>"Create Annonce"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "annonces" ("titre", "urlRecherche", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["titre", ""], ["urlRecherche", "http://www.leboncoin.fr/toutes_categories/offres/alsace/?f=a&th=1&q=&location=3333333"], ["created_at", "2015-05-18 10:18:22.308493"], ["updated_at", "2015-05-18 10:18:22.308493"]]
+  [1m[36m (10.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/annonces/81
+Completed 302 Found in 14ms (ActiveRecord: 10.9ms)
+
+
+Started GET "/annonces/81" for 127.0.0.1 at 2015-05-18 12:18:22 +0200
+Processing by AnnoncesController#show as HTML
+  Parameters: {"id"=>"81"}
+  [1m[35mAnnonce Load (0.2ms)[0m  SELECT  "annonces".* FROM "annonces" WHERE "annonces"."id" = ? LIMIT 1  [["id", 81]]
+  Rendered annonces/show.html.erb within layouts/application (0.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+Completed 200 OK in 84ms (Views: 81.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/annonces" for 127.0.0.1 at 2015-05-18 12:18:23 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[35mAnnonce Load (0.1ms)[0m  SELECT "annonces".* FROM "annonces"
+  Rendered annonces/index.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+Completed 200 OK in 79ms (Views: 78.6ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/annonces/81" for 127.0.0.1 at 2015-05-18 12:18:25 +0200
+Processing by AnnoncesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Ftgl5NAICdaF38Dt7j2QSzWb6chdkof5GzWOgRo50lzLSpKZe9dGQj1nKu8qTxF4o14nlu0gF4Rno+ACy8Hisg==", "id"=>"81"}
+  [1m[35mAnnonce Load (0.1ms)[0m  SELECT  "annonces".* FROM "annonces" WHERE "annonces"."id" = ? LIMIT 1  [["id", 81]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "annonces" WHERE "annonces"."id" = ?  [["id", 81]]
+  [1m[36m (10.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/annonces
+Completed 302 Found in 13ms (ActiveRecord: 10.9ms)
+
+
+Started GET "/annonces" for 127.0.0.1 at 2015-05-18 12:18:25 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[35mAnnonce Load (0.1ms)[0m  SELECT "annonces".* FROM "annonces"
+  Rendered annonces/index.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+Completed 200 OK in 82ms (Views: 81.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/annonces/new" for 127.0.0.1 at 2015-05-18 12:19:34 +0200
+Processing by AnnoncesController#new as HTML
+  Rendered annonces/_form.html.erb (5.4ms)
+  Rendered annonces/new.html.erb within layouts/application (6.5ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+Completed 200 OK in 81ms (Views: 80.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/annonces" for 127.0.0.1 at 2015-05-18 12:27:10 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[36mAnnonce Load (0.2ms)[0m  [1mSELECT "annonces".* FROM "annonces"[0m
+  Rendered annonces/index.html.erb within layouts/application (1.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+Completed 200 OK in 81ms (Views: 76.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/annonces/new" for 127.0.0.1 at 2015-05-18 12:27:11 +0200
+Processing by AnnoncesController#new as HTML
+  Rendered annonces/_form.html.erb (3.4ms)
+  Rendered annonces/new.html.erb within layouts/application (4.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+Completed 200 OK in 83ms (Views: 78.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/annonces" for 127.0.0.1 at 2015-05-18 12:27:14 +0200
+Processing by AnnoncesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/e1HtSA3+NKentYa+f4VxSn70g6bxdQqf8nmKWgFzhIgf/DIi+i3RiYmPBg9jJT2vz4cUCt3RFcDX4iquf3+/A==", "annonce"=>{"titre"=>""}, "terme"=>"", "typeProduit"=>"Toutes_categories", "region"=>"Alsace", "codePostal"=>"651", "commit"=>"Create Annonce"}
+  Rendered annonces/_form.html.erb (2.3ms)
+  Rendered annonces/new.html.erb within layouts/application (3.1ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+ArgumentError - First argument in form cannot contain nil or be empty:
+  actionview (4.2.1) lib/action_view/helpers/form_helper.rb:432:in `form_for'
+  app/views/annonces/_form.html.erb:1:in `_app_views_annonces__form_html_erb___2934450555407727024_69946781912360'
+  actionview (4.2.1) lib/action_view/template.rb:145:in `block in render'
+  activesupport (4.2.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (4.2.1) lib/action_view/template.rb:333:in `instrument'
+  actionview (4.2.1) lib/action_view/template.rb:143:in `render'
+  actionview (4.2.1) lib/action_view/renderer/partial_renderer.rb:339:in `render_partial'
+  actionview (4.2.1) lib/action_view/renderer/partial_renderer.rb:310:in `block in render'
+  actionview (4.2.1) lib/action_view/renderer/abstract_renderer.rb:39:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionview (4.2.1) lib/action_view/renderer/abstract_renderer.rb:39:in `instrument'
+  actionview (4.2.1) lib/action_view/renderer/partial_renderer.rb:309:in `render'
+  actionview (4.2.1) lib/action_view/renderer/renderer.rb:47:in `render_partial'
+  actionview (4.2.1) lib/action_view/helpers/rendering_helper.rb:35:in `render'
+  app/views/annonces/new.html.erb:3:in `_app_views_annonces_new_html_erb__1118008811966414448_69946782491640'
+  actionview (4.2.1) lib/action_view/template.rb:145:in `block in render'
+  activesupport (4.2.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (4.2.1) lib/action_view/template.rb:333:in `instrument'
+  actionview (4.2.1) lib/action_view/template.rb:143:in `render'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:54:in `block (2 levels) in render_template'
+  actionview (4.2.1) lib/action_view/renderer/abstract_renderer.rb:39:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionview (4.2.1) lib/action_view/renderer/abstract_renderer.rb:39:in `instrument'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:53:in `block in render_template'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:61:in `render_with_layout'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:14:in `render'
+  actionview (4.2.1) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.1) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.1) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.1) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.1) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.1) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.1) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.1) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.1) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (4.2.1) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/baptiste/.rbenv/versions/2.2.1/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.2.1) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (4.2.1) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  app/controllers/annonces_controller.rb:34:in `create'
+  actionpack (4.2.1) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_process_action_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.1) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:819:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:649:in `call'
+  activerecord (4.2.1) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/baptiste/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/baptiste/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/baptiste/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/e021888e7523c163/variables" for 127.0.0.1 at 2015-05-18 12:27:14 +0200
+
+
+Started POST "/annonces" for 127.0.0.1 at 2015-05-18 12:27:49 +0200
+Processing by AnnoncesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"h5S3sEa1WsPU9YbAFdX/JnSWAvsFATEfFEEcdg18lFBaBgDN7WoVV2xNbMLRp34V4lPMpbWzoWJo13L13ISkvg==", "annonce"=>{"titre"=>""}, "terme"=>"", "typeProduit"=>"Toutes_categories", "region"=>"Alsace", "codePostal"=>"651", "commit"=>"Create Annonce"}
+  Rendered annonces/_form.html.erb (3.0ms)
+  Rendered annonces/new.html.erb within layouts/application (3.5ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "annonces" ("titre", "urlRecherche", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["titre", ""], ["urlRecherche", "http://www.leboncoin.fr/toutes_categories/offres/alsace/?f=a&th=1&q=&location=651"], ["created_at", "2015-05-18 10:27:50.085183"], ["updated_at", "2015-05-18 10:27:50.085183"]]
+  [1m[36m (10.8ms)[0m  [1mcommit transaction[0m
+Redirected to 
+Completed 500 Internal Server Error in 104ms (Views: 84.9ms | ActiveRecord: 11.7ms)
+
+AbstractController::DoubleRenderError - Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".:
+  actionpack (4.2.1) lib/action_controller/metal/redirecting.rb:72:in `redirect_to'
+  actionpack (4.2.1) lib/action_controller/metal/flash.rb:57:in `redirect_to'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:64:in `block in redirect_to'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:63:in `redirect_to'
+  app/controllers/annonces_controller.rb:44:in `block (2 levels) in create'
+  actionpack (4.2.1) lib/action_controller/metal/mime_responds.rb:215:in `respond_to'
+  app/controllers/annonces_controller.rb:42:in `create'
+  actionpack (4.2.1) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_process_action_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.1) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:819:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:649:in `call'
+  activerecord (4.2.1) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/baptiste/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/baptiste/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/baptiste/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/134c79a0037bd7b1/variables" for 127.0.0.1 at 2015-05-18 12:27:50 +0200
+
+
+Started POST "/annonces" for 127.0.0.1 at 2015-05-18 12:28:09 +0200
+Processing by AnnoncesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"h5S3sEa1WsPU9YbAFdX/JnSWAvsFATEfFEEcdg18lFBaBgDN7WoVV2xNbMLRp34V4lPMpbWzoWJo13L13ISkvg==", "annonce"=>{"titre"=>""}, "terme"=>"", "typeProduit"=>"Toutes_categories", "region"=>"Alsace", "codePostal"=>"651", "commit"=>"Create Annonce"}
+  Rendered annonces/_form.html.erb (3.3ms)
+  Rendered annonces/new.html.erb within layouts/application (3.9ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+Completed 200 OK in 105ms (Views: 98.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/annonces" for 127.0.0.1 at 2015-05-18 12:28:55 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[36mAnnonce Load (0.1ms)[0m  [1mSELECT "annonces".* FROM "annonces"[0m
+  Rendered annonces/index.html.erb within layouts/application (0.8ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+Completed 200 OK in 128ms (Views: 124.3ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/annonces/82" for 127.0.0.1 at 2015-05-18 12:28:57 +0200
+Processing by AnnoncesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"fqqlppIWNQQ0O9FGU30O6HgIhsy1ug/mDrRITkOWWiujOBLbOcl6kIyDO0SXD4/b7s1IkgUIn5tyIibNkm5qxQ==", "id"=>"82"}
+  [1m[36mAnnonce Load (0.2ms)[0m  [1mSELECT  "annonces".* FROM "annonces" WHERE "annonces"."id" = ? LIMIT 1[0m  [["id", 82]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "annonces" WHERE "annonces"."id" = ?[0m  [["id", 82]]
+  [1m[35m (10.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/annonces
+Completed 302 Found in 13ms (ActiveRecord: 10.4ms)
+
+
+Started GET "/annonces" for 127.0.0.1 at 2015-05-18 12:28:57 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[36mAnnonce Load (0.1ms)[0m  [1mSELECT "annonces".* FROM "annonces"[0m
+  Rendered annonces/index.html.erb within layouts/application (0.5ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+Completed 200 OK in 81ms (Views: 80.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/annonces/new" for 127.0.0.1 at 2015-05-18 12:28:58 +0200
+Processing by AnnoncesController#new as HTML
+  Rendered annonces/_form.html.erb (5.0ms)
+  Rendered annonces/new.html.erb within layouts/application (5.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+Completed 200 OK in 82ms (Views: 81.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/annonces" for 127.0.0.1 at 2015-05-18 12:29:01 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[35mAnnonce Load (0.1ms)[0m  SELECT "annonces".* FROM "annonces"
+  Rendered annonces/index.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+Completed 200 OK in 73ms (Views: 72.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/annonces/new" for 127.0.0.1 at 2015-05-18 12:29:03 +0200
+Processing by AnnoncesController#new as HTML
+  Rendered annonces/_form.html.erb (2.2ms)
+  Rendered annonces/new.html.erb within layouts/application (2.7ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+Completed 200 OK in 77ms (Views: 76.5ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/annonces" for 127.0.0.1 at 2015-05-18 12:29:09 +0200
+Processing by AnnoncesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"77xx7cINEWd1bVhTd0D353etSraI+hvBbIe+UEzh6pMyLsaQadJe883VslGzMnbU4WiE6DhIi7wQEdDTnRnafQ==", "annonce"=>{"titre"=>""}, "terme"=>"", "typeProduit"=>"Toutes_categories", "region"=>"Alsace", "codePostal"=>"351", "commit"=>"Create Annonce"}
+  Rendered annonces/_form.html.erb (2.6ms)
+  Rendered annonces/new.html.erb within layouts/application (3.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+Completed 200 OK in 74ms (Views: 73.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/annonces" for 127.0.0.1 at 2015-05-18 12:29:14 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[35mAnnonce Load (0.1ms)[0m  SELECT "annonces".* FROM "annonces"
+  Rendered annonces/index.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+Completed 200 OK in 79ms (Views: 78.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/annonces/new" for 127.0.0.1 at 2015-05-18 12:29:42 +0200
+Processing by AnnoncesController#new as HTML
+  Rendered annonces/_form.html.erb (3.4ms)
+  Rendered annonces/new.html.erb within layouts/application (4.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+Completed 200 OK in 90ms (Views: 83.6ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/annonces" for 127.0.0.1 at 2015-05-18 12:29:45 +0200
+Processing by AnnoncesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pl17yZR6XP0RkqWx24+Vf+tgZJIhqSN47C1KpYbYcXp7z8y0P6UTaakqT7Mf/RRMfaWqzJEbswWQuyQmVyBBlA==", "annonce"=>{"titre"=>""}, "terme"=>"", "typeProduit"=>"Toutes_categories", "region"=>"Alsace", "codePostal"=>"151", "commit"=>"Create Annonce"}
+  Rendered annonces/_form.html.erb (3.0ms)
+  Rendered annonces/new.html.erb within layouts/application (3.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+Completed 200 OK in 77ms (Views: 75.9ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/annonces" for 127.0.0.1 at 2015-05-18 12:32:24 +0200
+Processing by AnnoncesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"r+VQVORTUbGtVHpuOKFXuNd+wMORXClnyFi8YYt5GZhyd+cpT4weJRXskGz809aLQbsOnSHuuRq0ztLiWoEpdg==", "annonce"=>{"titre"=>""}, "terme"=>"", "typeProduit"=>"Toutes_categories", "region"=>"Alsace", "codePostal"=>"151", "commit"=>"Create Annonce"}
+  Rendered annonces/_form.html.erb (2.9ms)
+  Rendered annonces/new.html.erb within layouts/application (3.4ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+Completed 200 OK in 95ms (Views: 82.4ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/annonces" for 127.0.0.1 at 2015-05-18 12:33:16 +0200
+Processing by AnnoncesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TiqyDehKKPxNDzy8kX9YPnQNPnil0vmAuqDrKknVLXWTuAVwQ5VnaPW31r5VDdkN4sjwJhVgaf3GNoWpmC0dmw==", "annonce"=>{"titre"=>""}, "terme"=>"", "typeProduit"=>"Toutes_categories", "region"=>"Alsace", "codePostal"=>"152", "commit"=>"Create Annonce"}
+  Rendered annonces/_form.html.erb (3.0ms)
+  Rendered annonces/new.html.erb within layouts/application (3.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+Completed 200 OK in 88ms (Views: 81.7ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/annonces" for 127.0.0.1 at 2015-05-18 12:33:20 +0200
+Processing by AnnoncesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"K7xEI0wiYHV0mdznLKox7QcossWxSn53t8jAK8GOBTD2LvNe5/0v4cwhNuXo2LDeke18mwH47grLXq6oEHY13g==", "annonce"=>{"titre"=>""}, "terme"=>"", "typeProduit"=>"Toutes_categories", "region"=>"Alsace", "codePostal"=>"33300", "commit"=>"Create Annonce"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "annonces" ("titre", "urlRecherche", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["titre", ""], ["urlRecherche", "http://www.leboncoin.fr/toutes_categories/offres/alsace/?f=a&th=1&q=&location=33300"], ["created_at", "2015-05-18 10:33:20.890270"], ["updated_at", "2015-05-18 10:33:20.890270"]]
+  [1m[35m (20.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/annonces/83
+Completed 302 Found in 23ms (ActiveRecord: 20.3ms)
+
+
+Started GET "/annonces/83" for 127.0.0.1 at 2015-05-18 12:33:20 +0200
+Processing by AnnoncesController#show as HTML
+  Parameters: {"id"=>"83"}
+  [1m[36mAnnonce Load (0.2ms)[0m  [1mSELECT  "annonces".* FROM "annonces" WHERE "annonces"."id" = ? LIMIT 1[0m  [["id", 83]]
+  Rendered annonces/show.html.erb within layouts/application (0.2ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+Completed 200 OK in 80ms (Views: 79.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/annonces" for 127.0.0.1 at 2015-05-18 12:33:22 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[36mAnnonce Load (0.1ms)[0m  [1mSELECT "annonces".* FROM "annonces"[0m
+  Rendered annonces/index.html.erb within layouts/application (0.8ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+Completed 200 OK in 69ms (Views: 68.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/annonces/83/edit" for 127.0.0.1 at 2015-05-18 12:33:24 +0200
+Processing by AnnoncesController#edit as HTML
+  Parameters: {"id"=>"83"}
+  [1m[36mAnnonce Load (0.1ms)[0m  [1mSELECT  "annonces".* FROM "annonces" WHERE "annonces"."id" = ? LIMIT 1[0m  [["id", 83]]
+  Rendered annonces/_form.html.erb (3.1ms)
+  Rendered annonces/edit.html.erb within layouts/application (4.2ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+Completed 200 OK in 87ms (Views: 86.3ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/annonces/83" for 127.0.0.1 at 2015-05-18 12:34:02 +0200
+Processing by AnnoncesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"L0rDOmgkyDnQ0sJi1jHfscFwHZL7ZdEOVTTILyKw7vjy2HRHw/uHrWhqKGASQ16CV7XTzEvXQXMpoqas80jeFg==", "annonce"=>{"titre"=>""}, "terme"=>"", "typeProduit"=>"Toutes_categories", "region"=>"Alsace", "codePostal"=>"123", "commit"=>"Update Annonce", "id"=>"83"}
+  [1m[36mAnnonce Load (0.1ms)[0m  [1mSELECT  "annonces".* FROM "annonces" WHERE "annonces"."id" = ? LIMIT 1[0m  [["id", 83]]
+  Rendered annonces/_form.html.erb (2.9ms)
+  Rendered annonces/new.html.erb within layouts/application (3.5ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+Completed 200 OK in 94ms (Views: 88.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/annonces" for 127.0.0.1 at 2015-05-18 12:34:06 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[36mAnnonce Load (0.1ms)[0m  [1mSELECT "annonces".* FROM "annonces"[0m
+  Rendered annonces/index.html.erb within layouts/application (0.8ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+Completed 200 OK in 72ms (Views: 70.9ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/annonces/83" for 127.0.0.1 at 2015-05-18 12:34:08 +0200
+Processing by AnnoncesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"zNB9oLXwcUCRczCdlWwT/RPNQmGDwpx8JgHgqPoGROMRQsrdHi8+1CnL2p9RHpLOhQiMPzNwDAFal44rK/50DQ==", "id"=>"83"}
+  [1m[36mAnnonce Load (0.1ms)[0m  [1mSELECT  "annonces".* FROM "annonces" WHERE "annonces"."id" = ? LIMIT 1[0m  [["id", 83]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "annonces" WHERE "annonces"."id" = ?[0m  [["id", 83]]
+  [1m[35m (10.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/annonces
+Completed 302 Found in 13ms (ActiveRecord: 10.6ms)
+
+
+Started GET "/annonces" for 127.0.0.1 at 2015-05-18 12:34:08 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[36mAnnonce Load (0.2ms)[0m  [1mSELECT "annonces".* FROM "annonces"[0m
+  Rendered annonces/index.html.erb within layouts/application (0.7ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+Completed 200 OK in 83ms (Views: 82.1ms | ActiveRecord: 0.2ms)
