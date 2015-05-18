@@ -4,11 +4,7 @@
   <thead>
     <tr>
       <th>Titre</th>
-      <th>Type produit</th>
-      <!-- <th>Prix mini</th>
-      <th>Prix maxi</th> -->
-      <th>Region</th>
-      <th>Code postal</th>
+      <th>Url de recherche</th>
       <th colspan="3">Edition</th>
     </tr>
   </thead>
@@ -17,11 +13,7 @@
     <% @annonces.each do |annonce| %>
       <tr>
         <td><%= annonce.titre %></td>
-        <td><%= annonce.typeProduit %></td>
-        <!-- <td><%= annonce.prixMini %></td>
-        <td><%= annonce.prixMaxi %></td> -->
-        <td><%= annonce.region %></td>
-        <td><%= annonce.codePostal %></td>
+        <td><%= annonce.urlRecherche %></td>
         <td><%= link_to '<button class="btn btn-default">Show</button>'.html_safe, annonce %></td>
         <td><%= link_to '<button class="btn btn-default">Edit</button>'.html_safe, edit_annonce_path(annonce) %></td>
         <td><%= link_to '<button class="btn btn-default">Destroy</button>'.html_safe, annonce, method: :delete, data: { confirm: 'Are you sure?' } %></td>
