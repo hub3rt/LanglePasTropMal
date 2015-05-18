@@ -24,10 +24,11 @@ class AnnoncesController < ApplicationController
   # POST /annonces
   # POST /annonces.json
   def create
+    @titre = params["titre"]
     @typeProduit = params["typeProduit"]
     @region = params["region"]
     @codePostal = params["codePostal"]
-    @url = "http://www.leboncoin.fr/#{@typeProduit.downcase}/offres/#{@region.downcase}/?f=a&th=1&location=#{@codePostal}"
+    @url = "http://www.leboncoin.fr/#{@typeProduit.downcase}/offres/#{@region.downcase}/?f=a&th=1&q=#{@titre.downcase}&location=#{@codePostal}"
     @newAnnonce = {
       :titre => params["annonce"]["titre"],
       :urlRecherche => @url
@@ -49,10 +50,11 @@ class AnnoncesController < ApplicationController
   # PATCH/PUT /annonces/1
   # PATCH/PUT /annonces/1.json
   def update
+    @titre = params["titre"]
     @typeProduit = params["typeProduit"]
     @region = params["region"]
     @codePostal = params["codePostal"]
-    @url = "http://www.leboncoin.fr/#{@typeProduit.downcase}/offres/#{@region.downcase}/?f=a&th=1&location=#{@codePostal}"
+    @url = "http://www.leboncoin.fr/#{@typeProduit.downcase}/offres/#{@region.downcase}/?f=a&th=1&q=#{@titre}&location=#{@codePostal}"
     @updatedAnnonce = {
       :titre => params["annonce"]["titre"],
       :urlRecherche => @url
