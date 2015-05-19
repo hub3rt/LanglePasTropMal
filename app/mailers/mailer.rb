@@ -1,4 +1,4 @@
-class Mailer < ActionMailer::Base
+class Mailer < ApplicationMailer
   default from: 'LanglePasTropMal@temp.com'
 
   def welcome(user)
