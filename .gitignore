@@ -17,4 +17,3 @@
 /tmp/*
 
 # Ignore gemfile
-/Gemfile.lock
