@@ -12,19 +12,23 @@
   <% end %>
   <div class="col-md-offset-1">
     <div class="field">
-      <%= f.label :titre %><br>
+      <%= f.label "Titre :" %><br>
       <%= f.text_field :titre %>
     </div>
     <div class="field">
-      <%= f.label :typeProduit %><br>
+      <%= f.label "Description :" %><br>
+      <%= text_field_tag :terme %>
+    </div>
+    <div class="field">
+      <%= f.label "Type de produit :" %><br>
       <%= select_tag :typeProduit, options_for_select(['Toutes_categories','_EMPLOI_','Offres_d_emploi','_VEHICULES_','Voitures','Motos','Caravaning','Utilitaires','Equipement_Auto','Equipement_Moto','Equipement_Caravaning','Nautisme','Equipement_Nautisme','_IMMOBILIER_','Ventes_immobilieres','Locations','Colocations','Bureaux_Commerces','_VACANCES_','Locations_Gites','Chambres_d_hotes','Campings','Hotels','Hebergements_insolites','_MULTIMEDIA_','Informatique','Consoles_Jeux_video','Image_Son','Telephonie','_MAISON_','Ameublement','Electromenager','Arts_de_la_table','Decoration','Linge_de_maison','Bricolage','Jardinage','Vetements','Chaussures','Accessoires_Bagagerie','Montres_Bijoux','Equipement_bebe','Vetements_bebe','_LOISIRS_','DVD_Films','CD_Musique','Livres','Animaux','Velos','Sports_Hobbies','Instruments_de_musique','Collection','Jeux_Jouets','Vins_Gastronomie','_MATERIEL_PROFESSIONNEL_','Materiel_Agricole','Transport_Manutention','BTP_Chantier_Gros-oeuvre','Outillage_Materiaux_2nd-oeuvre','Équipements_Industriels','Restauration_Hôtellerie','Fournitures_de_Bureau','Commerces_Marches','Materiel_Medical','_SERVICES_','Prestations_de_services','Billetterie','Evenements','Cours_particuliers','Covoiturage','Autres']) %>
     </div>
     <div class="field">
-      <%= f.label :region %><br>
+      <%= f.label "Région :" %><br>
       <%= select_tag :region, options_for_select(['Alsace','Aquitaine','Auvergne','Basse_Normandie','Bourgogne','Bretagne','Centre','Champagne_Ardenne','Corse','Franche_Comte','Haute_Normandie','Ile_de_France','Languedoc_Roussillon','Limousin','Lorraine','Midi_Pyrenees','Nord_Pas_De_Calais','Pays_De_La_Loire','Picardie','Poitou_Charentes','Provence_Alpes_Cote_d_Azur','Rhone_Alpes','Guadeloupe','Martinique','Guyane','Reunion']) %>
     </div>
     <div class="field">
-      <%= f.label :codePostal %><br>
+      <%= f.label "Code postal :" %><br>
       <%= number_field_tag :codePostal %>
     </div>
     <div class="actions">

@@ -24,51 +24,61 @@ class AnnoncesController < ApplicationController
   # POST /annonces
   # POST /annonces.json
   def create
-    @titre = params["titre"]
+    @terme = params["terme"]
     @typeProduit = params["typeProduit"]
     @region = params["region"]
     @codePostal = params["codePostal"]
-    @url = "http://www.leboncoin.fr/#{@typeProduit.downcase}/offres/#{@region.downcase}/?f=a&th=1&q=#{@titre.downcase}&location=#{@codePostal}"
+    @url = "http://www.leboncoin.fr/#{@typeProduit.downcase}/offres/#{@region.downcase}/?f=a&th=1&q=#{@terme.downcase}&location=#{@codePostal}"
     @newAnnonce = {
       :titre => params["annonce"]["titre"],
       :urlRecherche => @url
     }
     @annonce = Annonce.new(@newAnnonce)
-    respond_to do |format|
-      if @annonce.save
-        format.html { redirect_to @annonce, notice: 'Annonce was successfully created.' }
-        format.json { render :show, status: :created, location: @annonce }
-        # puts "http://www.leboncoin.fr/#{@typeProduit.downcase}/offres/#{@region.downcase}/?f=a&th=1&location=#{@codePostal}"
-        # HardWorker.perform_async("http://www.leboncoin.fr/#{@annonce.typeProduit.downcase}/offres/#{@annonce.region.downcase}/?f=a&th=1&location=#{@annonce.codePostal}")
-      else
-        format.html { render :new }
-        format.json { render json: @annonce.errors, status: :unprocessable_entity }
+    if (Annonce.validate_zip_code(@codePostal))
+      respond_to do |format|
+        if @annonce.save
+          format.html { redirect_to @annonce, notice: 'Annonce was successfully created.' }
+          format.json { render :show, status: :created, location: @annonce }
+          # puts "http://www.leboncoin.fr/#{@typeProduit.downcase}/offres/#{@region.downcase}/?f=a&th=1&location=#{@codePostal}"
+          # HardWorker.perform_async("http://www.leboncoin.fr/#{@annonce.typeProduit.downcase}/offres/#{@annonce.region.downcase}/?f=a&th=1&location=#{@annonce.codePostal}")
+        else
+          format.html { render :new }
+          format.json { render json: @annonce.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      flash[:error] = "Le champ code postal doit être vide ou comporter exactement 5 chiffres"
+      render :new
     end
   end
 
   # PATCH/PUT /annonces/1
   # PATCH/PUT /annonces/1.json
   def update
-    @titre = params["titre"]
+    @terme = params["terme"]
     @typeProduit = params["typeProduit"]
     @region = params["region"]
     @codePostal = params["codePostal"]
-    @url = "http://www.leboncoin.fr/#{@typeProduit.downcase}/offres/#{@region.downcase}/?f=a&th=1&q=#{@titre}&location=#{@codePostal}"
+    @url = "http://www.leboncoin.fr/#{@typeProduit.downcase}/offres/#{@region.downcase}/?f=a&th=1&q=#{@terme.downcase}&location=#{@codePostal}"
     @updatedAnnonce = {
       :titre => params["annonce"]["titre"],
       :urlRecherche => @url
     }
-    respond_to do |format|
-      if @annonce.update(@updatedAnnonce)
-        format.html { redirect_to @annonce, notice: 'Annonce was successfully updated.' }
-        format.json { render :show, status: :ok, location: @annonce }
-        # puts "http://www.leboncoin.fr/#{@annonce.typeProduit.downcase}/offres/#{@annonce.region.downcase}/?f=a&th=1&location=#{@annonce.codePostal}"
-        # HardWorker.perform_async("http://www.leboncoin.fr/#{@annonce.typeProduit.downcase}/offres/#{@annonce.region.downcase}/?f=a&th=1&location=#{@annonce.codePostal}")
-      else
-        format.html { render :edit }
-        format.json { render json: @annonce.errors, status: :unprocessable_entity }
+    if (Annonce.validate_zip_code(@codePostal))
+      respond_to do |format|
+        if @annonce.update(@updatedAnnonce)
+          format.html { redirect_to @annonce, notice: 'Annonce was successfully updated.' }
+          format.json { render :show, status: :ok, location: @annonce }
+          # puts "http://www.leboncoin.fr/#{@annonce.typeProduit.downcase}/offres/#{@annonce.region.downcase}/?f=a&th=1&location=#{@annonce.codePostal}"
+          # HardWorker.perform_async("http://www.leboncoin.fr/#{@annonce.typeProduit.downcase}/offres/#{@annonce.region.downcase}/?f=a&th=1&location=#{@annonce.codePostal}")
+        else
+          format.html { render :edit }
+          format.json { render json: @annonce.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      flash[:error] = "Le champ code postal doit être vide ou comporter exactement 5 chiffres"
+      render :new
     end
   end
 
