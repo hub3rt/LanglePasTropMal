@@ -192,6 +192,7 @@ DEPENDENCIES
   devise
   jbuilder (~> 2.0)
   jquery-rails
+  mail
   nokogiri
   pg
   rails (= 4.2.1)
