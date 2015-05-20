@@ -4,6 +4,6 @@ class Mailer < ActionMailer::Base
   def welcome(user)
     @user = user
     mail(to: @user.email,
-         subject: 'First test mail')
+         subject: 'Welcome to our site')
   end
 end

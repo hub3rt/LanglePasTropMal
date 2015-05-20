@@ -6,11 +6,6 @@ class User < ActiveRecord::Base
 
   after_create :send_admin_mail
   def send_admin_mail
-  	puts ""
-  	puts ""
-  	puts "mail sent"
-  	puts ""
-  	puts ""
   	Mailer.welcome(self).deliver_now
   end
 end

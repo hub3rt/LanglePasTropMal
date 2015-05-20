@@ -3792,3 +3792,234 @@ ActionView::MissingTemplate - Missing template mailer/welcome with "mailer". Sea
 
 
 Started POST "/__better_errors/9170b2f277f121a7/variables" for ::1 at 2015-05-20 16:43:02 +0200
+
+
+Started POST "/users" for ::1 at 2015-05-20 16:53:26 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UFLxxnoE5bDj2Ra9u6HmNSgf6x1Whr9eekeIFovOGp7PKEoHvwPPpdSzgxj+CgWpHxXfErrJvEINO1tBS5Z/rw==", "user"=>{"prenom"=>"Baptiste", "nom"=>"Lanusse", "email"=>"baptiste.lanusse@y-nov.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'baptiste.lanusse@y-nov.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("nom", "prenom", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["nom", "Lanusse"], ["prenom", "Baptiste"], ["email", "baptiste.lanusse@y-nov.com"], ["encrypted_password", "$2a$10$XiNHGmcOiwe4emtB3ic3cOHd.0wJPFbHzuN78claJKqHYXO7QRIA6"], ["created_at", "2015-05-20 14:53:26.559701"], ["updated_at", "2015-05-20 14:53:26.559701"]]
+
+Mailer#welcome: processed outbound mail in 22.0ms
+  [1m[36m (0.9ms)[0m  [1mrollback transaction[0m
+Completed 500 Internal Server Error in 117ms (ActiveRecord: 1.7ms)
+
+ActionView::MissingTemplate - Missing template mailer/welcome with "mailer". Searched in:
+  * "mailer"
+:
+  actionmailer (4.2.1) lib/action_mailer/base.rb:915:in `each_template'
+  actionmailer (4.2.1) lib/action_mailer/base.rb:899:in `collect_responses'
+  actionmailer (4.2.1) lib/action_mailer/base.rb:828:in `mail'
+  app/mailers/mailer.rb:6:in `welcome'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_process_action_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.1) lib/action_view/rendering.rb:30:in `process'
+  actionmailer (4.2.1) lib/action_mailer/base.rb:596:in `block in process'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionmailer (4.2.1) lib/action_mailer/base.rb:593:in `process'
+  actionmailer (4.2.1) lib/action_mailer/base.rb:584:in `initialize'
+  actionmailer (4.2.1) lib/action_mailer/message_delivery.rb:25:in `__getobj__'
+  actionmailer (4.2.1) lib/action_mailer/message_delivery.rb:34:in `message'
+  actionmailer (4.2.1) lib/action_mailer/message_delivery.rb:85:in `deliver_now'
+  app/models/user.rb:14:in `send_admin_mail'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:432:in `block in make_lambda'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:228:in `block in halting_and_conditional'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:506:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:506:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_create_callbacks'
+  activerecord (4.2.1) lib/active_record/callbacks.rb:306:in `_create_record'
+  activerecord (4.2.1) lib/active_record/timestamp.rb:57:in `_create_record'
+  activerecord (4.2.1) lib/active_record/persistence.rb:502:in `create_or_update'
+  activerecord (4.2.1) lib/active_record/callbacks.rb:302:in `block in create_or_update'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_save_callbacks'
+  activerecord (4.2.1) lib/active_record/callbacks.rb:302:in `create_or_update'
+  activerecord (4.2.1) lib/active_record/persistence.rb:120:in `save'
+  activerecord (4.2.1) lib/active_record/validations.rb:37:in `save'
+  activerecord (4.2.1) lib/active_record/attribute_methods/dirty.rb:21:in `save'
+  activerecord (4.2.1) lib/active_record/transactions.rb:286:in `block (2 levels) in save'
+  activerecord (4.2.1) lib/active_record/transactions.rb:347:in `block in with_transaction_returning_status'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/database_statements.rb:213:in `block in transaction'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/transaction.rb:188:in `within_new_transaction'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/database_statements.rb:213:in `transaction'
+  activerecord (4.2.1) lib/active_record/transactions.rb:220:in `transaction'
+  activerecord (4.2.1) lib/active_record/transactions.rb:344:in `with_transaction_returning_status'
+  activerecord (4.2.1) lib/active_record/transactions.rb:286:in `block in save'
+  activerecord (4.2.1) lib/active_record/transactions.rb:301:in `rollback_active_record_state!'
+  activerecord (4.2.1) lib/active_record/transactions.rb:285:in `save'
+  devise (3.4.1) app/controllers/devise/registrations_controller.rb:19:in `create'
+  actionpack (4.2.1) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_process_action_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.1) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/routing/mapper.rb:49:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:819:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.6.1) lib/rack/etag.rb:24:in `call'
+  rack (1.6.1) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.1) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.1) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.1) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:649:in `call'
+  activerecord (4.2.1) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/lanussebaptiste/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/lanussebaptiste/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/lanussebaptiste/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/d878542fe3352047/variables" for ::1 at 2015-05-20 16:53:26 +0200
+
+
+Started GET "/users/sign_up" for ::1 at 2015-05-20 16:55:10 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.8ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 259ms (Views: 241.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users" for ::1 at 2015-05-20 16:55:32 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NM5c6qyRCO3sHD41XNPOThifMSa8eVqTVzPCEdLWNwKrtOcraZYi+Nt2q5AZeC3SL5UFKVA2WY8gTxFGEo5SMw==", "user"=>{"prenom"=>"Baptiste", "nom"=>"Lanusse", "email"=>"baptiste.lanusse@y-nov.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'baptiste.lanusse@y-nov.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("nom", "prenom", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["nom", "Lanusse"], ["prenom", "Baptiste"], ["email", "baptiste.lanusse@y-nov.com"], ["encrypted_password", "$2a$10$YptTfKUY2AjJviF8PW/sdOEVET/ZVaiy8NFaYmZ2B3PZUQ2i9g6xu"], ["created_at", "2015-05-20 14:55:32.641601"], ["updated_at", "2015-05-20 14:55:32.641601"]]
+  Rendered mailer/welcome.html.erb within layouts/mailer (0.6ms)
+  Rendered mailer/welcome.text.erb within layouts/mailer (0.2ms)
+
+Mailer#welcome: processed outbound mail in 139.9ms
+
+Sent mail to baptiste.lanusse@y-nov.com (3040.7ms)
+Date: Wed, 20 May 2015 16:55:32 +0200
+From: LanglePasTropMal@temp.com
+To: baptiste.lanusse@y-nov.com
+Message-ID: <555ca064c2682_16a43ff6f51e0dbc541ba@pc6076.home.mail>
+Subject: First test mail
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_555ca064c0803_16a43ff6f51e0dbc540f0";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_555ca064c0803_16a43ff6f51e0dbc540f0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to example.com, Baptiste
+===============================================
+ 
+You have successfully signed up to example.com.
+ 
+Thanks for joining and have a great day!
+
+----==_mimepart_555ca064c0803_16a43ff6f51e0dbc540f0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, Baptiste</h1>
+    <p>
+      You have successfully signed up to example.com.<br>
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+----==_mimepart_555ca064c0803_16a43ff6f51e0dbc540f0--
+
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2015-05-20 14:55:35.834657"], ["current_sign_in_at", "2015-05-20 14:55:35.834657"], ["last_sign_in_ip", "::1"], ["current_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2015-05-20 14:55:35.835143"], ["id", 1]]
+  [1m[35m (0.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 3282ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/" for ::1 at 2015-05-20 16:55:35 +0200
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered welcome/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 69ms (Views: 68.2ms | ActiveRecord: 0.1ms)
