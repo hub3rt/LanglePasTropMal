@@ -6,6 +6,6 @@ class User < ActiveRecord::Base
 
   after_create :send_admin_mail
   def send_admin_mail
-  	Mailer.nouvelleAnnonce(self).deliver_now
+  	Mailer.welcome(self).deliver_now
   end
 end
