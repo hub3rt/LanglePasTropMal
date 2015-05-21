@@ -14,5 +14,11 @@
   </div>
 </div>
 
+<%=
+	button_tag(type: 'button') do
+		Mailer.nouvelleAnnonce(User.first)
+	end
+%>
+
 <%= link_to '<button class="col-md-offset-1 btn btn-default">Edit</button>'.html_safe, edit_annonce_path(@annonce) %> |
 <%= link_to '<button class="btn btn-default">Back</button>'.html_safe, annonces_path %>

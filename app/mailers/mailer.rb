@@ -8,6 +8,7 @@ class Mailer < ActionMailer::Base
   end
 
   def nouvelleAnnonce(user)
+    puts "mail"
   	@user = user
   	mail(to: @user.email,
   		subject: 'Une nouvelle annonce a été postée, et elle correspond à l\'une de vos recherche')
