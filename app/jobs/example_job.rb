@@ -3,6 +3,6 @@ class ExampleJob < ActiveJob::Base
 
   def perform(*args)
     # Do something later
-    puts "ok"
+    logger.info "ok"
   end
 end

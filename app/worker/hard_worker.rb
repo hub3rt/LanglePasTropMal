@@ -5,7 +5,7 @@ require 'open-uri'
 class HardWorker
   include Sidekiq::Worker
 
-  def self.perform(url)
+  def perform(url)
   	
     data = Nokogiri::HTML(open(url))
 	   offres = data.css('.lbc')
