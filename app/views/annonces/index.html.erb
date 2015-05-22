@@ -10,6 +10,9 @@
   </thead>
 
   <tbody>
+    <% if current_user %>
+      <% @annonces = Annonce.where(user_id: current_user.id) %>
+    <% end %>
     <% @annonces.each do |annonce| %>
       <tr>
         <td><%= annonce.titre %></td>
