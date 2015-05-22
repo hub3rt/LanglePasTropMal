@@ -6,7 +6,9 @@ class User < ActiveRecord::Base
 
   after_create :send_admin_mail
   def send_admin_mail
-  	# Mailer.welcome(self).deliver_now
-  	HardWorker.perform_async('http://www.leboncoin.fr/voitures/offres/aquitaine/?f=a&th=1&q=peugeot&location=33300')
+  	Mailer.welcome(self).deliver_now
+  	if (User.count == 1)
+  		HardWorker.perform_async
+  	end
   end
 end

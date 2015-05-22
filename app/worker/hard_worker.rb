@@ -4,22 +4,26 @@ require 'open-uri'
 
 class HardWorker
   include Sidekiq::Worker
+  include Sidetiq::Schedulable
   sidekiq_options :queue => :default
 
-  def perform(url)
-  	
-    data = Nokogiri::HTML(open(url))
-	   offres = data.css('.lbc')
+  recurrence { minutely }
 
-    # Récupérer la date et l'heure de la dernière annonce
+  def perform
+    User.each do |user|
+      url = ('http://www.leboncoin.fr/voitures/offres/aquitaine/?f=a&th=1&q=peugeot&location=33300')
+      data = Nokogiri::HTML(open(url))
+       offres = data.css('.lbc')
 
-	   puts offres.first.css('.date').text
+      # Récupérer la date et l'heure de la dernière annonce
 
-	   # Vérifier si l'annonce la plus récente date d'aujourd'hui
+       puts offres.first.css('.date').text
 
-	   puts offres.first.css('.date').text.include? "Aujourd'hui"
+       # Vérifier si l'annonce la plus récente date d'aujourd'hui
 
-     Mailer.nouvelleAnnonce(User.first)
+       puts offres.first.css('.date').text.include? "Aujourd'hui"
 
+       Mailer.nouvelleAnnonce(User.first).deliver_now
+    end
   end
 end

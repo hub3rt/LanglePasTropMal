@@ -14,6 +14,8 @@ puts offres.first.css('.date').text
 
 puts offres.first.css('.date').text.include? "Aujourd'hui"
 
+puts "hbsqdfjhbqskjdfhbqskjhdfbkqsjhdfbkqjshdbfkjs"
+
 # Récupérer l'heure de l'annonce
 
 # puts offres.first.css('.date').text[/\d{2}:\d{2}/]

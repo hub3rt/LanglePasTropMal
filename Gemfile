@@ -25,6 +25,7 @@ gem 'actionmailer'
 gem 'devise'
 gem 'nokogiri'
 gem 'sidekiq'
+gem 'sidetiq'
 gem 'sinatra', require: false
 gem 'slim'
 gem 'redis'
