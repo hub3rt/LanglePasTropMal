@@ -12239,3 +12239,4394 @@ Started GET "/assets/bootstrap/tooltip.self-c3b5c16f394ab9c0391db4431aac4f2d2ddf
 
 
 Started GET "/assets/bootstrap/tab.self-e1bba7115c90301056ee94c4716de2fcbe4498015def2dab9ff9879f339bd245.js?body=1" for ::1 at 2015-05-21 17:25:45 +0200
+
+
+Started GET "/" for ::1 at 2015-05-22 09:52:17 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 333ms (Views: 317.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-22 09:52:17 +0200
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-22 09:52:17 +0200
+
+
+Started GET "/assets/annonces.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-22 09:52:17 +0200
+
+
+Started GET "/users/sign_up" for ::1 at 2015-05-22 09:52:20 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.8ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (32.9ms)
+Completed 200 OK in 124ms (Views: 109.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users" for ::1 at 2015-05-22 09:52:39 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BKK1DWK+xlpqtx13nCjR0Ayy5yOiL8imqxbfijB3jLTnSRnOBSAitL5oUfXUmzG7WeDNC8wBGUTno9+Rivp/lQ==", "user"=>{"prenom"=>"Baptiste", "nom"=>"Lanusse", "email"=>"baptiste.lanusse@y-nov.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'baptiste.lanusse@y-nov.com' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  Rendered devise/shared/_links.html.erb (0.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 171ms (Views: 88.9ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "annonces" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "titre" varchar, "dateLastAnnonce" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "urlRecherche" varchar) [0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nom" varchar, "prenom" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.6ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150518080924')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150428125423')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150428125900')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150504081245')[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "annonces" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "titre" varchar, "dateLastAnnonce" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "urlRecherche" varchar) 
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nom" varchar, "prenom" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.6ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.6ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.7ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150518080924')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150428125423')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150428125900')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150504081245')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started POST "/users" for ::1 at 2015-05-22 09:53:01 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zNAwPUCm2fBjAveNvPukY+ZMBKt/PdqQ5KC1kXUOa9MvO5z+Jzg9Hrfduw/0SEQIsx4ugxETC3KoFbWKz4OY8g==", "user"=>{"prenom"=>"Baptiste", "nom"=>"Lanusse", "email"=>"baptiste.lanusse@y-nov.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'baptiste.lanusse@y-nov.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("nom", "prenom", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["nom", "Lanusse"], ["prenom", "Baptiste"], ["email", "baptiste.lanusse@y-nov.com"], ["encrypted_password", "$2a$10$082nLi4FxqL3D0fcpiHoZe2oNPwghraLi/jxYs0Lm.jaX2pWV96q2"], ["created_at", "2015-05-22 07:53:01.831792"], ["updated_at", "2015-05-22 07:53:01.831792"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2015-05-22 07:53:01.854209"], ["current_sign_in_at", "2015-05-22 07:53:01.854209"], ["last_sign_in_ip", "::1"], ["current_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2015-05-22 07:53:01.855209"], ["id", 1]]
+  [1m[35m (0.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 145ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/" for ::1 at 2015-05-22 09:53:01 +0200
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered welcome/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 214ms (Views: 213.8ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-05-22 09:54:59 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"fMuucTg6VFI+uPgw7nIfqwO5Yl/eINaZ4YkU64eENW+fIAKyX6SwvOpntLKmwf/AVutId7AOB3utPBTwPQnGTg=="}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 20ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2015-05-22 09:54:59 +0200
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 87ms (Views: 86.8ms | ActiveRecord: 0.0ms)
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "annonces" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "titre" varchar, "dateLastAnnonce" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "urlRecherche" varchar) [0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nom" varchar, "prenom" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.5ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150518080924')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150428125423')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150428125900')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150504081245')[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "annonces" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "titre" varchar, "dateLastAnnonce" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "urlRecherche" varchar) 
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nom" varchar, "prenom" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.5ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.5ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.7ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150518080924')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150428125423')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150428125900')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150504081245')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/users/sign_up" for ::1 at 2015-05-22 09:55:07 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (25.2ms)
+Completed 200 OK in 276ms (Views: 255.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users" for ::1 at 2015-05-22 09:55:28 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"y6zSiJmriH6LQ0nyS9XUKlVugVlbIsjx23EWDRbVw+3ZmoEs74tflbb6oAhxHjeUljSCgfAssggfoRa9p0S8nw==", "user"=>{"prenom"=>"Baptiste", "nom"=>"Lanusse", "email"=>"baptiste.lanusse@y-nov.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'baptiste.lanusse@y-nov.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("nom", "prenom", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["nom", "Lanusse"], ["prenom", "Baptiste"], ["email", "baptiste.lanusse@y-nov.com"], ["encrypted_password", "$2a$10$rtmScKJll.51IuAjJkKIzewVity.pzg9WKX8Un3fza7YhWLctFsKa"], ["created_at", "2015-05-22 07:55:28.689484"], ["updated_at", "2015-05-22 07:55:28.689484"]]
+  [1m[36m (0.8ms)[0m  [1mrollback transaction[0m
+Completed 500 Internal Server Error in 78ms (ActiveRecord: 1.4ms)
+
+NoMethodError - undefined method `perform_now' for HardWorker:Class:
+  app/models/user.rb:10:in `send_admin_mail'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:432:in `block in make_lambda'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:228:in `block in halting_and_conditional'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:506:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:506:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_create_callbacks'
+  activerecord (4.2.1) lib/active_record/callbacks.rb:306:in `_create_record'
+  activerecord (4.2.1) lib/active_record/timestamp.rb:57:in `_create_record'
+  activerecord (4.2.1) lib/active_record/persistence.rb:502:in `create_or_update'
+  activerecord (4.2.1) lib/active_record/callbacks.rb:302:in `block in create_or_update'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_save_callbacks'
+  activerecord (4.2.1) lib/active_record/callbacks.rb:302:in `create_or_update'
+  activerecord (4.2.1) lib/active_record/persistence.rb:120:in `save'
+  activerecord (4.2.1) lib/active_record/validations.rb:37:in `save'
+  activerecord (4.2.1) lib/active_record/attribute_methods/dirty.rb:21:in `save'
+  activerecord (4.2.1) lib/active_record/transactions.rb:286:in `block (2 levels) in save'
+  activerecord (4.2.1) lib/active_record/transactions.rb:347:in `block in with_transaction_returning_status'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/database_statements.rb:213:in `block in transaction'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/transaction.rb:188:in `within_new_transaction'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/database_statements.rb:213:in `transaction'
+  activerecord (4.2.1) lib/active_record/transactions.rb:220:in `transaction'
+  activerecord (4.2.1) lib/active_record/transactions.rb:344:in `with_transaction_returning_status'
+  activerecord (4.2.1) lib/active_record/transactions.rb:286:in `block in save'
+  activerecord (4.2.1) lib/active_record/transactions.rb:301:in `rollback_active_record_state!'
+  activerecord (4.2.1) lib/active_record/transactions.rb:285:in `save'
+  devise (3.4.1) app/controllers/devise/registrations_controller.rb:19:in `create'
+  actionpack (4.2.1) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_process_action_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.1) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/routing/mapper.rb:49:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:819:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.6.1) lib/rack/etag.rb:24:in `call'
+  rack (1.6.1) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.1) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.1) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.1) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:649:in `call'
+  activerecord (4.2.1) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/lanussebaptiste/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/lanussebaptiste/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/lanussebaptiste/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/645355e64a921c98/variables" for ::1 at 2015-05-22 09:55:28 +0200
+[ActiveJob] [ExampleJob] [a2284ac6-d4d7-49b7-97c3-0939d87df876] Performing ExampleJob from Sidekiq(default)
+[ActiveJob] [ExampleJob] [a2284ac6-d4d7-49b7-97c3-0939d87df876] ok
+[ActiveJob] [ExampleJob] [1951c8a0-7a17-4920-98d9-f2733cff967e] Performing ExampleJob from Sidekiq(default)
+[ActiveJob] [ExampleJob] [a2284ac6-d4d7-49b7-97c3-0939d87df876] Performed ExampleJob from Sidekiq(default) in 0.29ms
+[ActiveJob] [ExampleJob] [1951c8a0-7a17-4920-98d9-f2733cff967e] ok
+[ActiveJob] [ExampleJob] [d80f20da-cd0f-4ecc-b7bf-b9af14e96e52] Performing ExampleJob from Sidekiq(default)
+[ActiveJob] [ExampleJob] [14931b2a-8edc-489f-b489-55f77d668147] Performing ExampleJob from Sidekiq(default)
+[ActiveJob] [ExampleJob] [1951c8a0-7a17-4920-98d9-f2733cff967e] Performed ExampleJob from Sidekiq(default) in 0.41ms
+[ActiveJob] [ExampleJob] [6570580c-a26e-4599-92ca-7026d7bd3b49] Performing ExampleJob from Sidekiq(default)
+[ActiveJob] [ExampleJob] [d80f20da-cd0f-4ecc-b7bf-b9af14e96e52] ok
+[ActiveJob] [ExampleJob] [14931b2a-8edc-489f-b489-55f77d668147] ok
+[ActiveJob] [ExampleJob] [d75d04b3-ef05-412d-a079-92f008a3fd41] Performing ExampleJob from Sidekiq(default)
+[ActiveJob] [ExampleJob] [6570580c-a26e-4599-92ca-7026d7bd3b49] ok
+[ActiveJob] [ExampleJob] [d80f20da-cd0f-4ecc-b7bf-b9af14e96e52] Performed ExampleJob from Sidekiq(default) in 1.08ms
+[ActiveJob] [ExampleJob] [14931b2a-8edc-489f-b489-55f77d668147] Performed ExampleJob from Sidekiq(default) in 1.35ms
+[ActiveJob] [ExampleJob] [d75d04b3-ef05-412d-a079-92f008a3fd41] ok
+[ActiveJob] [ExampleJob] [6570580c-a26e-4599-92ca-7026d7bd3b49] Performed ExampleJob from Sidekiq(default) in 0.77ms
+[ActiveJob] [ExampleJob] [d75d04b3-ef05-412d-a079-92f008a3fd41] Performed ExampleJob from Sidekiq(default) in 38.65ms
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "annonces" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "titre" varchar, "dateLastAnnonce" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "urlRecherche" varchar) [0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nom" varchar, "prenom" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150518080924')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150428125423')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150428125900')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150504081245')[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "annonces" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "titre" varchar, "dateLastAnnonce" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "urlRecherche" varchar) 
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nom" varchar, "prenom" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.7ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.7ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150518080924')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150428125423')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150428125900')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150504081245')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started POST "/users" for ::1 at 2015-05-22 10:00:48 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xYQRr/isRFVJhPVxbkgPjj66CtuXnI+Pn27CDXULSNnXskILjoyTvnQ9HItUg+ww/eAJAzyS9XZbvsK9xJo3qw==", "user"=>{"prenom"=>"Baptiste", "nom"=>"Lanusse", "email"=>"baptiste.lanusse@y-nov.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'baptiste.lanusse@y-nov.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("nom", "prenom", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["nom", "Lanusse"], ["prenom", "Baptiste"], ["email", "baptiste.lanusse@y-nov.com"], ["encrypted_password", "$2a$10$Y6Z8ddblCKS9B6U/3.h0Iev4IXBPIlEhlHLmThdAhZyTfRllaycoK"], ["created_at", "2015-05-22 08:00:48.161665"], ["updated_at", "2015-05-22 08:00:48.161665"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2015-05-22 08:00:48.176422"], ["current_sign_in_at", "2015-05-22 08:00:48.176422"], ["last_sign_in_ip", "::1"], ["current_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2015-05-22 08:00:48.177044"], ["id", 1]]
+  [1m[35m (0.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 132ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/" for ::1 at 2015-05-22 10:00:48 +0200
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered welcome/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 194ms (Views: 193.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2015-05-22 10:02:20 +0200
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered welcome/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 100ms (Views: 99.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/sidekiq" for ::1 at 2015-05-22 10:02:20 +0200
+
+
+Started GET "/sidekiq" for ::1 at 2015-05-22 10:02:21 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 10:02:21 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 10:02:21 +0200
+
+
+Started GET "/sidekiq/javascripts/dashboard.js" for ::1 at 2015-05-22 10:02:21 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 10:02:21 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 10:02:21 +0200
+
+
+Started GET "/sidekiq/images/status-sd8051fd480.png" for ::1 at 2015-05-22 10:02:21 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:02:24 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:02:26 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:02:28 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:02:30 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:02:32 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:02:34 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:02:36 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:02:38 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:02:40 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:02:42 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:02:44 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:02:46 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:02:48 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:02:50 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:02:52 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:02:54 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:02:56 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:02:58 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:03:00 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:03:02 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:03:04 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:03:06 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:03:08 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:03:10 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:03:12 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:03:14 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:03:16 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:03:18 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:03:20 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:03:22 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:03:24 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:03:26 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:03:28 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:03:30 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:03:32 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:03:34 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:03:36 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:03:38 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:03:40 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:03:42 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:03:44 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:03:46 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:03:48 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:03:50 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:03:52 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:03:54 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:03:56 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:03:58 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:04:00 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:04:02 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:04:04 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:04:06 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:04:09 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:04:12 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:04:25 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:04:35 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:04:42 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:04:52 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:04:58 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:05:04 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:05:07 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 10:05:10 +0200
+
+
+Started GET "/" for ::1 at 2015-05-22 13:28:28 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 237ms (Views: 225.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-22 13:28:28 +0200
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-22 13:28:28 +0200
+
+
+Started GET "/assets/annonces.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-22 13:28:28 +0200
+
+
+Started GET "/sidekiq" for ::1 at 2015-05-22 13:28:31 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:28:31 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:28:31 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:28:31 +0200
+
+
+Started GET "/sidekiq/javascripts/dashboard.js" for ::1 at 2015-05-22 13:28:31 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:28:31 +0200
+
+
+Started GET "/sidekiq/images/status-sd8051fd480.png" for ::1 at 2015-05-22 13:28:31 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:28:33 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:28:35 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:28:37 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:28:39 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:28:42 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:28:45 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:28:48 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:28:51 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:28:54 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:28:57 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:29:00 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:29:06 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:29:17 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:29:28 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:29:37 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:29:40 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:29:42 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:29:46 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:29:49 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:29:53 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:29:56 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:29:59 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:30:02 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:30:06 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:30:09 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:30:11 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:30:15 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:30:18 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:30:21 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:30:34 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:30:39 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:30:42 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:30:48 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:30:53 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:31:06 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:31:10 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:31:23 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:31:26 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:31:28 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:31:39 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:31:49 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:32:00 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:32:05 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:32:08 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:32:10 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:32:12 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 13:32:12 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:32:12 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:32:12 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:32:12 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:32:12 +0200
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 13:32:14 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:32:14 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:32:14 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:32:14 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:32:14 +0200
+
+
+Started POST "/sidekiq/queues/default" for ::1 at 2015-05-22 13:32:17 +0200
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 13:32:17 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:32:17 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:32:17 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:32:17 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:32:17 +0200
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 13:32:35 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:32:35 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:32:35 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:32:35 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:32:35 +0200
+
+
+Started GET "/sidekiq/images/status-sd8051fd480.png" for ::1 at 2015-05-22 13:32:35 +0200
+
+
+Started GET "/sidekiq" for ::1 at 2015-05-22 13:32:36 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:32:36 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:32:36 +0200
+
+
+Started GET "/sidekiq/javascripts/dashboard.js" for ::1 at 2015-05-22 13:32:36 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:32:36 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:32:36 +0200
+
+
+Started GET "/sidekiq" for ::1 at 2015-05-22 13:32:36 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:32:36 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:32:36 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:32:36 +0200
+
+
+Started GET "/sidekiq/javascripts/dashboard.js" for ::1 at 2015-05-22 13:32:36 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:32:36 +0200
+
+
+Started GET "/sidekiq/images/status-sd8051fd480.png" for ::1 at 2015-05-22 13:32:36 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:32:38 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:32:41 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:32:56 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:32:57 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:33:08 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:33:12 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:33:19 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:33:24 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:33:35 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:33:48 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:34:00 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:34:11 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:34:20 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:34:22 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:34:24 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:34:26 +0200
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 13:34:26 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:34:27 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:34:27 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:34:27 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:34:27 +0200
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 13:37:17 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:37:17 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:37:17 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:37:17 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:37:17 +0200
+
+
+Started GET "/sidekiq/" for ::1 at 2015-05-22 13:37:19 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:37:19 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:37:19 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:37:19 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:37:19 +0200
+
+
+Started GET "/sidekiq/javascripts/dashboard.js" for ::1 at 2015-05-22 13:37:19 +0200
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 13:37:19 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:37:19 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:37:19 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:37:19 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:37:19 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 13:37:21 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:37:21 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:37:21 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:37:21 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:37:21 +0200
+
+
+Started POST "/sidekiq/busy" for ::1 at 2015-05-22 13:37:29 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 13:37:29 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:37:29 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:37:29 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:37:29 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:37:29 +0200
+
+
+Started POST "/sidekiq/busy" for ::1 at 2015-05-22 13:37:30 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 13:37:30 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:37:30 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:37:30 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:37:30 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:37:30 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 13:37:34 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:37:34 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:37:34 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:37:34 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:37:34 +0200
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 13:37:35 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:37:35 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:37:35 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:37:35 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:37:35 +0200
+
+
+Started GET "/sidekiq/retries" for ::1 at 2015-05-22 13:37:36 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:37:36 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:37:36 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:37:36 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:37:36 +0200
+
+
+Started GET "/sidekiq/scheduled" for ::1 at 2015-05-22 13:37:37 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:37:37 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:37:37 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:37:37 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:37:37 +0200
+
+
+Started GET "/sidekiq/morgue" for ::1 at 2015-05-22 13:37:38 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:37:38 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:37:38 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:37:38 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:37:38 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 13:37:39 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:37:39 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:37:39 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:37:39 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:37:39 +0200
+
+
+Started GET "/sidekiq/" for ::1 at 2015-05-22 13:37:40 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:37:40 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:37:40 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:37:40 +0200
+
+
+Started GET "/sidekiq/javascripts/dashboard.js" for ::1 at 2015-05-22 13:37:40 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:37:40 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:37:42 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:37:44 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 13:37:46 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:37:46 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:37:46 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:37:46 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:37:46 +0200
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 13:42:45 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:42:45 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:42:45 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:42:45 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:42:45 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 13:42:45 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:42:45 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:42:45 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:42:45 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:42:45 +0200
+
+
+Started GET "/sidekiq/scheduled" for ::1 at 2015-05-22 13:42:47 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:42:47 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:42:47 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:42:47 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:42:47 +0200
+
+
+Started GET "/sidekiq/retries" for ::1 at 2015-05-22 13:42:47 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:42:47 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:42:47 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:42:47 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:42:47 +0200
+
+
+Started GET "/sidekiq/morgue" for ::1 at 2015-05-22 13:42:48 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:42:48 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:42:48 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:42:48 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:42:48 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 13:42:50 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:42:50 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:42:50 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:42:50 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:42:50 +0200
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 13:43:50 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:43:50 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:43:50 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:43:50 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:43:50 +0200
+
+
+Started GET "/sidekiq/images/status-sd8051fd480.png" for ::1 at 2015-05-22 13:43:50 +0200
+
+
+Started POST "/sidekiq/busy" for ::1 at 2015-05-22 13:43:54 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 13:43:54 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:43:54 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:43:54 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:43:54 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:43:54 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 13:43:56 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:43:56 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:43:56 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:43:56 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:43:56 +0200
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 13:43:57 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:43:57 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:43:57 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:43:57 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:43:57 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 13:43:58 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:43:58 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:43:58 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:43:58 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:43:58 +0200
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 13:44:04 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:44:04 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:44:04 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:44:04 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:44:04 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 13:44:05 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:44:05 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:44:05 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:44:05 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:44:05 +0200
+
+
+Started GET "/sidekiq/" for ::1 at 2015-05-22 13:44:11 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:44:11 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:44:11 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:44:11 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:44:11 +0200
+
+
+Started GET "/sidekiq/javascripts/dashboard.js" for ::1 at 2015-05-22 13:44:11 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:44:13 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:44:15 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:44:17 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:44:19 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:44:21 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:44:23 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:44:26 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:44:39 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:44:51 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:44:53 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:44:55 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:44:57 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:44:59 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:45:01 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:45:03 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:45:05 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:45:07 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:45:09 +0200
+
+
+Started GET "/sidekiq/?days=7" for ::1 at 2015-05-22 13:45:09 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:45:09 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:45:09 +0200
+
+
+Started GET "/sidekiq/javascripts/dashboard.js" for ::1 at 2015-05-22 13:45:09 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:45:09 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:45:09 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:45:11 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:45:13 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:45:15 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:45:17 +0200
+
+
+Started GET "/" for ::1 at 2015-05-22 13:45:20 +0200
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 322ms (Views: 311.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/annonces.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-22 13:45:20 +0200
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-22 13:45:20 +0200
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-22 13:45:20 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:45:20 +0200
+
+
+Started GET "/users/sign_up" for ::1 at 2015-05-22 13:45:22 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (36.9ms)
+Completed 200 OK in 185ms (Views: 173.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:45:23 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:45:32 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:45:37 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:45:40 +0200
+
+
+Started POST "/users" for ::1 at 2015-05-22 13:45:40 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Z/0kImJCYwRwcd23Q+cA810q3FrTDn+JnscsSqSWw7e7Mq6b1m6WY7vEm7DFiw9KsEQd7bW/vMte6DIs0h+yhw==", "user"=>{"prenom"=>"bapt", "nom"=>"lan", "email"=>"baptistelanusse@orange.fr", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'baptistelanusse@orange.fr' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("nom", "prenom", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["nom", "lan"], ["prenom", "bapt"], ["email", "baptistelanusse@orange.fr"], ["encrypted_password", "$2a$10$YC.O9PSbKihZazL2Qvo2Le.DwIrr.ILTykFUuijxOAobQlGqRTAAG"], ["created_at", "2015-05-22 11:45:40.570021"], ["updated_at", "2015-05-22 11:45:40.570021"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2015-05-22 11:45:40.580002"], ["current_sign_in_at", "2015-05-22 11:45:40.580002"], ["last_sign_in_ip", "::1"], ["current_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2015-05-22 11:45:40.580659"], ["id", 2]]
+  [1m[35m (0.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 99ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/" for ::1 at 2015-05-22 13:45:40 +0200
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  Rendered welcome/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 113ms (Views: 112.7ms | ActiveRecord: 0.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:45:43 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:45:45 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:45:47 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:45:49 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:45:51 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:45:53 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:45:55 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:45:57 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:46:00 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:46:11 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:46:23 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:46:36 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:46:46 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:47:01 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:47:11 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:47:23 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:47:35 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:47:38 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:47:48 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:47:53 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:47:55 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:48:00 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:48:09 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:48:20 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:48:31 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:48:43 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:48:50 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:48:52 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:48:56 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:49:01 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:49:08 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:49:18 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:49:26 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:49:36 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:49:46 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:49:53 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:49:57 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:50:00 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:50:04 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:50:07 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:50:09 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:50:15 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:50:19 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:50:22 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:50:30 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:50:32 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:50:37 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:50:39 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:50:42 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:50:55 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:51:04 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:51:12 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:51:17 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:51:20 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:51:22 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:51:32 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:51:34 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:51:47 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:51:54 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:51:58 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:52:00 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:52:04 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:52:07 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:52:10 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:52:21 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:52:22 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:52:26 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:52:29 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:52:33 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:52:41 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:52:45 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:52:48 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:52:51 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:53:01 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:53:14 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:53:24 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:53:35 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:53:40 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:53:44 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:53:46 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:53:51 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:53:54 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:53:56 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:53:58 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:54:00 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:54:02 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:54:04 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:54:07 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:54:11 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:54:21 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:54:32 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:54:45 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:54:52 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:54:56 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:54:58 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:55:01 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:55:06 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:55:09 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:55:13 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:55:16 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:55:19 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:55:28 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:55:32 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:55:36 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:55:52 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:56:03 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:56:13 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:56:24 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:56:37 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:56:49 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:57:01 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:57:08 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:57:23 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:57:23 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:57:29 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:57:33 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 13:57:35 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 13:57:37 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:57:37 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:57:37 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:57:37 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:57:37 +0200
+
+
+Started GET "/sidekiq/" for ::1 at 2015-05-22 13:57:38 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:57:38 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:57:38 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:57:38 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:57:38 +0200
+
+
+Started GET "/sidekiq/javascripts/dashboard.js" for ::1 at 2015-05-22 13:57:38 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 13:57:38 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:57:38 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:57:38 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:57:38 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:57:38 +0200
+
+
+Started POST "/sidekiq/busy" for ::1 at 2015-05-22 13:57:41 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 13:57:41 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:57:41 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:57:41 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:57:41 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:57:41 +0200
+
+
+Started GET "/sidekiq/" for ::1 at 2015-05-22 13:57:43 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:57:43 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:57:43 +0200
+
+
+Started GET "/sidekiq/javascripts/dashboard.js" for ::1 at 2015-05-22 13:57:43 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:57:43 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:57:43 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 13:57:44 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:57:44 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:57:44 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:57:44 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:57:44 +0200
+
+
+Started GET "/sidekiq/" for ::1 at 2015-05-22 13:57:47 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:57:47 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:57:47 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:57:47 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:57:47 +0200
+
+
+Started GET "/sidekiq/javascripts/dashboard.js" for ::1 at 2015-05-22 13:57:47 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 13:57:48 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:57:48 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:57:48 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:57:48 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:57:48 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 13:57:49 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 13:57:49 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 13:57:49 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 13:57:49 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 13:57:49 +0200
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-05-22 14:08:14 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"7u2W0qTiKJ7m3mL/pbt4GngNL7pOVn0zgKcvxTSD3ysyIhxrEM7d+S1rJPgj13ejlWPuDSjnvnFAiDGjQgquGw=="}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 28ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2015-05-22 14:08:14 +0200
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 215ms (Views: 214.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "annonces" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "titre" varchar, "dateLastAnnonce" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "urlRecherche" varchar) [0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nom" varchar, "prenom" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.5ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.5ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150518080924')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150428125423')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150428125900')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150504081245')[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "annonces" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "titre" varchar, "dateLastAnnonce" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "urlRecherche" varchar) 
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nom" varchar, "prenom" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.5ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.5ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.5ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150518080924')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150428125423')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150428125900')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150504081245')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+
+
+Started GET "/" for ::1 at 2015-05-22 14:08:40 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 294ms (Views: 284.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/annonces.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-22 14:08:41 +0200
+
+
+Started GET "/assets/scaffolds.self-1b15e01ea5a58667664273a98692a0d1095201a4eb11098d86c9842552c9eb4d.css?body=1" for ::1 at 2015-05-22 14:08:41 +0200
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-22 14:08:41 +0200
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-05-22 14:08:41 +0200
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-22 14:08:41 +0200
+
+
+Started GET "/assets/application.self-631af4895cda860d008ceda1d898456fd99333dc34751979d1468ef1b716d875.css?body=1" for ::1 at 2015-05-22 14:08:41 +0200
+
+
+Started GET "/assets/bootstrap/affix.self-68d1a5161d04ca9fe1b9d9f4114d9426c7798bf90f2703a97aca35c8113469bb.js?body=1" for ::1 at 2015-05-22 14:08:41 +0200
+
+
+Started GET "/assets/bootstrap/button.self-37c62bff1d75f86f3348b8679873d5156d8b9938b62841038dca21690f4740f1.js?body=1" for ::1 at 2015-05-22 14:08:41 +0200
+
+
+Started GET "/assets/bootstrap/collapse.self-eeece00cd06a3d7cc071ab7845b549d4991edd0f0895e4be70fe40bac2fb5f4b.js?body=1" for ::1 at 2015-05-22 14:08:41 +0200
+
+
+Started GET "/assets/bootstrap/modal.self-f2759e138605770e60526c00c6d86cbb3378da203641f9d6b204c9f0192b9267.js?body=1" for ::1 at 2015-05-22 14:08:41 +0200
+
+
+Started GET "/assets/bootstrap/tab.self-e1bba7115c90301056ee94c4716de2fcbe4498015def2dab9ff9879f339bd245.js?body=1" for ::1 at 2015-05-22 14:08:41 +0200
+
+
+Started GET "/assets/bootstrap/alert.self-15ce09eba576e56db3edfd87accc0ff48823df915169e350b4fd97290f96aee1.js?body=1" for ::1 at 2015-05-22 14:08:41 +0200
+
+
+Started GET "/assets/bootstrap/carousel.self-9aaab1a477b9c1156bab751cb8da47f77dace6da88eef8ae830e60f3cff3a8be.js?body=1" for ::1 at 2015-05-22 14:08:41 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.self-a3998e7ca949c04cb86b5c635deb0abcc7a24dc02e81be66b8acfef02d811e45.js?body=1" for ::1 at 2015-05-22 14:08:41 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.self-5ea180afe4404f83fc97d997833f2edefd34475b0b5ddab310e27abc2bbd5f2f.js?body=1" for ::1 at 2015-05-22 14:08:41 +0200
+
+
+Started GET "/assets/bootstrap/transition.self-7742dca5e6acf313fbb217811b48468282cddf1a9baea5c89ec92e367ef242cb.js?body=1" for ::1 at 2015-05-22 14:08:41 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.self-c3b5c16f394ab9c0391db4431aac4f2d2ddf1bba4c5d3228ed343de05ecc8e83.js?body=1" for ::1 at 2015-05-22 14:08:41 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2015-05-22 14:08:41 +0200
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-22 14:08:41 +0200
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-22 14:08:41 +0200
+
+
+Started GET "/assets/bootstrap/popover.self-2674d99c3ab0415dba0b958a80b3840f70ff6368b155d890306c0291be49453b.js?body=1" for ::1 at 2015-05-22 14:08:41 +0200
+
+
+Started GET "/assets/annonces.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-22 14:08:41 +0200
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2015-05-22 14:08:41 +0200
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-05-22 14:08:41 +0200
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-05-22 14:08:41 +0200
+
+
+Started GET "/users/sign_up" for ::1 at 2015-05-22 14:08:42 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (24.3ms)
+Completed 200 OK in 157ms (Views: 132.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users" for ::1 at 2015-05-22 14:09:00 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sU/G37FtQ4nSAr98hRWq9uZj88B8AmlyXUq/1K+4OC6O4VhTmAihzhhzSGylZM4oYN5LEXYEie4PL6wAbSNCZg==", "user"=>{"prenom"=>"Baptiste", "nom"=>"Lanusse", "email"=>"baptiste.lanusse@y-nov.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'baptiste.lanusse@y-nov.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("nom", "prenom", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["nom", "Lanusse"], ["prenom", "Baptiste"], ["email", "baptiste.lanusse@y-nov.com"], ["encrypted_password", "$2a$10$isPT1d0DNhMP.TKxsCbcd.9IV/PpClfWrCeCoPmIU.D6MhSmMkyKS"], ["created_at", "2015-05-22 12:09:00.141654"], ["updated_at", "2015-05-22 12:09:00.141654"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2015-05-22 12:09:00.151815"], ["current_sign_in_at", "2015-05-22 12:09:00.151815"], ["last_sign_in_ip", "::1"], ["current_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2015-05-22 12:09:00.152519"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 103ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/" for ::1 at 2015-05-22 14:09:00 +0200
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered welcome/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 105ms (Views: 104.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/sidekiq/" for ::1 at 2015-05-22 14:09:05 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:09:05 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:09:05 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:09:05 +0200
+
+
+Started GET "/sidekiq/javascripts/dashboard.js" for ::1 at 2015-05-22 14:09:05 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:09:05 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:09:07 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:09:07 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:09:07 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:09:07 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:09:07 +0200
+
+
+Started GET "/sidekiq/" for ::1 at 2015-05-22 14:09:14 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:09:14 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:09:14 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:09:14 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:09:14 +0200
+
+
+Started GET "/sidekiq/javascripts/dashboard.js" for ::1 at 2015-05-22 14:09:14 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:09:16 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:09:16 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:09:16 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:09:16 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:09:16 +0200
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 14:09:19 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:09:19 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:09:19 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:09:19 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:09:19 +0200
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "annonces" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "titre" varchar, "dateLastAnnonce" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "urlRecherche" varchar) [0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nom" varchar, "prenom" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.5ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.5ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150518080924')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150428125423')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150428125900')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150504081245')[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "annonces" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "titre" varchar, "dateLastAnnonce" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "urlRecherche" varchar) 
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nom" varchar, "prenom" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.7ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.5ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.5ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150518080924')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150428125423')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150428125900')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150504081245')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-05-22 14:10:20 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"eHX8bNZ7t9ZnYNhqT9XvcpzBDcLwf8L8kYKaEQCCuIJH22Lg/x5Vka0RL3pvpIusGny1E/p5ImDD54nFwhnCyg=="}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 302 Found in 19ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2015-05-22 14:10:20 +0200
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 292ms (Views: 291.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2015-05-22 14:10:22 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 126ms (Views: 117.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2015-05-22 14:10:24 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"k3YcTiVhGlu3hRiZYw+NqgziHIpkLOfJHqHyzuMu1pas2ILCDAT4HH3074lDful0il+kW24qB1VMxOEaIbWs3g==", "user"=>{"prenom"=>"", "nom"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 131ms (Views: 117.9ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users" for ::1 at 2015-05-22 14:10:41 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nyahA9RAwSg+XmWta9diLas8DzbmZN/Tm4EHsbfX1W2giD+P/SUjb/Qvkr1LpgbzLYG35+xiP0/J5BRldUyvJQ==", "user"=>{"prenom"=>"Baptiste", "nom"=>"Lanusse", "email"=>"baptiste.lanusse@y-nov.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'baptiste.lanusse@y-nov.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("nom", "prenom", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["nom", "Lanusse"], ["prenom", "Baptiste"], ["email", "baptiste.lanusse@y-nov.com"], ["encrypted_password", "$2a$10$CDr3LP8nJU8ntaK/0y1Ej.ak7iCqlknUDLDMGRbpNhgY.J/kxEqru"], ["created_at", "2015-05-22 12:10:41.108597"], ["updated_at", "2015-05-22 12:10:41.108597"]]
+  [1m[35m (0.8ms)[0m  rollback transaction
+Completed 500 Internal Server Error in 86ms (ActiveRecord: 1.4ms)
+
+NameError - undefined local variable or method `default' for HardWorker:Class:
+  app/worker/hard_worker.rb:7:in `<class:HardWorker>'
+  app/worker/hard_worker.rb:5:in `<top (required)>'
+  activesupport (4.2.1) lib/active_support/dependencies.rb:457:in `block in load_file'
+  activesupport (4.2.1) lib/active_support/dependencies.rb:647:in `new_constants_in'
+  activesupport (4.2.1) lib/active_support/dependencies.rb:456:in `load_file'
+  activesupport (4.2.1) lib/active_support/dependencies.rb:354:in `require_or_load'
+  activesupport (4.2.1) lib/active_support/dependencies.rb:494:in `load_missing_constant'
+  activesupport (4.2.1) lib/active_support/dependencies.rb:184:in `const_missing'
+  activesupport (4.2.1) lib/active_support/dependencies.rb:526:in `load_missing_constant'
+  activesupport (4.2.1) lib/active_support/dependencies.rb:184:in `const_missing'
+  app/models/user.rb:10:in `send_admin_mail'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:432:in `block in make_lambda'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:228:in `block in halting_and_conditional'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:506:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:506:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_create_callbacks'
+  activerecord (4.2.1) lib/active_record/callbacks.rb:306:in `_create_record'
+  activerecord (4.2.1) lib/active_record/timestamp.rb:57:in `_create_record'
+  activerecord (4.2.1) lib/active_record/persistence.rb:502:in `create_or_update'
+  activerecord (4.2.1) lib/active_record/callbacks.rb:302:in `block in create_or_update'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_save_callbacks'
+  activerecord (4.2.1) lib/active_record/callbacks.rb:302:in `create_or_update'
+  activerecord (4.2.1) lib/active_record/persistence.rb:120:in `save'
+  activerecord (4.2.1) lib/active_record/validations.rb:37:in `save'
+  activerecord (4.2.1) lib/active_record/attribute_methods/dirty.rb:21:in `save'
+  activerecord (4.2.1) lib/active_record/transactions.rb:286:in `block (2 levels) in save'
+  activerecord (4.2.1) lib/active_record/transactions.rb:347:in `block in with_transaction_returning_status'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/database_statements.rb:213:in `block in transaction'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/transaction.rb:188:in `within_new_transaction'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/database_statements.rb:213:in `transaction'
+  activerecord (4.2.1) lib/active_record/transactions.rb:220:in `transaction'
+  activerecord (4.2.1) lib/active_record/transactions.rb:344:in `with_transaction_returning_status'
+  activerecord (4.2.1) lib/active_record/transactions.rb:286:in `block in save'
+  activerecord (4.2.1) lib/active_record/transactions.rb:301:in `rollback_active_record_state!'
+  activerecord (4.2.1) lib/active_record/transactions.rb:285:in `save'
+  devise (3.4.1) app/controllers/devise/registrations_controller.rb:19:in `create'
+  actionpack (4.2.1) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_process_action_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.1) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/routing/mapper.rb:49:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:819:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.6.1) lib/rack/etag.rb:24:in `call'
+  rack (1.6.1) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.1) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.1) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.1) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:649:in `call'
+  activerecord (4.2.1) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/lanussebaptiste/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/lanussebaptiste/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/lanussebaptiste/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/390c3b7480d609ac/variables" for ::1 at 2015-05-22 14:10:41 +0200
+
+
+Started POST "/users" for ::1 at 2015-05-22 14:11:45 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nyahA9RAwSg+XmWta9diLas8DzbmZN/Tm4EHsbfX1W2giD+P/SUjb/Qvkr1LpgbzLYG35+xiP0/J5BRldUyvJQ==", "user"=>{"prenom"=>"Baptiste", "nom"=>"Lanusse", "email"=>"baptiste.lanusse@y-nov.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'baptiste.lanusse@y-nov.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("nom", "prenom", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["nom", "Lanusse"], ["prenom", "Baptiste"], ["email", "baptiste.lanusse@y-nov.com"], ["encrypted_password", "$2a$10$mXO3nImAM1lWoVivvbRVKOlzhAjnE8EhkQ5evB68fGj.MEZjKSTz2"], ["created_at", "2015-05-22 12:11:45.558025"], ["updated_at", "2015-05-22 12:11:45.558025"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2015-05-22 12:11:45.570756"], ["current_sign_in_at", "2015-05-22 12:11:45.570756"], ["last_sign_in_ip", "::1"], ["current_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2015-05-22 12:11:45.571417"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 133ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/" for ::1 at 2015-05-22 14:11:45 +0200
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered welcome/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 285ms (Views: 284.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 14:11:51 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:11:51 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:11:51 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:11:51 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:11:51 +0200
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-05-22 14:12:41 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"w0x47no2I9fLk1vRQqucTImA+p43KO7I1Mo+Fn6MULr84uZiU1PBkAHirMFi2viSDz1CTz0uDlSGry3CvBcq8g=="}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 29ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2015-05-22 14:12:41 +0200
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 226ms (Views: 225.4ms | ActiveRecord: 0.0ms)
+  [1m[36m (1.4ms)[0m  [1mCREATE TABLE "annonces" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "titre" varchar, "dateLastAnnonce" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "urlRecherche" varchar) [0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nom" varchar, "prenom" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.5ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150518080924')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150428125423')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150428125900')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150504081245')[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "annonces" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "titre" varchar, "dateLastAnnonce" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "urlRecherche" varchar) 
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nom" varchar, "prenom" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.5ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.5ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.5ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150518080924')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150428125423')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150428125900')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150504081245')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/users/sign_up" for ::1 at 2015-05-22 14:12:52 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (21.2ms)
+Completed 200 OK in 261ms (Views: 242.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users" for ::1 at 2015-05-22 14:13:06 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YSOoKX0xSvVW3A9jge2I7DLIZKNwGkWreKjbz2yHY+W9G4RhneIw7/jJbAvaBSwKttwASo/m3UXbcOs3EixCbA==", "user"=>{"prenom"=>"Baptiste", "nom"=>"Lanusse", "email"=>"baptiste.lausse@y-nov.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'baptiste.lausse@y-nov.com' LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "users" ("nom", "prenom", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["nom", "Lanusse"], ["prenom", "Baptiste"], ["email", "baptiste.lausse@y-nov.com"], ["encrypted_password", "$2a$10$tyKmYMH5CEB4gE1QLjY/yOQmcBSwjWyHdr5aXkyNZBqAhD5ZzcV8a"], ["created_at", "2015-05-22 12:13:06.381501"], ["updated_at", "2015-05-22 12:13:06.381501"]]
+  [1m[36m (0.8ms)[0m  [1mrollback transaction[0m
+Completed 500 Internal Server Error in 78ms (ActiveRecord: 1.9ms)
+
+SyntaxError - syntax error, unexpected end-of-input, expecting keyword_end:
+  app/worker/hard_worker.rb:25:in `'
+  activesupport (4.2.1) lib/active_support/dependencies.rb:457:in `block in load_file'
+  activesupport (4.2.1) lib/active_support/dependencies.rb:647:in `new_constants_in'
+  activesupport (4.2.1) lib/active_support/dependencies.rb:456:in `load_file'
+  activesupport (4.2.1) lib/active_support/dependencies.rb:354:in `require_or_load'
+  activesupport (4.2.1) lib/active_support/dependencies.rb:494:in `load_missing_constant'
+  activesupport (4.2.1) lib/active_support/dependencies.rb:184:in `const_missing'
+  activesupport (4.2.1) lib/active_support/dependencies.rb:526:in `load_missing_constant'
+  activesupport (4.2.1) lib/active_support/dependencies.rb:184:in `const_missing'
+  app/models/user.rb:10:in `send_admin_mail'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:432:in `block in make_lambda'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:228:in `block in halting_and_conditional'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:506:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:506:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_create_callbacks'
+  activerecord (4.2.1) lib/active_record/callbacks.rb:306:in `_create_record'
+  activerecord (4.2.1) lib/active_record/timestamp.rb:57:in `_create_record'
+  activerecord (4.2.1) lib/active_record/persistence.rb:502:in `create_or_update'
+  activerecord (4.2.1) lib/active_record/callbacks.rb:302:in `block in create_or_update'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_save_callbacks'
+  activerecord (4.2.1) lib/active_record/callbacks.rb:302:in `create_or_update'
+  activerecord (4.2.1) lib/active_record/persistence.rb:120:in `save'
+  activerecord (4.2.1) lib/active_record/validations.rb:37:in `save'
+  activerecord (4.2.1) lib/active_record/attribute_methods/dirty.rb:21:in `save'
+  activerecord (4.2.1) lib/active_record/transactions.rb:286:in `block (2 levels) in save'
+  activerecord (4.2.1) lib/active_record/transactions.rb:347:in `block in with_transaction_returning_status'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/database_statements.rb:213:in `block in transaction'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/transaction.rb:188:in `within_new_transaction'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/database_statements.rb:213:in `transaction'
+  activerecord (4.2.1) lib/active_record/transactions.rb:220:in `transaction'
+  activerecord (4.2.1) lib/active_record/transactions.rb:344:in `with_transaction_returning_status'
+  activerecord (4.2.1) lib/active_record/transactions.rb:286:in `block in save'
+  activerecord (4.2.1) lib/active_record/transactions.rb:301:in `rollback_active_record_state!'
+  activerecord (4.2.1) lib/active_record/transactions.rb:285:in `save'
+  devise (3.4.1) app/controllers/devise/registrations_controller.rb:19:in `create'
+  actionpack (4.2.1) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_process_action_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.1) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/routing/mapper.rb:49:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:819:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.6.1) lib/rack/etag.rb:24:in `call'
+  rack (1.6.1) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.1) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.1) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.1) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:649:in `call'
+  activerecord (4.2.1) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/lanussebaptiste/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/lanussebaptiste/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/lanussebaptiste/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/2f53cd52654bd91c/variables" for ::1 at 2015-05-22 14:13:06 +0200
+
+
+Started POST "/users" for ::1 at 2015-05-22 14:13:25 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YSOoKX0xSvVW3A9jge2I7DLIZKNwGkWreKjbz2yHY+W9G4RhneIw7/jJbAvaBSwKttwASo/m3UXbcOs3EixCbA==", "user"=>{"prenom"=>"Baptiste", "nom"=>"Lanusse", "email"=>"baptiste.lausse@y-nov.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'baptiste.lausse@y-nov.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("nom", "prenom", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["nom", "Lanusse"], ["prenom", "Baptiste"], ["email", "baptiste.lausse@y-nov.com"], ["encrypted_password", "$2a$10$yVqiUatIkw2DGYpp22LTeuvZgXPlhii1RVxv0/XvQGCMhtwPutY1a"], ["created_at", "2015-05-22 12:13:25.213837"], ["updated_at", "2015-05-22 12:13:25.213837"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2015-05-22 12:13:25.226773"], ["current_sign_in_at", "2015-05-22 12:13:25.226773"], ["last_sign_in_ip", "::1"], ["current_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2015-05-22 12:13:25.227476"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 134ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/" for ::1 at 2015-05-22 14:13:25 +0200
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered welcome/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 292ms (Views: 291.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 14:13:28 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:13:28 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:13:28 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:13:28 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:13:28 +0200
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 14:13:32 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:13:32 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:13:32 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:13:32 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:13:32 +0200
+
+
+Started GET "/sidekiq/" for ::1 at 2015-05-22 14:13:35 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:13:35 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:13:35 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:13:35 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:13:35 +0200
+
+
+Started GET "/sidekiq/javascripts/dashboard.js" for ::1 at 2015-05-22 14:13:35 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 14:13:37 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 14:13:39 +0200
+
+
+Started GET "/sidekiq/scheduled" for ::1 at 2015-05-22 14:13:42 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:13:42 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:13:42 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:13:42 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:13:42 +0200
+
+
+Started GET "/sidekiq/morgue" for ::1 at 2015-05-22 14:13:43 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:13:44 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:13:44 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:13:44 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:13:44 +0200
+
+
+Started GET "/sidekiq/" for ::1 at 2015-05-22 14:13:44 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:13:44 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:13:44 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:13:44 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:13:44 +0200
+
+
+Started GET "/sidekiq/javascripts/dashboard.js" for ::1 at 2015-05-22 14:13:44 +0200
+
+
+Started GET "/sidekiq/" for ::1 at 2015-05-22 14:13:46 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:13:46 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:13:46 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:13:46 +0200
+
+
+Started GET "/sidekiq/javascripts/dashboard.js" for ::1 at 2015-05-22 14:13:46 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:13:46 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 14:13:48 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 14:13:50 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 14:13:52 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 14:13:54 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 14:13:56 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 14:13:59 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 14:14:04 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 14:14:08 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 14:14:17 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 14:14:19 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 14:14:22 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 14:14:34 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 14:14:37 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 14:14:39 +0200
+
+
+Started GET "/sidekiq/" for ::1 at 2015-05-22 14:14:39 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:14:39 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:14:39 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:14:39 +0200
+
+
+Started GET "/sidekiq/javascripts/dashboard.js" for ::1 at 2015-05-22 14:14:39 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:14:39 +0200
+
+
+Started GET "/sidekiq/stats" for ::1 at 2015-05-22 14:14:41 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:14:41 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:14:42 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:14:42 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:14:42 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:14:42 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:14:43 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:14:43 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:14:43 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:14:43 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:14:43 +0200
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 14:14:44 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:14:44 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:14:44 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:14:44 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:14:44 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:14:44 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:14:44 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:14:44 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:14:44 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:14:44 +0200
+
+
+Started GET "/sidekiq/" for ::1 at 2015-05-22 14:14:53 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:14:53 +0200
+
+
+Started GET "/sidekiq/javascripts/dashboard.js" for ::1 at 2015-05-22 14:14:53 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:14:53 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:14:53 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:14:53 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:14:54 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:14:54 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:14:54 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:14:54 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:14:54 +0200
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 14:14:57 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:14:57 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:14:57 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:14:57 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:14:57 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:14:57 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:14:57 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:14:57 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:14:57 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:14:57 +0200
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "annonces" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "titre" varchar, "dateLastAnnonce" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "urlRecherche" varchar) [0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nom" varchar, "prenom" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.6ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150518080924')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150428125423')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150428125900')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150504081245')[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "annonces" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "titre" varchar, "dateLastAnnonce" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "urlRecherche" varchar) 
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nom" varchar, "prenom" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.6ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.6ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.5ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150518080924')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150428125423')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150428125900')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150504081245')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:15:27 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:15:27 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:15:27 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:15:28 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:15:28 +0200
+
+
+Started GET "/sidekiq/" for ::1 at 2015-05-22 14:15:29 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:15:29 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:15:29 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:15:29 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:15:29 +0200
+
+
+Started GET "/sidekiq/javascripts/dashboard.js" for ::1 at 2015-05-22 14:15:29 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:15:30 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:15:30 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:15:30 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:15:30 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:15:30 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:15:32 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:15:32 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:15:32 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:15:32 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:15:32 +0200
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 14:15:33 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:15:33 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:15:33 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:15:33 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:15:33 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:15:33 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:15:33 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:15:33 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:15:33 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:15:33 +0200
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-05-22 14:15:57 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"b5hWgEN+ERhJ88msd7mPnKDjFszJFg4+KcFu4nL+/PuzoHrIo61rAufmqsQsUSt6JPdyJTbqltCKGV4aDFXdcg=="}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 302 Found in 18ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2015-05-22 14:15:57 +0200
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 234ms (Views: 233.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2015-05-22 14:15:59 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (15.9ms)
+Completed 200 OK in 133ms (Views: 124.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2015-05-22 14:16:18 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"V7jx2i6xOTqWnMrzjY9XQf7gTyQPTf5oHzOr4jcEC0mLgN2SzmJDIDiJqZvWZ/OnevQrzfCxZoa865saSa8qwA==", "user"=>{"prenom"=>"baptiste", "nom"=>"lanusse", "email"=>"baptiste.lanusse@y-nov.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'baptiste.lanusse@y-nov.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("nom", "prenom", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["nom", "lanusse"], ["prenom", "baptiste"], ["email", "baptiste.lanusse@y-nov.com"], ["encrypted_password", "$2a$10$rVZD6f1wsgtS3iQ4VAhQlOzHIl4ohmtWDR4w0nByP0MC1C2tnLsgW"], ["created_at", "2015-05-22 12:16:18.294568"], ["updated_at", "2015-05-22 12:16:18.294568"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2015-05-22 12:16:18.311004"], ["current_sign_in_at", "2015-05-22 12:16:18.311004"], ["last_sign_in_ip", "::1"], ["current_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2015-05-22 12:16:18.311917"], ["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 106ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/" for ::1 at 2015-05-22 14:16:18 +0200
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered welcome/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 124ms (Views: 122.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:16:22 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:16:22 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:16:22 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:16:22 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:16:22 +0200
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 14:16:23 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:16:23 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:16:23 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:16:23 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:16:23 +0200
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "annonces" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "titre" varchar, "dateLastAnnonce" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "urlRecherche" varchar) [0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nom" varchar, "prenom" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.5ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.5ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150518080924')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150428125423')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150428125900')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150504081245')[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "annonces" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "titre" varchar, "dateLastAnnonce" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "urlRecherche" varchar) 
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nom" varchar, "prenom" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.5ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.5ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.5ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150518080924')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150428125423')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150428125900')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150504081245')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:17:55 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:17:56 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:17:56 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:17:56 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:17:56 +0200
+
+
+Started GET "/sidekiq/" for ::1 at 2015-05-22 14:17:56 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:17:56 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:17:56 +0200
+
+
+Started GET "/sidekiq/javascripts/dashboard.js" for ::1 at 2015-05-22 14:17:56 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:17:56 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:17:56 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:17:57 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:17:57 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:17:57 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:17:57 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:17:57 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:17:59 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:17:59 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:17:59 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:17:59 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:17:59 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:18:00 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:18:00 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:18:00 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:18:00 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:18:00 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:18:00 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:18:00 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:18:00 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:18:00 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:18:00 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:18:00 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:18:00 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:18:00 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:18:00 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:18:00 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:18:00 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:18:00 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:18:00 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:18:00 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:18:00 +0200
+
+
+Started GET "/sidekiq/" for ::1 at 2015-05-22 14:18:08 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:18:08 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:18:08 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:18:08 +0200
+
+
+Started GET "/sidekiq/javascripts/dashboard.js" for ::1 at 2015-05-22 14:18:08 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:18:08 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:18:09 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:18:09 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:18:09 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:18:09 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:18:09 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:18:10 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:18:10 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:18:10 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:18:10 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:18:10 +0200
+
+
+Started POST "/sidekiq/busy" for ::1 at 2015-05-22 14:18:13 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:18:13 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:18:13 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:18:13 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:18:13 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:18:13 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:18:15 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:18:16 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:18:16 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:18:16 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:18:16 +0200
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-05-22 14:18:22 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"8kZ0Axi7OcdMxgPpNnUY8dvLJIFVOow/rRzD/vBEttIuflhL+GhD3eLTYIFtnbwXX99AaKrGFNEOxPMGju+XWw=="}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 302 Found in 21ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2015-05-22 14:18:22 +0200
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 242ms (Views: 241.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2015-05-22 14:18:24 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (20.4ms)
+Completed 200 OK in 171ms (Views: 158.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2015-05-22 14:19:12 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LI2VbxgGtVQhZlDkGiFBZkJFmigFd5ho/Bp0DZfi92jwtbkn+NXPTo9zM4xByeWAxlH+wfqLAIZfwkT16UnW4Q==", "user"=>{"prenom"=>"baptiste", "nom"=>"lanusse", "email"=>"baptiste.lanusse@y-nov.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'baptiste.lanusse@y-nov.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("nom", "prenom", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["nom", "lanusse"], ["prenom", "baptiste"], ["email", "baptiste.lanusse@y-nov.com"], ["encrypted_password", "$2a$10$FKe5qyLr9qjA/nwRtNr2le94UfO1Is4ZCjlcg8ZzJfOkRoyuR2fxS"], ["created_at", "2015-05-22 12:19:12.715753"], ["updated_at", "2015-05-22 12:19:12.715753"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2015-05-22 12:19:12.724804"], ["current_sign_in_at", "2015-05-22 12:19:12.724804"], ["last_sign_in_ip", "::1"], ["current_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2015-05-22 12:19:12.725433"], ["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 93ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/" for ::1 at 2015-05-22 14:19:12 +0200
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered welcome/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 92ms (Views: 91.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 14:19:16 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:19:16 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:19:16 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:19:16 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:19:16 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:19:17 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:19:17 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:19:17 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:19:17 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:19:17 +0200
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 14:19:18 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:19:18 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:19:18 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:19:18 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:19:18 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:20:15 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:20:15 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:20:15 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:20:15 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:20:15 +0200
+
+
+Started POST "/sidekiq/busy" for ::1 at 2015-05-22 14:20:16 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:20:16 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:20:16 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:20:16 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:20:16 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:20:16 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:20:17 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:20:17 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:20:17 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:20:17 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:20:17 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:20:19 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:20:19 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:20:19 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:20:19 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:20:19 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:20:19 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:20:19 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:20:19 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:20:19 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:20:19 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:20:51 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:20:51 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:20:51 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:20:51 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:20:51 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:20:54 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:20:54 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:20:54 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:20:54 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:20:54 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:20:54 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:20:54 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:20:54 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:20:54 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:20:54 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:20:54 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:20:54 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:20:54 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:20:54 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:20:54 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:20:54 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:20:55 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:20:55 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:20:55 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:20:55 +0200
+
+
+Started GET "/sidekiq/" for ::1 at 2015-05-22 14:20:55 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:20:55 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:20:55 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:20:55 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:20:55 +0200
+
+
+Started GET "/sidekiq/javascripts/dashboard.js" for ::1 at 2015-05-22 14:20:55 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:20:56 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:20:56 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:20:56 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:20:56 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:20:56 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:20:57 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:20:57 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:20:57 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:20:57 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:20:57 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:20:58 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:20:58 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:20:58 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:20:58 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:20:58 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:20:58 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:20:58 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:20:58 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:20:58 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:20:58 +0200
+
+
+Started GET "/sidekiq/busy?poll=true" for ::1 at 2015-05-22 14:21:02 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:21:02 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:21:02 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:21:02 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:21:02 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:21:04 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:21:04 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:21:04 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:21:04 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:21:04 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:21:06 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:21:06 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:21:06 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:21:06 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:21:06 +0200
+
+
+Started GET "/sidekiq/" for ::1 at 2015-05-22 14:21:09 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:21:09 +0200
+
+
+Started GET "/sidekiq/javascripts/dashboard.js" for ::1 at 2015-05-22 14:21:09 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:21:09 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:21:09 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:21:09 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:21:10 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:21:10 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:21:10 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:21:10 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:21:10 +0200
+
+
+Started GET "/sidekiq/" for ::1 at 2015-05-22 14:22:33 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:22:33 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:22:33 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:22:33 +0200
+
+
+Started GET "/sidekiq/javascripts/dashboard.js" for ::1 at 2015-05-22 14:22:33 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:22:33 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:22:33 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:22:33 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:22:33 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:22:33 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:22:33 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:22:41 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:22:41 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:22:41 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:22:41 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:22:41 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:24:39 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:24:40 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:24:40 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:24:40 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:24:40 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:24:57 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:24:57 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:24:57 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:24:57 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:24:57 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:24:57 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:24:57 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:24:57 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:24:57 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:24:57 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:24:57 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:24:57 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:24:57 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:24:57 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:24:57 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:24:58 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:24:58 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:24:58 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:24:58 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:24:58 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:24:58 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:24:58 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:24:58 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:24:58 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:24:58 +0200
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 14:24:59 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:24:59 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:24:59 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:24:59 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:24:59 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:25:00 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:25:00 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:25:00 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:25:00 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:25:00 +0200
+
+
+Started POST "/sidekiq/busy" for ::1 at 2015-05-22 14:27:31 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:27:31 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:27:31 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:27:31 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:27:31 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:27:31 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:27:33 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:27:33 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:27:33 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:27:33 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:27:33 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:27:33 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:27:33 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:27:33 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:27:33 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:27:33 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:27:34 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:27:34 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:27:34 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:27:34 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:27:34 +0200
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered mailer/nouvelleAnnonce.html.erb within layouts/mailer (1.3ms)
+  Rendered mailer/nouvelleAnnonce.text.erb within layouts/mailer (0.3ms)
+
+Mailer#nouvelleAnnonce: processed outbound mail in 142.4ms
+
+Sent mail to baptiste.lanusse@y-nov.com (3076.3ms)
+Date: Fri, 22 May 2015 14:31:05 +0200
+From: LanglePasTropMal@temp.com
+To: baptiste.lanusse@y-nov.com
+Message-ID: <555f2189c2ae6_247d3fff304601f862028@pc6076.home.mail>
+Subject: =?UTF-8?Q?Une_nouvelle_annonce_a_=C3=A9t=C3=A9_post=C3=A9e,_et?=
+ =?UTF-8?Q?_elle_correspond_=C3=A0_l'une_de_vos_recherche?=
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_555f2189c133f_247d3fff304601f86194";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_555f2189c133f_247d3fff304601f86194
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Bonjour, baptiste
+===============================================
+ 
+Une nouvelle annonce est apparue concernant l'une de vos recherches.
+ 
+Merci de vous servir de notre solution!
+
+----==_mimepart_555f2189c133f_247d3fff304601f86194
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Bonjour, baptiste</h1>
+    <p>
+      Une nouvelle annonce est apparue concernant l'une de vos recherches.<br>
+    </p>
+    <p>Merci de vous servir de notre solution!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+----==_mimepart_555f2189c133f_247d3fff304601f86194--
+
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:32:42 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:32:42 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:32:42 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:32:42 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:32:42 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:32:43 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:32:43 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:32:43 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:32:43 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:32:43 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:32:44 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:32:44 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:32:44 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:32:44 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:32:44 +0200
+
+
+Started GET "/sidekiq/busy" for ::1 at 2015-05-22 14:36:11 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:36:11 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:36:11 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:36:11 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:36:11 +0200
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 14:36:12 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:36:12 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:36:12 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:36:12 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:36:12 +0200
+
+
+Started GET "/sidekiq/retries" for ::1 at 2015-05-22 14:36:14 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:36:14 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:36:14 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:36:14 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:36:14 +0200
+
+
+Started GET "/sidekiq/scheduled" for ::1 at 2015-05-22 14:36:14 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:36:14 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:36:14 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:36:14 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:36:14 +0200
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 14:36:15 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:36:15 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:36:15 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:36:15 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:36:15 +0200
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 14:36:17 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:36:17 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:36:17 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:36:17 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:36:17 +0200
+
+
+Started GET "/sidekiq/queues?poll=true" for ::1 at 2015-05-22 14:36:21 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:36:21 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:36:21 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:36:21 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:36:21 +0200
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 14:36:23 +0200
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 14:36:25 +0200
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 14:36:25 +0200
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 14:36:27 +0200
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 14:36:27 +0200
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 14:36:29 +0200
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 14:36:29 +0200
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 14:36:31 +0200
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 14:36:31 +0200
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 14:36:33 +0200
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 14:36:33 +0200
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 14:36:35 +0200
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 14:36:35 +0200
+
+
+Started GET "/sidekiq/queues" for ::1 at 2015-05-22 14:36:36 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for ::1 at 2015-05-22 14:36:36 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for ::1 at 2015-05-22 14:36:36 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for ::1 at 2015-05-22 14:36:36 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for ::1 at 2015-05-22 14:36:36 +0200
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-05-22 14:36:53 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"U2djw6LGo4jsNdACABgH57yc0DaUt4wmtdpgU/+TuVmPX0+LQhXZkkIgs2pb8KMBOIi032tLFMgWAlCrgTiY0A=="}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 12ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2015-05-22 14:36:53 +0200
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 92ms (Views: 91.1ms | ActiveRecord: 0.0ms)

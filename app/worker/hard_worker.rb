@@ -4,6 +4,7 @@ require 'open-uri'
 
 class HardWorker
   include Sidekiq::Worker
+  sidekiq_options :queue => :default
 
   def perform(url)
   	
@@ -17,6 +18,8 @@ class HardWorker
 	   # Vérifier si l'annonce la plus récente date d'aujourd'hui
 
 	   puts offres.first.css('.date').text.include? "Aujourd'hui"
+
+     Mailer.nouvelleAnnonce(User.first)
 
   end
 end
