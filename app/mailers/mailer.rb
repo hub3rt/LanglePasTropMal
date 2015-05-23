@@ -7,8 +7,9 @@ class Mailer < ActionMailer::Base
          subject: 'Welcome to our site')
   end
 
-  def nouvelleAnnonce(user)
+  def nouvelleAnnonce(user, url)
   	@user = user
+    @url = url
   	mail(to: @user.email,
   		subject: 'Une nouvelle annonce a été postée, et elle correspond à l\'une de vos recherche')
   end

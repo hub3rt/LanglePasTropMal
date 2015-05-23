@@ -10,4 +10,8 @@ class Annonce < ActiveRecord::Base
 		end
 	end
 
+	def maj_date_last_annonce(date)
+		self.dateLastAnnonce = date
+	end
+
 end
