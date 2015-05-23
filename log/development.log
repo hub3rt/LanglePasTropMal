@@ -27785,3 +27785,270 @@ Started GET "/sidekiq/javascripts/locales/jquery.timeago.fr.js" for 127.0.0.1 at
 
 
 Started GET "/sidekiq/images/status-sd8051fd480.png" for 127.0.0.1 at 2015-05-23 15:14:25 +0200
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mAnnonce Load (0.2ms)[0m  [1mSELECT "annonces".* FROM "annonces" WHERE "annonces"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mSQL (13.3ms)[0m  UPDATE "annonces" SET "dateLastAnnonce" = '2015-05-23 13:15:16.688177' WHERE "annonces"."id" = ?  [["id", 1]]
+  Rendered mailer/nouvelleAnnonce.html.erb within layouts/mailer (0.4ms)
+  Rendered mailer/nouvelleAnnonce.text.erb within layouts/mailer (0.2ms)
+
+Mailer#nouvelleAnnonce: processed outbound mail in 149.9ms
+
+Sent mail to baptiste.lanusse@y-nov.com (2143.6ms)
+Date: Sat, 23 May 2015 15:15:16 +0200
+From: LanglePasTropMal@temp.com
+To: baptiste.lanusse@y-nov.com
+Message-ID: <55607d64d1015_6db83fe1dc066870239b1@baptiste-HP-Pavilion-17-Notebook-PC.mail>
+Subject: =?UTF-8?Q?Une_nouvelle_annonce_a_=C3=A9t=C3=A9_post=C3=A9e,_et?=
+ =?UTF-8?Q?_elle_correspond_=C3=A0_l'une_de_vos_recherche?=
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_55607d64cff34_6db83fe1dc06687023876";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_55607d64cff34_6db83fe1dc06687023876
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Bonjour, Baptiste
+===============================================
+ 
+Une nouvelle annonce est apparue concernant l'une de vos recherches.
+ 
+http://www.leboncoin.fr/voitures/offres/aquitaine/?f=a&th=1&q=&location=
+
+Merci de vous servir de notre solution!
+
+----==_mimepart_55607d64cff34_6db83fe1dc06687023876
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Bonjour, Baptiste</h1>
+    <p>
+      Une nouvelle annonce est apparue concernant l'une de vos recherches.<br>
+    </p>
+    <a href="http://www.leboncoin.fr/voitures/offres/aquitaine/?f=a&amp;th=1&amp;q=&amp;location=">Cliquez ici</a>
+    <p>Merci de vous servir de notre solution!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+----==_mimepart_55607d64cff34_6db83fe1dc06687023876--
+
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mAnnonce Load (0.2ms)[0m  SELECT "annonces".* FROM "annonces" WHERE "annonces"."user_id" = ?  [["user_id", 1]]
+  [1m[36mSQL (12.9ms)[0m  [1mUPDATE "annonces" SET "dateLastAnnonce" = '2015-05-23 13:16:06.207533' WHERE "annonces"."id" = ?[0m  [["id", 1]]
+  Rendered mailer/nouvelleAnnonce.html.erb within layouts/mailer (0.1ms)
+  Rendered mailer/nouvelleAnnonce.text.erb within layouts/mailer (0.0ms)
+
+Mailer#nouvelleAnnonce: processed outbound mail in 6.6ms
+
+Sent mail to baptiste.lanusse@y-nov.com (2182.0ms)
+Date: Sat, 23 May 2015 15:16:06 +0200
+From: LanglePasTropMal@temp.com
+To: baptiste.lanusse@y-nov.com
+Message-ID: <55607d9637dcd_6db83fe1dc0668702414e@baptiste-HP-Pavilion-17-Notebook-PC.mail>
+Subject: =?UTF-8?Q?Une_nouvelle_annonce_a_=C3=A9t=C3=A9_post=C3=A9e,_et?=
+ =?UTF-8?Q?_elle_correspond_=C3=A0_l'une_de_vos_recherche?=
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_55607d9637515_6db83fe1dc0668702406f";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_55607d9637515_6db83fe1dc0668702406f
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Bonjour, Baptiste
+===============================================
+ 
+Une nouvelle annonce est apparue concernant l'une de vos recherches.
+ 
+http://www.leboncoin.fr/voitures/offres/aquitaine/?f=a&th=1&q=&location=
+
+Merci de vous servir de notre solution!
+
+----==_mimepart_55607d9637515_6db83fe1dc0668702406f
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Bonjour, Baptiste</h1>
+    <p>
+      Une nouvelle annonce est apparue concernant l'une de vos recherches.<br>
+    </p>
+    <a href="http://www.leboncoin.fr/voitures/offres/aquitaine/?f=a&amp;th=1&amp;q=&amp;location=">Cliquez ici</a>
+    <p>Merci de vous servir de notre solution!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+----==_mimepart_55607d9637515_6db83fe1dc0668702406f--
+
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mAnnonce Load (0.1ms)[0m  [1mSELECT "annonces".* FROM "annonces" WHERE "annonces"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mSQL (12.9ms)[0m  UPDATE "annonces" SET "dateLastAnnonce" = '2015-05-23 13:17:06.069624' WHERE "annonces"."id" = ?  [["id", 1]]
+  Rendered mailer/nouvelleAnnonce.html.erb within layouts/mailer (0.1ms)
+  Rendered mailer/nouvelleAnnonce.text.erb within layouts/mailer (0.0ms)
+
+Mailer#nouvelleAnnonce: processed outbound mail in 12.1ms
+
+Sent mail to baptiste.lanusse@y-nov.com (2223.0ms)
+Date: Sat, 23 May 2015 15:17:06 +0200
+From: LanglePasTropMal@temp.com
+To: baptiste.lanusse@y-nov.com
+Message-ID: <55607dd217d8b_6db83fe1dc0668702436@baptiste-HP-Pavilion-17-Notebook-PC.mail>
+Subject: =?UTF-8?Q?Une_nouvelle_annonce_a_=C3=A9t=C3=A9_post=C3=A9e,_et?=
+ =?UTF-8?Q?_elle_correspond_=C3=A0_l'une_de_vos_recherche?=
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_55607dd216599_6db83fe1dc066870242a0";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_55607dd216599_6db83fe1dc066870242a0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Bonjour, Baptiste
+===============================================
+ 
+Une nouvelle annonce est apparue concernant l'une de vos recherches.
+ 
+http://www.leboncoin.fr/voitures/offres/aquitaine/?f=a&th=1&q=&location=
+
+Merci de vous servir de notre solution!
+
+----==_mimepart_55607dd216599_6db83fe1dc066870242a0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Bonjour, Baptiste</h1>
+    <p>
+      Une nouvelle annonce est apparue concernant l'une de vos recherches.<br>
+    </p>
+    <a href="http://www.leboncoin.fr/voitures/offres/aquitaine/?f=a&amp;th=1&amp;q=&amp;location=">Cliquez ici</a>
+    <p>Merci de vous servir de notre solution!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+----==_mimepart_55607dd216599_6db83fe1dc066870242a0--
+
+
+
+Started GET "/sidekiq" for 127.0.0.1 at 2015-05-23 15:17:11 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for 127.0.0.1 at 2015-05-23 15:17:11 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.fr.js" for 127.0.0.1 at 2015-05-23 15:17:11 +0200
+
+
+Started GET "/sidekiq/javascripts/dashboard.js" for 127.0.0.1 at 2015-05-23 15:17:11 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for 127.0.0.1 at 2015-05-23 15:17:11 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for 127.0.0.1 at 2015-05-23 15:17:11 +0200
+
+
+Started GET "/sidekiq/images/status-sd8051fd480.png" for 127.0.0.1 at 2015-05-23 15:17:11 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-23 15:17:13 +0200
+
+
+Started GET "/sidekiq/busy" for 127.0.0.1 at 2015-05-23 15:17:14 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for 127.0.0.1 at 2015-05-23 15:17:15 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for 127.0.0.1 at 2015-05-23 15:17:15 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.fr.js" for 127.0.0.1 at 2015-05-23 15:17:15 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for 127.0.0.1 at 2015-05-23 15:17:15 +0200
+
+
+Started GET "/sidekiq/images/status-sd8051fd480.png" for 127.0.0.1 at 2015-05-23 15:17:15 +0200
+
+
+Started POST "/sidekiq/busy" for 127.0.0.1 at 2015-05-23 15:17:17 +0200
+
+
+Started GET "/sidekiq/busy" for 127.0.0.1 at 2015-05-23 15:17:17 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for 127.0.0.1 at 2015-05-23 15:17:17 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for 127.0.0.1 at 2015-05-23 15:17:17 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for 127.0.0.1 at 2015-05-23 15:17:17 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.fr.js" for 127.0.0.1 at 2015-05-23 15:17:17 +0200
+
+
+Started GET "/sidekiq/images/status-sd8051fd480.png" for 127.0.0.1 at 2015-05-23 15:17:17 +0200
+
+
+Started GET "/sidekiq/busy" for 127.0.0.1 at 2015-05-23 15:17:20 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for 127.0.0.1 at 2015-05-23 15:17:20 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for 127.0.0.1 at 2015-05-23 15:17:20 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for 127.0.0.1 at 2015-05-23 15:17:20 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.fr.js" for 127.0.0.1 at 2015-05-23 15:17:20 +0200
+
+
+Started GET "/sidekiq/images/status-sd8051fd480.png" for 127.0.0.1 at 2015-05-23 15:17:20 +0200
