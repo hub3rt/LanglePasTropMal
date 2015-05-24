@@ -30420,3 +30420,63 @@ Processing by WelcomeController#index as HTML
   [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
   Rendered welcome/index.html.erb within layouts/application (1.0ms)
 Completed 200 OK in 87ms (Views: 86.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/annonces" for ::1 at 2015-05-24 21:31:42 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mAnnonce Load (0.1ms)[0m  SELECT "annonces".* FROM "annonces" WHERE "annonces"."user_id" = ?  [["user_id", 2]]
+  Rendered annonces/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 80ms (Views: 79.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/annonces" for ::1 at 2015-05-24 21:34:08 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mAnnonce Load (0.1ms)[0m  SELECT "annonces".* FROM "annonces" WHERE "annonces"."user_id" = ?  [["user_id", 2]]
+  Rendered annonces/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 106ms (Views: 105.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/annonces" for ::1 at 2015-05-24 21:35:44 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mAnnonce Load (0.0ms)[0m  SELECT "annonces".* FROM "annonces" WHERE "annonces"."user_id" = ?  [["user_id", 2]]
+  Rendered annonces/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 93ms (Views: 92.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/annonces/new" for ::1 at 2015-05-24 21:35:55 +0200
+Processing by AnnoncesController#new as HTML
+  Rendered annonces/_form.html.erb (5.1ms)
+  Rendered annonces/new.html.erb within layouts/application (6.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 97ms (Views: 95.9ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/annonces" for ::1 at 2015-05-24 21:36:30 +0200
+Processing by AnnoncesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+fa80yelD9Mxa2FdsiitB5pGY95t/HKb43DrlCaqvMF9MmEOPRewcy3SHrQWMqsSHoYDDkuFPqXePwZPHVaSRw==", "annonce"=>{"titre"=>"Voiture Peugeot"}, "terme"=>"Peugeot", "typeProduit"=>"Voitures", "region"=>"Aquitaine", "codePostal"=>"64000", "commit"=>"Create Annonce"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "annonces" ("titre", "urlRecherche", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["titre", "Voiture Peugeot"], ["urlRecherche", "http://www.leboncoin.fr/voitures/offres/aquitaine/?f=a&th=1&q=peugeot&location=64000"], ["user_id", 2], ["created_at", "2015-05-24 19:36:30.562072"], ["updated_at", "2015-05-24 19:36:30.562072"]]
+  [1m[36m (28.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/annonces/2
+Completed 302 Found in 34ms (ActiveRecord: 29.3ms)
+
+
+Started GET "/annonces/2" for ::1 at 2015-05-24 21:36:30 +0200
+Processing by AnnoncesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mAnnonce Load (0.2ms)[0m  SELECT  "annonces".* FROM "annonces" WHERE "annonces"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered annonces/show.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 96ms (Views: 92.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/annonces" for ::1 at 2015-05-24 21:36:35 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mAnnonce Load (0.1ms)[0m  [1mSELECT "annonces".* FROM "annonces" WHERE "annonces"."user_id" = ?[0m  [["user_id", 2]]
+  Rendered annonces/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 92ms (Views: 91.0ms | ActiveRecord: 0.2ms)
