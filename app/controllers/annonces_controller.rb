@@ -31,7 +31,8 @@ class AnnoncesController < ApplicationController
     @url = "http://www.leboncoin.fr/#{@typeProduit.downcase}/offres/#{@region.downcase}/?f=a&th=1&q=#{@terme.downcase}&location=#{@codePostal}"
     @newAnnonce = {
       :titre => params["annonce"]["titre"],
-      :urlRecherche => @url
+      :urlRecherche => @url,
+      user_id: current_user.id
     }
     @annonce = Annonce.new(@newAnnonce)
     if (Annonce.validate_zip_code(@codePostal))

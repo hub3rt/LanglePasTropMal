@@ -4,6 +4,13 @@ class Mailer < ActionMailer::Base
   def welcome(user)
     @user = user
     mail(to: @user.email,
-         subject: 'First test mail')
+         subject: 'Welcome to our site')
+  end
+
+  def nouvelleAnnonce(user, url)
+  	@user = user
+    @url = url
+  	mail(to: @user.email,
+  		subject: 'Une nouvelle annonce a été postée, et elle correspond à l\'une de vos recherche')
   end
 end

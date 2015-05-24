@@ -7,7 +7,7 @@ Rails.application.configure do
   config.cache_classes = false
 
   # Do not eager load code on boot.
-  config.eager_load = false
+  config.eager_load = true
 
   # Config Devise
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
@@ -46,6 +46,22 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
 
+  # config.action_mailer.smtp_settings = {
+  # :user_name => '3560603c5aa82db2a',
+  # :password => '4f30c35f111bc7',
+  # :address => 'mailtrap.io',
+  # :domain => 'mailtrap.io',
+  # :port => '2525',
+  # :authentication => :cram_md5
+  # }
 
-  
+  config.action_mailer.smtp_settings = {
+  :user_name => 'babebenesse@gmail.com',
+  :password => 'jeplopdu42|',
+  :address => 'smtp.gmail.com',
+  :domain => 'gmail.com',
+  :port => '587',
+  :authentication => 'plain',
+  enable_starttls_auto: true
+  }
 end
