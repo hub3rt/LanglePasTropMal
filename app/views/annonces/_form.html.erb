@@ -2,7 +2,7 @@
 <%= form_for(@annonce) do |f| %>
   <% if @annonce.errors.any? %>
     <div id="error_explanation" >
-      <h2><%= pluralize(@annonce.errors.count, "error") %> prohibited this annonce from being saved:</h2>
+      <h3><%= pluralize(@annonce.errors.count, "error") %> prohibited this annonce from being saved:</h3>
 
       <ul>
       <% @annonce.errors.full_messages.each do |message| %>
