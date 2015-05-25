@@ -19,7 +19,7 @@
         <td><%= annonce.urlRecherche %></td>
         <td><%= link_to '<button class="btn btn-default">Voir</button>'.html_safe, annonce %></td>
         <td><%= link_to '<button class="btn btn-default">Editer</button>'.html_safe, edit_annonce_path(annonce) %></td>
-        <td><%= link_to '<button class="btn btn-default">Supprimer</button>'.html_safe, annonce, method: :delete, data: { confirm: 'EÊtes-vous sur(e) ?' } %></td>
+        <td><%= link_to '<button class="btn btn-default">Supprimer</button>'.html_safe, annonce, method: :delete, data: { confirm: 'Êtes-vous sur(e) ?' } %></td>
       </tr>
     <% end %>
   </tbody>
