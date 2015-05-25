@@ -16,7 +16,7 @@
 
         <div>
           <% if user_signed_in? %>
-            Bienvenu <strong><%= current_user.prenom %></strong>.
+            Bienvenue <strong><%= current_user.prenom %></strong>.
             <button class="btn btn-default"><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></button>
             <button class="btn btn-default"><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></button>
           <% else %>
