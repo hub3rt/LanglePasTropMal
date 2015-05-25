@@ -1,4 +1,4 @@
-<h3>Sign up</h3>
+<h3>Création de compte</h3>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -32,7 +32,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Envoyer", :class => 'btn btn-default' %>
   </div>
 <% end %>
 

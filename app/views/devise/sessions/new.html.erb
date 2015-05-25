@@ -1,5 +1,5 @@
 <div class="text-center">
-<h3>Log in</h3>
+<h3>Connexion</h3>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
@@ -20,7 +20,7 @@
   <% end -%>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit :class => 'btn btn-default', "Connexion"%>
   </div>
 <% end %>
 

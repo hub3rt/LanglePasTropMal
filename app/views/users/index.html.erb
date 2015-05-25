@@ -1,7 +1,7 @@
 
 <p id="notice"><%= notice %></p>
 
-<div class='form-group col-md-offset-1'><h3>Listing Users</h3></div>
+<div class='form-group col-md-offset-1'><h3>Liste des utilisateurs</h3></div>
 <div class="row" style="text-align=center">
 <table class="table-hover col-md-8 col-md-offset-2">
   <thead>
@@ -17,9 +17,9 @@
       <tr>
         <td><%= user.nom %></td>
         <td><%= user.prenom %></td>
-        <td><%= link_to '<button class="btn btn-default">Show</button>'.html_safe, user %></td>
-        <td><%= link_to '<button class="btn btn-default">Edit</button>'.html_safe, edit_user_path(user) %></td>
-        <td><%= link_to '<button class="btn btn-default">Destroy</button>'.html_safe, user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '<button class="btn btn-default">Voir</button>'.html_safe, user %></td>
+        <td><%= link_to '<button class="btn btn-default">Editer</button>'.html_safe, edit_user_path(user) %></td>
+        <td><%= link_to '<button class="btn btn-default">Supprimer</button>'.html_safe, user, method: :delete, data: { confirm: 'Êtes-vous sur(e) ?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -27,5 +27,5 @@
 </div>
 <br />
 <div>
-<%= link_to '<button class="col-md-offset-1 btn btn-default">New User</button>'.html_safe, new_user_path %>
+<%= link_to '<button class="col-md-offset-1 btn btn-default">Nouvel utilisateur</button>'.html_safe, new_user_path %>
 </div>
