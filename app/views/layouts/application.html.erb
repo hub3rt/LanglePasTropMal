@@ -10,10 +10,21 @@
 
 <div class="container">
   <div class="row">
-  <div class="col-md-8 col-md-offset-2">
+  <div zclass="col-md-8 col-md-offset-2">
      <div class="text-center">
        <h2>L'angle Pas Trop Mal<small> par Baptiste Lanusse & Jérémie Lecornu</small></h2>
-
+        <div class="row">
+          
+          <% if notice %>
+            <p class="alert alert-success"><%= notice %></p>
+          <% end %>
+          <% if alert %>
+            <p class="alert alert-danger"><%= alert %></p>
+          <% end %>
+          <% if flash[:error] %>
+            <p class="alert alert-danger"><%= flash[:error] %></p>
+          <% end %>
+        </div>
         <div>
           <% if user_signed_in? %>
             Bienvenue <strong><%= current_user.prenom %></strong>.
@@ -27,15 +38,6 @@
             </div>
           <% end %>
 
-          <% if notice %>
-            <p class="alert alert-success"><%= notice %></p>
-          <% end %>
-          <% if alert %>
-            <p class="alert alert-danger"><%= alert %></p>
-          <% end %>
-          <% if flash[:error] %>
-            <p class="alert alert-danger"><%= flash[:error] %></p>
-          <% end %>
         </div>
     </div>
     

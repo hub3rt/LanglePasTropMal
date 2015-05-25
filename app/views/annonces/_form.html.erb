@@ -1,5 +1,7 @@
 
-<%= form_for(@annonce) do |f| %>
+<% modal ||= false %>
+<% remote = modal ? true : false %>
+<%= form_for(@annonce, remote: remote, html: {role: :form, 'data-model' => 'annonce'}) do |f| %>
   <% if @annonce.errors.any? %>
     <div id="error_explanation" >
       <h3><%= pluralize(@annonce.errors.count, "error") %> prohibited this annonce from being saved:</h3>
