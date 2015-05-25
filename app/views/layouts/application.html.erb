@@ -16,13 +16,15 @@
 
         <div>
           <% if user_signed_in? %>
-            Logged in as <strong><%= current_user.email %></strong>.
-            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+            Bienvenu <strong><%= current_user.prenom %></strong>.
+            <button class="btn btn-default"><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></button>
+            <button class="btn btn-default"><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></button>
           <% else %>
             <div>Veuillez vous identifier ou créer un compte pour accéder aux fonctionnalités du site.</div>
-            <div><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-            <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></div>
+            <div>
+            <button class="btn btn-default"><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></button>
+            <button class="btn btn-default"><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></button>
+            </div>
           <% end %>
 
           <% if notice %>
@@ -39,9 +41,11 @@
     
   </div>
   </div>
-  <div class="text-muted">
-    <div class="text-left">    
-      <%= yield %>
+  <div class="row">
+    <div class="text-muted">
+      <div class="text-left">    
+        <%= yield %>
+      </div>
     </div>
   </div>
 </div>
