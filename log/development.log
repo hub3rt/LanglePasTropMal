@@ -35640,3 +35640,1737 @@ Processing by WelcomeController#index as HTML
   [1m[35mAnnonce Load (0.1ms)[0m  SELECT "annonces".* FROM "annonces" WHERE "annonces"."user_id" = ?  [["user_id", 2]]
   Rendered annonces/index.html.erb within layouts/application (1.1ms)
 Completed 200 OK in 98ms (Views: 96.4ms | ActiveRecord: 0.2ms)
+  [1m[36m (17.4ms)[0m  [1mCREATE TABLE "annonces" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "titre" varchar, "dateLastAnnonce" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "urlRecherche" varchar, "user_id" integer) [0m
+  [1m[35m (9.6ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nom" varchar, "prenom" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (9.6ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (10.2ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (10.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (10.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (10.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150522205026')
+  [1m[36m (10.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150428125423')[0m
+  [1m[35m (8.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150518080924')
+  [1m[36m (10.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150504081245')[0m
+  [1m[35m (8.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150428125900')
+  [1m[36m (10.1ms)[0m  [1mCREATE TABLE "annonces" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "titre" varchar, "dateLastAnnonce" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "urlRecherche" varchar, "user_id" integer) [0m
+  [1m[35m (9.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nom" varchar, "prenom" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (10.2ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (10.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (11.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (11.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (10.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150522205026')
+  [1m[36m (10.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150428125423')[0m
+  [1m[35m (10.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150518080924')
+  [1m[36m (8.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150504081245')[0m
+  [1m[35m (10.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150428125900')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-26 13:27:18 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 4274ms (Views: 4264.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-a5ee862b0b376d8be776befe9b4093d50596e953b7085d944351d1340cbc9489.css?body=1" for 127.0.0.1 at 2015-05-26 13:27:22 +0200
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-05-26 13:27:27 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 119ms (Views: 107.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2015-05-26 13:27:40 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kSHg1SI5mDgZgvx5u4vxhgsoBoDrPg10jrPeJdq+G7UatXPzT/UpfKWSkkfmePtif3brv30kjzYznutiT3ADyw==", "user"=>{"prenom"=>"Baptiste", "nom"=>"Lanusse", "email"=>"baptiste.lanusse@y-nov.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Créer mon compte"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'baptiste.lanusse@y-nov.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("nom", "prenom", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["nom", "Lanusse"], ["prenom", "Baptiste"], ["email", "baptiste.lanusse@y-nov.com"], ["encrypted_password", "$2a$10$9hJcccrnJu9SL13BwrTdz.1YapC1An0hZ1owiALwMA3ZLDo1KQsxy"], ["created_at", "2015-05-26 11:27:40.456603"], ["updated_at", "2015-05-26 11:27:40.456603"]]
+  Rendered mailer/welcome.html.erb within layouts/mailer (0.3ms)
+  Rendered mailer/welcome.text.erb within layouts/mailer (0.2ms)
+
+Mailer#welcome: processed outbound mail in 186.9ms
+
+Sent mail to baptiste.lanusse@y-nov.com (4456.4ms)
+Date: Tue, 26 May 2015 13:27:40 +0200
+From: LanglePasTropMal@temp.com
+To: baptiste.lanusse@y-nov.com
+Message-ID: <556458aca830c_f213fb3cfe69ac095193@baptiste-HP-Pavilion-17-Notebook-PC.mail>
+Subject: Welcome to our site
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_556458aca3888_f213fb3cfe69ac0950a4";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_556458aca3888_f213fb3cfe69ac0950a4
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to LanglePasTropMal, Baptiste
+===============================================
+ 
+You have successfully signed up to LanglePasTropMal.
+ 
+Thanks for joining and have a great day!
+
+----==_mimepart_556458aca3888_f213fb3cfe69ac0950a4
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to LanglePasTropMal, Baptiste</h1>
+    <p>
+      You have successfully signed up to LanglePasTropMal.<br>
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+----==_mimepart_556458aca3888_f213fb3cfe69ac0950a4--
+
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (35.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2015-05-26 11:27:45.168814"], ["current_sign_in_at", "2015-05-26 11:27:45.168814"], ["last_sign_in_ip", "127.0.0.1"], ["current_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2015-05-26 11:27:45.169454"], ["id", 1]]
+  [1m[36m (37.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 4839ms (ActiveRecord: 74.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-26 13:27:45 +0200
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mAnnonce Load (0.1ms)[0m  [1mSELECT "annonces".* FROM "annonces" WHERE "annonces"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered annonces/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 123ms (Views: 121.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2015-05-26 13:28:24 +0200
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered devise/registrations/edit.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 84ms (Views: 82.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-26 13:28:29 +0200
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mAnnonce Load (0.0ms)[0m  SELECT "annonces".* FROM "annonces" WHERE "annonces"."user_id" = ?  [["user_id", 1]]
+  Rendered annonces/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 79ms (Views: 78.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/annonces/new" for 127.0.0.1 at 2015-05-26 13:28:32 +0200
+Processing by AnnoncesController#new as HTML
+  Rendered annonces/_form.html.erb (3.5ms)
+  Rendered annonces/new.html.erb within layouts/application (4.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 66ms (Views: 62.7ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/annonces" for 127.0.0.1 at 2015-05-26 13:28:48 +0200
+Processing by AnnoncesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qZon4Shf0VptsF6Je/vm0HDiM7spAU8f2Nnlbggb01YiDrTHRZNgHtGgMLcmCOw0BLzehL8bzV1l9NApndXLKA==", "annonce"=>{"titre"=>"Peugeot Aquitaine 33000"}, "terme"=>"peugeot", "typeProduit"=>"Voitures", "region"=>"Aquitaine", "codePostal"=>"33300", "commit"=>"Créer"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "annonces" ("titre", "urlRecherche", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["titre", "Peugeot Aquitaine 33000"], ["urlRecherche", "http://www.leboncoin.fr/voitures/offres/aquitaine/?f=a&th=1&q=peugeot&location=33300"], ["user_id", 1], ["created_at", "2015-05-26 11:28:48.720465"], ["updated_at", "2015-05-26 11:28:48.720465"]]
+  [1m[36m (10.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/annonces/1
+Completed 302 Found in 15ms (ActiveRecord: 10.7ms)
+
+
+Started GET "/annonces/1" for 127.0.0.1 at 2015-05-26 13:28:48 +0200
+Processing by AnnoncesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mAnnonce Load (0.1ms)[0m  SELECT  "annonces".* FROM "annonces" WHERE "annonces"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered annonces/show.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 91ms (Views: 76.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-26 13:29:16 +0200
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mAnnonce Load (0.1ms)[0m  [1mSELECT "annonces".* FROM "annonces" WHERE "annonces"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered annonces/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 97ms (Views: 95.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/sidekiq" for 127.0.0.1 at 2015-05-26 13:29:20 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for 127.0.0.1 at 2015-05-26 13:29:21 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for 127.0.0.1 at 2015-05-26 13:29:21 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for 127.0.0.1 at 2015-05-26 13:29:21 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.fr.js" for 127.0.0.1 at 2015-05-26 13:29:21 +0200
+
+
+Started GET "/sidekiq/javascripts/dashboard.js" for 127.0.0.1 at 2015-05-26 13:29:21 +0200
+
+
+Started GET "/sidekiq/images/status-sd8051fd480.png" for 127.0.0.1 at 2015-05-26 13:29:21 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:29:23 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:29:25 +0200
+  [1m[36m (8.9ms)[0m  [1mCREATE TABLE "annonces" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "titre" varchar, "dateLastAnnonce" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "urlRecherche" varchar, "user_id" integer) [0m
+  [1m[35m (9.8ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nom" varchar, "prenom" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar) 
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (10.9ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (10.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (11.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (11.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (11.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150522205026')
+  [1m[36m (10.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150428125423')[0m
+  [1m[35m (11.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150518080924')
+  [1m[36m (8.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150504081245')[0m
+  [1m[35m (10.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150428125900')
+  [1m[36m (10.0ms)[0m  [1mCREATE TABLE "annonces" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "titre" varchar, "dateLastAnnonce" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "urlRecherche" varchar, "user_id" integer) [0m
+  [1m[35m (10.1ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nom" varchar, "prenom" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (9.8ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (9.8ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (12.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (11.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (11.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150522205026')
+  [1m[36m (8.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150428125423')[0m
+  [1m[35m (10.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150518080924')
+  [1m[36m (10.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150504081245')[0m
+  [1m[35m (10.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150428125900')
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:29:37 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:29:39 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:29:41 +0200
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:29:43 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:29:45 +0200
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2015-05-26 13:29:46 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"WXwXYS798A2TU11JtT/UtEOCGr0TKuc7qVp9NL5ltUvS6IRHQzFBSS9DM3fozN5QN9z3goUwZXkUd0hzK6utNQ=="}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 302 Found in 17ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-26 13:29:46 +0200
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 256ms (Views: 253.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:29:47 +0200
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-05-26 13:29:47 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 116ms (Views: 109.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:29:49 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:29:51 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:29:53 +0200
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:29:55 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:29:57 +0200
+
+
+Started POST "/users" for 127.0.0.1 at 2015-05-26 13:29:58 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6YxU6kZnoSLFAJOFntbBTj3LrQgHQJtaZ9gsX92oPtJiGMfMK6sQZnkQ/bvDJcuqSZVAN5FaGRja9RkYSGYmrA==", "user"=>{"prenom"=>"Baptiste", "nom"=>"Lanusse", "email"=>"baptiste.lanusse@y-nov.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Créer mon compte"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'baptiste.lanusse@y-nov.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("nom", "prenom", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["nom", "Lanusse"], ["prenom", "Baptiste"], ["email", "baptiste.lanusse@y-nov.com"], ["encrypted_password", "$2a$10$E15g57dSsmIgw8sL6hNY1.JarVmDex2/estLZquXqtlAnB.YSOCDO"], ["created_at", "2015-05-26 11:29:58.960812"], ["updated_at", "2015-05-26 11:29:58.960812"]]
+  Rendered mailer/welcome.html.erb within layouts/mailer (0.3ms)
+  Rendered mailer/welcome.text.erb within layouts/mailer (0.2ms)
+
+Mailer#welcome: processed outbound mail in 130.7ms
+
+Sent mail to baptiste.lanusse@y-nov.com (2821.0ms)
+Date: Tue, 26 May 2015 13:29:59 +0200
+From: LanglePasTropMal@temp.com
+To: baptiste.lanusse@y-nov.com
+Message-ID: <556459371807f_10633fa3cc53c2a82879c@baptiste-HP-Pavilion-17-Notebook-PC.mail>
+Subject: Welcome to our site
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_55645937168bd_10633fa3cc53c2a8286de";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_55645937168bd_10633fa3cc53c2a8286de
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to LanglePasTropMal, Baptiste
+===============================================
+ 
+You have successfully signed up to LanglePasTropMal.
+ 
+Thanks for joining and have a great day!
+
+----==_mimepart_55645937168bd_10633fa3cc53c2a8286de
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to LanglePasTropMal, Baptiste</h1>
+    <p>
+      You have successfully signed up to LanglePasTropMal.<br>
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+----==_mimepart_55645937168bd_10633fa3cc53c2a8286de--
+
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[36m (11.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2015-05-26 11:30:01.936112"], ["current_sign_in_at", "2015-05-26 11:30:01.936112"], ["last_sign_in_ip", "127.0.0.1"], ["current_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2015-05-26 11:30:01.936661"], ["id", 1]]
+  [1m[35m (9.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 3066ms (ActiveRecord: 21.7ms)
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:30:01 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-26 13:30:01 +0200
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mAnnonce Load (0.2ms)[0m  SELECT "annonces".* FROM "annonces" WHERE "annonces"."user_id" = ?  [["user_id", 1]]
+  Rendered annonces/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 75ms (Views: 69.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:30:02 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:30:03 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:30:05 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:30:07 +0200
+
+
+Started GET "/annonces/new" for 127.0.0.1 at 2015-05-26 13:30:09 +0200
+Processing by AnnoncesController#new as HTML
+  Rendered annonces/_form.html.erb (3.4ms)
+  Rendered annonces/new.html.erb within layouts/application (4.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 91ms (Views: 88.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:30:09 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:30:11 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:30:13 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:30:15 +0200
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mAnnonce Load (0.2ms)[0m  [1mSELECT "annonces".* FROM "annonces" WHERE "annonces"."user_id" = ?[0m  [["user_id", 1]]
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:30:17 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:30:19 +0200
+
+
+Started POST "/annonces" for 127.0.0.1 at 2015-05-26 13:30:19 +0200
+Processing by AnnoncesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UmeSn49YCniPxp0dhdJj2cU2vf0ss14+02WYxZIlFTnZ8wG54pS7PDPW8yPYIWk9sWhQwrqp3HxuSK2CB+sNRw==", "annonce"=>{"titre"=>"Peugeot Aquitaine 33000"}, "terme"=>"peugeot", "typeProduit"=>"Voitures", "region"=>"Aquitaine", "codePostal"=>"33300", "commit"=>"Créer"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "annonces" ("titre", "urlRecherche", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["titre", "Peugeot Aquitaine 33000"], ["urlRecherche", "http://www.leboncoin.fr/voitures/offres/aquitaine/?f=a&th=1&q=peugeot&location=33300"], ["user_id", 1], ["created_at", "2015-05-26 11:30:19.880554"], ["updated_at", "2015-05-26 11:30:19.880554"]]
+  [1m[36m (10.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/annonces/1
+Completed 302 Found in 14ms (ActiveRecord: 10.6ms)
+
+
+Started GET "/annonces/1" for 127.0.0.1 at 2015-05-26 13:30:19 +0200
+Processing by AnnoncesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mAnnonce Load (0.3ms)[0m  SELECT  "annonces".* FROM "annonces" WHERE "annonces"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered annonces/show.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 75ms (Views: 71.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:30:21 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:30:23 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:30:25 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:30:27 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:30:29 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:30:31 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:30:33 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:30:35 +0200
+
+
+Started GET "/sidekiq" for 127.0.0.1 at 2015-05-26 13:30:55 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for 127.0.0.1 at 2015-05-26 13:30:56 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for 127.0.0.1 at 2015-05-26 13:30:56 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.fr.js" for 127.0.0.1 at 2015-05-26 13:30:56 +0200
+
+
+Started GET "/sidekiq/javascripts/dashboard.js" for 127.0.0.1 at 2015-05-26 13:30:56 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for 127.0.0.1 at 2015-05-26 13:30:56 +0200
+
+
+Started GET "/sidekiq/images/status-sd8051fd480.png" for 127.0.0.1 at 2015-05-26 13:30:56 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:30:58 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:31:00 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:31:02 +0200
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mAnnonce Load (0.1ms)[0m  [1mSELECT "annonces".* FROM "annonces" WHERE "annonces"."user_id" = ?[0m  [["user_id", 1]]
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:31:04 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:31:06 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:31:08 +0200
+  [1m[35mSQL (12.7ms)[0m  UPDATE "annonces" SET "dateLastAnnonce" = '2015-05-26 11:31:08.544598' WHERE "annonces"."id" = ?  [["id", 1]]
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:31:10 +0200
+
+
+Started GET "/annonces" for 127.0.0.1 at 2015-05-26 13:31:11 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mAnnonce Load (0.0ms)[0m  [1mSELECT "annonces".* FROM "annonces" WHERE "annonces"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered annonces/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 64ms (Views: 63.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/annonces/new" for 127.0.0.1 at 2015-05-26 13:31:12 +0200
+Processing by AnnoncesController#new as HTML
+  Rendered annonces/_form.html.erb (2.6ms)
+  Rendered annonces/new.html.erb within layouts/application (3.3ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 79ms (Views: 78.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:31:12 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:31:14 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:31:16 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:31:18 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:31:20 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:31:22 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:31:24 +0200
+
+
+Started POST "/annonces" for 127.0.0.1 at 2015-05-26 13:31:24 +0200
+Processing by AnnoncesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rbi1+7X8y74j3YC40t05EJg+yceeWu2lTpsgeOzoPZMmLCbd2DB6+p/N7oaPLjP07GAk+AhAb+fzthU/eSYl7Q==", "annonce"=>{"titre"=>"voiture aquitaine"}, "terme"=>"", "typeProduit"=>"Voitures", "region"=>"Aquitaine", "codePostal"=>"", "commit"=>"Créer"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "annonces" ("titre", "urlRecherche", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["titre", "voiture aquitaine"], ["urlRecherche", "http://www.leboncoin.fr/voitures/offres/aquitaine/?f=a&th=1&q=&location="], ["user_id", 1], ["created_at", "2015-05-26 11:31:24.552851"], ["updated_at", "2015-05-26 11:31:24.552851"]]
+  [1m[35m (9.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/annonces/2
+Completed 302 Found in 16ms (ActiveRecord: 10.3ms)
+
+
+Started GET "/annonces/2" for 127.0.0.1 at 2015-05-26 13:31:24 +0200
+Processing by AnnoncesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAnnonce Load (0.1ms)[0m  [1mSELECT  "annonces".* FROM "annonces" WHERE "annonces"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered annonces/show.html.erb within layouts/application (0.2ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 94ms (Views: 92.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:31:26 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:31:28 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:31:30 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:31:32 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:31:34 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:31:36 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:31:38 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:31:40 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:31:42 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:31:44 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:31:46 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:31:48 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:31:50 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:31:52 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:31:54 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:31:56 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:31:58 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:32:00 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:32:02 +0200
+
+
+Started GET "/annonces" for 127.0.0.1 at 2015-05-26 13:32:04 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mAnnonce Load (0.1ms)[0m  SELECT "annonces".* FROM "annonces" WHERE "annonces"."user_id" = ?  [["user_id", 1]]
+  Rendered annonces/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 97ms (Views: 95.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:32:04 +0200
+
+
+Started GET "/annonces/new" for 127.0.0.1 at 2015-05-26 13:32:05 +0200
+Processing by AnnoncesController#new as HTML
+  Rendered annonces/_form.html.erb (2.8ms)
+  Rendered annonces/new.html.erb within layouts/application (3.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 84ms (Views: 83.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:32:06 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:32:08 +0200
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mAnnonce Load (0.2ms)[0m  SELECT "annonces".* FROM "annonces" WHERE "annonces"."user_id" = ?  [["user_id", 1]]
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:32:10 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:32:12 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:32:14 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:32:16 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:32:18 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:32:20 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:32:22 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:32:24 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:32:26 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:32:28 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:32:30 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:32:32 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:32:34 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:32:36 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:32:38 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:32:40 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:32:42 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:32:44 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:32:46 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:32:48 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:32:50 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:32:52 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:32:54 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:32:56 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:32:58 +0200
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mAnnonce Load (0.1ms)[0m  SELECT "annonces".* FROM "annonces" WHERE "annonces"."user_id" = ?  [["user_id", 1]]
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:33:00 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:33:02 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:33:04 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:33:06 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:33:08 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:33:10 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:33:12 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:33:14 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:33:16 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:33:18 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:33:20 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:33:22 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:33:24 +0200
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mAnnonce Load (0.2ms)[0m  SELECT "annonces".* FROM "annonces" WHERE "annonces"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mAnnonce Load (0.3ms)[0m  SELECT "annonces".* FROM "annonces" WHERE "annonces"."user_id" = ?  [["user_id", 1]]
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:33:26 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:33:28 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:33:30 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:33:32 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:33:34 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:33:36 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:33:38 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:33:40 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:33:42 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:33:44 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:33:46 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:33:48 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:33:50 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:33:52 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:33:54 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:33:56 +0200
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mAnnonce Load (0.1ms)[0m  SELECT "annonces".* FROM "annonces" WHERE "annonces"."user_id" = ?  [["user_id", 1]]
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:33:58 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:34:00 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:34:02 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:34:04 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:34:06 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:34:08 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:34:10 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:34:12 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:34:14 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:34:16 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:34:18 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:34:20 +0200
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mAnnonce Load (0.2ms)[0m  SELECT "annonces".* FROM "annonces" WHERE "annonces"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mAnnonce Load (0.1ms)[0m  SELECT "annonces".* FROM "annonces" WHERE "annonces"."user_id" = ?  [["user_id", 1]]
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:34:22 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:34:24 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:34:26 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:34:28 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:34:30 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:34:32 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:34:34 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:34:36 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:34:38 +0200
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mAnnonce Load (0.2ms)[0m  SELECT "annonces".* FROM "annonces" WHERE "annonces"."user_id" = ?  [["user_id", 1]]
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:34:40 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:34:42 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:34:44 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:34:46 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:34:48 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:34:50 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:34:52 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:34:54 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:34:56 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:34:58 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:35:00 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:35:02 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:35:04 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:35:06 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:35:08 +0200
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mAnnonce Load (0.2ms)[0m  SELECT "annonces".* FROM "annonces" WHERE "annonces"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mAnnonce Load (0.1ms)[0m  SELECT "annonces".* FROM "annonces" WHERE "annonces"."user_id" = ?  [["user_id", 1]]
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:35:10 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:35:12 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:35:14 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:35:16 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:35:18 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:35:20 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:35:22 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:35:24 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:35:26 +0200
+
+
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2015-05-26 13:35:28 +0200
+
+
+Started GET "/sidekiq/busy" for 127.0.0.1 at 2015-05-26 13:35:30 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for 127.0.0.1 at 2015-05-26 13:35:30 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for 127.0.0.1 at 2015-05-26 13:35:30 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.fr.js" for 127.0.0.1 at 2015-05-26 13:35:30 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for 127.0.0.1 at 2015-05-26 13:35:30 +0200
+
+
+Started GET "/sidekiq/images/status-sd8051fd480.png" for 127.0.0.1 at 2015-05-26 13:35:30 +0200
+
+
+Started POST "/sidekiq/busy" for 127.0.0.1 at 2015-05-26 13:35:31 +0200
+
+
+Started GET "/sidekiq/busy" for 127.0.0.1 at 2015-05-26 13:35:31 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for 127.0.0.1 at 2015-05-26 13:35:32 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for 127.0.0.1 at 2015-05-26 13:35:32 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for 127.0.0.1 at 2015-05-26 13:35:32 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.fr.js" for 127.0.0.1 at 2015-05-26 13:35:32 +0200
+
+
+Started GET "/sidekiq/images/status-sd8051fd480.png" for 127.0.0.1 at 2015-05-26 13:35:32 +0200
+
+
+Started GET "/sidekiq/busy" for 127.0.0.1 at 2015-05-26 13:35:34 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for 127.0.0.1 at 2015-05-26 13:35:34 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for 127.0.0.1 at 2015-05-26 13:35:34 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.fr.js" for 127.0.0.1 at 2015-05-26 13:35:34 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for 127.0.0.1 at 2015-05-26 13:35:34 +0200
+
+
+Started GET "/sidekiq/images/status-sd8051fd480.png" for 127.0.0.1 at 2015-05-26 13:35:34 +0200
+
+
+Started GET "/sidekiq/busy" for 127.0.0.1 at 2015-05-26 13:35:34 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for 127.0.0.1 at 2015-05-26 13:35:34 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.fr.js" for 127.0.0.1 at 2015-05-26 13:35:34 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for 127.0.0.1 at 2015-05-26 13:35:34 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for 127.0.0.1 at 2015-05-26 13:35:34 +0200
+
+
+Started GET "/sidekiq/images/status-sd8051fd480.png" for 127.0.0.1 at 2015-05-26 13:35:34 +0200
+
+
+Started GET "/sidekiq/busy" for 127.0.0.1 at 2015-05-26 13:35:34 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for 127.0.0.1 at 2015-05-26 13:35:35 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for 127.0.0.1 at 2015-05-26 13:35:35 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for 127.0.0.1 at 2015-05-26 13:35:35 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.fr.js" for 127.0.0.1 at 2015-05-26 13:35:35 +0200
+
+
+Started GET "/sidekiq/images/status-sd8051fd480.png" for 127.0.0.1 at 2015-05-26 13:35:35 +0200
+
+
+Started GET "/sidekiq/busy" for 127.0.0.1 at 2015-05-26 13:35:35 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for 127.0.0.1 at 2015-05-26 13:35:35 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.fr.js" for 127.0.0.1 at 2015-05-26 13:35:35 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for 127.0.0.1 at 2015-05-26 13:35:35 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for 127.0.0.1 at 2015-05-26 13:35:35 +0200
+
+
+Started GET "/sidekiq/images/status-sd8051fd480.png" for 127.0.0.1 at 2015-05-26 13:35:35 +0200
+
+
+Started GET "/sidekiq/busy" for 127.0.0.1 at 2015-05-26 13:35:35 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for 127.0.0.1 at 2015-05-26 13:35:35 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for 127.0.0.1 at 2015-05-26 13:35:35 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.fr.js" for 127.0.0.1 at 2015-05-26 13:35:35 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for 127.0.0.1 at 2015-05-26 13:35:35 +0200
+
+
+Started GET "/sidekiq/images/status-sd8051fd480.png" for 127.0.0.1 at 2015-05-26 13:35:35 +0200
+  [1m[36m (9.6ms)[0m  [1mCREATE TABLE "annonces" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "titre" varchar, "dateLastAnnonce" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "urlRecherche" varchar, "user_id" integer) [0m
+  [1m[35m (10.6ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nom" varchar, "prenom" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (10.4ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (10.4ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (11.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (9.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (10.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150522205026')
+  [1m[36m (10.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150428125423')[0m
+  [1m[35m (8.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150518080924')
+  [1m[36m (10.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150504081245')[0m
+  [1m[35m (9.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150428125900')
+  [1m[36m (9.0ms)[0m  [1mCREATE TABLE "annonces" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "titre" varchar, "dateLastAnnonce" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "urlRecherche" varchar, "user_id" integer) [0m
+  [1m[35m (9.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nom" varchar, "prenom" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (10.4ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (10.4ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (11.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (11.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (10.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150522205026')
+  [1m[36m (11.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150428125423')[0m
+  [1m[35m (10.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150518080924')
+  [1m[36m (8.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150504081245')[0m
+  [1m[35m (10.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150428125900')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/sidekiq/busy" for 127.0.0.1 at 2015-05-26 13:36:02 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for 127.0.0.1 at 2015-05-26 13:36:02 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for 127.0.0.1 at 2015-05-26 13:36:02 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.fr.js" for 127.0.0.1 at 2015-05-26 13:36:02 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for 127.0.0.1 at 2015-05-26 13:36:02 +0200
+
+
+Started GET "/sidekiq/images/status-sd8051fd480.png" for 127.0.0.1 at 2015-05-26 13:36:02 +0200
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2015-05-26 13:36:05 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"w/eHMBu5BQVGUn0w8SMv3FDbAuoneW8E9ZQAQNc6IYJIYxQWdnW0QfpCEw6s0CU4JIXv1bFj7UZIuTUHQvQ5/A=="}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 302 Found in 19ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-26 13:36:05 +0200
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 252ms (Views: 248.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-05-26 13:36:06 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 127ms (Views: 113.9ms | ActiveRecord: 0.0ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+
+
+Started POST "/users" for 127.0.0.1 at 2015-05-26 13:36:18 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5DaOHImzEJ/y/a2s4SoGLWEHHd8BBgUSH5MJMJcQVfJvoh065H+h207tw5K82QzJFVnw4Jcch1Civjx3At5NjA==", "user"=>{"prenom"=>"Baptiste", "nom"=>"Lanusse", "email"=>"baptiste.lanusse@y-nov.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Créer mon compte"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'baptiste.lanusse@y-nov.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("nom", "prenom", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["nom", "Lanusse"], ["prenom", "Baptiste"], ["email", "baptiste.lanusse@y-nov.com"], ["encrypted_password", "$2a$10$XPZeaJ73pef2pTXvXJ1Sy.HgNCvO0q08ZjSLhJfcNPi2BcdHrSurq"], ["created_at", "2015-05-26 11:36:18.612279"], ["updated_at", "2015-05-26 11:36:18.612279"]]
+  Rendered mailer/welcome.html.erb within layouts/mailer (0.3ms)
+  Rendered mailer/welcome.text.erb within layouts/mailer (0.2ms)
+
+Mailer#welcome: processed outbound mail in 121.1ms
+
+Sent mail to baptiste.lanusse@y-nov.com (2123.3ms)
+Date: Tue, 26 May 2015 13:36:18 +0200
+From: LanglePasTropMal@temp.com
+To: baptiste.lanusse@y-nov.com
+Message-ID: <55645ab2b4c4f_13453fab7fc1eb745473c@baptiste-HP-Pavilion-17-Notebook-PC.mail>
+Subject: Welcome to our site
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_55645ab2b3241_13453fab7fc1eb74546ac";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_55645ab2b3241_13453fab7fc1eb74546ac
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to LanglePasTropMal, Baptiste
+===============================================
+ 
+You have successfully signed up to LanglePasTropMal.
+ 
+Thanks for joining and have a great day!
+
+----==_mimepart_55645ab2b3241_13453fab7fc1eb74546ac
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to LanglePasTropMal, Baptiste</h1>
+    <p>
+      You have successfully signed up to LanglePasTropMal.<br>
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+----==_mimepart_55645ab2b3241_13453fab7fc1eb74546ac--
+
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (12.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2015-05-26 11:36:20.879342"], ["current_sign_in_at", "2015-05-26 11:36:20.879342"], ["last_sign_in_ip", "127.0.0.1"], ["current_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2015-05-26 11:36:20.879864"], ["id", 1]]
+  [1m[35m (10.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 2365ms (ActiveRecord: 23.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-26 13:36:20 +0200
+  [1m[36mUser Load (34.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mAnnonce Load (0.1ms)[0m  SELECT "annonces".* FROM "annonces" WHERE "annonces"."user_id" = ?  [["user_id", 1]]
+  Rendered annonces/index.html.erb within layouts/application (1.7ms)
+  [1m[35mAnnonce Load (0.2ms)[0m  SELECT "annonces".* FROM "annonces" WHERE "annonces"."user_id" = ?  [["user_id", 1]]
+Completed 200 OK in 72ms (Views: 70.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/annonces/new" for 127.0.0.1 at 2015-05-26 13:36:22 +0200
+Processing by AnnoncesController#new as HTML
+  Rendered annonces/_form.html.erb (6.9ms)
+  Rendered annonces/new.html.erb within layouts/application (8.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 94ms (Views: 90.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/annonces" for 127.0.0.1 at 2015-05-26 13:36:31 +0200
+Processing by AnnoncesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4gy/YyY0O5TjZ2MEW2YFFnHGmR9f0+c/i3X6Q/8OGg9pmCxFS/iK0F93DToGlQ/yBZh0IMnJZX02WM8EasACcQ==", "annonce"=>{"titre"=>"voiture aquitaine"}, "terme"=>"", "typeProduit"=>"Voitures", "region"=>"Aquitaine", "codePostal"=>"", "commit"=>"Créer"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "annonces" ("titre", "urlRecherche", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["titre", "voiture aquitaine"], ["urlRecherche", "http://www.leboncoin.fr/voitures/offres/aquitaine/?f=a&th=1&q=&location="], ["user_id", 1], ["created_at", "2015-05-26 11:36:31.909455"], ["updated_at", "2015-05-26 11:36:31.909455"]]
+  [1m[36m (9.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/annonces/1
+Completed 302 Found in 14ms (ActiveRecord: 10.3ms)
+
+
+Started GET "/annonces/1" for 127.0.0.1 at 2015-05-26 13:36:31 +0200
+Processing by AnnoncesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mAnnonce Load (0.2ms)[0m  SELECT  "annonces".* FROM "annonces" WHERE "annonces"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered annonces/show.html.erb within layouts/application (1.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 74ms (Views: 70.7ms | ActiveRecord: 0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mAnnonce Load (0.3ms)[0m  SELECT "annonces".* FROM "annonces" WHERE "annonces"."user_id" = ?  [["user_id", 1]]
+  [1m[36mSQL (10.5ms)[0m  [1mUPDATE "annonces" SET "dateLastAnnonce" = '2015-05-26 11:37:10.344726' WHERE "annonces"."id" = ?[0m  [["id", 1]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mAnnonce Load (0.1ms)[0m  [1mSELECT "annonces".* FROM "annonces" WHERE "annonces"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mAnnonce Load (0.1ms)[0m  [1mSELECT "annonces".* FROM "annonces" WHERE "annonces"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mSQL (9.9ms)[0m  UPDATE "annonces" SET "dateLastAnnonce" = '2015-05-26 11:38:05.613390' WHERE "annonces"."id" = ?  [["id", 1]]
+  Rendered mailer/nouvelleAnnonce.html.erb within layouts/mailer (0.4ms)
+  Rendered mailer/nouvelleAnnonce.text.erb within layouts/mailer (0.2ms)
+
+Mailer#nouvelleAnnonce: processed outbound mail in 149.7ms
+  [1m[36mSQL (10.0ms)[0m  [1mUPDATE "annonces" SET "dateLastAnnonce" = '2015-05-26 11:38:05.811047' WHERE "annonces"."id" = ?[0m  [["id", 1]]
+  Rendered mailer/nouvelleAnnonce.html.erb within layouts/mailer (0.1ms)
+  Rendered mailer/nouvelleAnnonce.text.erb within layouts/mailer (0.0ms)
+
+Mailer#nouvelleAnnonce: processed outbound mail in 7.3ms
+
+Sent mail to baptiste.lanusse@y-nov.com (1843.3ms)
+Date: Tue, 26 May 2015 13:38:05 +0200
+From: LanglePasTropMal@temp.com
+To: baptiste.lanusse@y-nov.com
+Message-ID: <55645b1dbe4e0_13973fb6d4058a508096e@baptiste-HP-Pavilion-17-Notebook-PC.mail>
+Subject: =?UTF-8?Q?Une_nouvelle_annonce_a_=C3=A9t=C3=A9_post=C3=A9e,_et?=
+ =?UTF-8?Q?_elle_correspond_=C3=A0_l'une_de_vos_recherche?=
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_55645b1dbcc6c_13973fb6d4058a50808d7";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_55645b1dbcc6c_13973fb6d4058a50808d7
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Bonjour, Baptiste
+===============================================
+ 
+Une nouvelle annonce est apparue concernant l'une de vos recherches.
+ 
+http://www.leboncoin.fr/voitures/offres/aquitaine/?f=a&th=1&q=&location=
+
+Merci de vous servir de notre solution!
+
+----==_mimepart_55645b1dbcc6c_13973fb6d4058a50808d7
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Bonjour, Baptiste</h1>
+    <p>
+      Une nouvelle annonce est apparue concernant l'une de vos recherches.<br>
+    </p>
+    <a href="http://www.leboncoin.fr/voitures/offres/aquitaine/?f=a&amp;th=1&amp;q=&amp;location=">Cliquez ici</a>
+    <p>Merci de vous servir de notre solution!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+----==_mimepart_55645b1dbcc6c_13973fb6d4058a50808d7--
+
+
+Sent mail to baptiste.lanusse@y-nov.com (2352.2ms)
+Date: Tue, 26 May 2015 13:38:05 +0200
+From: LanglePasTropMal@temp.com
+To: baptiste.lanusse@y-nov.com
+Message-ID: <55645b1dcab85_13973fb6d40581cc81157@baptiste-HP-Pavilion-17-Notebook-PC.mail>
+Subject: =?UTF-8?Q?Une_nouvelle_annonce_a_=C3=A9t=C3=A9_post=C3=A9e,_et?=
+ =?UTF-8?Q?_elle_correspond_=C3=A0_l'une_de_vos_recherche?=
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_55645b1dca1e1_13973fb6d40581cc810a2";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_55645b1dca1e1_13973fb6d40581cc810a2
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Bonjour, Baptiste
+===============================================
+ 
+Une nouvelle annonce est apparue concernant l'une de vos recherches.
+ 
+http://www.leboncoin.fr/voitures/offres/aquitaine/?f=a&th=1&q=&location=
+
+Merci de vous servir de notre solution!
+
+----==_mimepart_55645b1dca1e1_13973fb6d40581cc810a2
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Bonjour, Baptiste</h1>
+    <p>
+      Une nouvelle annonce est apparue concernant l'une de vos recherches.<br>
+    </p>
+    <a href="http://www.leboncoin.fr/voitures/offres/aquitaine/?f=a&amp;th=1&amp;q=&amp;location=">Cliquez ici</a>
+    <p>Merci de vous servir de notre solution!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+----==_mimepart_55645b1dca1e1_13973fb6d40581cc810a2--
+
+
+
+Started GET "/annonces" for 127.0.0.1 at 2015-05-26 13:38:20 +0200
+Processing by AnnoncesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mAnnonce Load (0.1ms)[0m  [1mSELECT "annonces".* FROM "annonces" WHERE "annonces"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered annonces/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 74ms (Views: 73.0ms | ActiveRecord: 0.2ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mAnnonce Load (0.2ms)[0m  [1mSELECT "annonces".* FROM "annonces" WHERE "annonces"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mSQL (9.7ms)[0m  UPDATE "annonces" SET "dateLastAnnonce" = '2015-05-26 11:39:26.085710' WHERE "annonces"."id" = ?  [["id", 1]]
+  Rendered mailer/nouvelleAnnonce.html.erb within layouts/mailer (0.1ms)
+  Rendered mailer/nouvelleAnnonce.text.erb within layouts/mailer (0.0ms)
+
+Mailer#nouvelleAnnonce: processed outbound mail in 7.3ms
+
+Sent mail to baptiste.lanusse@y-nov.com (1842.6ms)
+Date: Tue, 26 May 2015 13:39:26 +0200
+From: LanglePasTropMal@temp.com
+To: baptiste.lanusse@y-nov.com
+Message-ID: <55645b6e19a32_13973fb6d40581cc8139@baptiste-HP-Pavilion-17-Notebook-PC.mail>
+Subject: =?UTF-8?Q?Une_nouvelle_annonce_a_=C3=A9t=C3=A9_post=C3=A9e,_et?=
+ =?UTF-8?Q?_elle_correspond_=C3=A0_l'une_de_vos_recherche?=
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_55645b6e18ebc_13973fb6d40581cc81217";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_55645b6e18ebc_13973fb6d40581cc81217
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Bonjour, Baptiste
+===============================================
+ 
+Une nouvelle annonce est apparue concernant l'une de vos recherches.
+ 
+http://www.leboncoin.fr/voitures/offres/aquitaine/?f=a&th=1&q=&location=
+
+Merci de vous servir de notre solution!
+
+----==_mimepart_55645b6e18ebc_13973fb6d40581cc81217
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Bonjour, Baptiste</h1>
+    <p>
+      Une nouvelle annonce est apparue concernant l'une de vos recherches.<br>
+    </p>
+    <a href="http://www.leboncoin.fr/voitures/offres/aquitaine/?f=a&amp;th=1&amp;q=&amp;location=">Cliquez ici</a>
+    <p>Merci de vous servir de notre solution!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+----==_mimepart_55645b6e18ebc_13973fb6d40581cc81217--
+
+
+
+Started GET "/sidekiq/busy" for 127.0.0.1 at 2015-05-26 13:39:57 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for 127.0.0.1 at 2015-05-26 13:39:57 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for 127.0.0.1 at 2015-05-26 13:39:57 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for 127.0.0.1 at 2015-05-26 13:39:57 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.fr.js" for 127.0.0.1 at 2015-05-26 13:39:57 +0200
+
+
+Started GET "/sidekiq/images/status-sd8051fd480.png" for 127.0.0.1 at 2015-05-26 13:39:57 +0200
+
+
+Started POST "/sidekiq/busy" for 127.0.0.1 at 2015-05-26 13:39:58 +0200
+
+
+Started GET "/sidekiq/busy" for 127.0.0.1 at 2015-05-26 13:39:58 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for 127.0.0.1 at 2015-05-26 13:39:58 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.fr.js" for 127.0.0.1 at 2015-05-26 13:39:58 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for 127.0.0.1 at 2015-05-26 13:39:58 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for 127.0.0.1 at 2015-05-26 13:39:58 +0200
+
+
+Started GET "/sidekiq/images/status-sd8051fd480.png" for 127.0.0.1 at 2015-05-26 13:39:58 +0200
+
+
+Started GET "/sidekiq/busy" for 127.0.0.1 at 2015-05-26 13:40:00 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for 127.0.0.1 at 2015-05-26 13:40:00 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for 127.0.0.1 at 2015-05-26 13:40:00 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.fr.js" for 127.0.0.1 at 2015-05-26 13:40:00 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for 127.0.0.1 at 2015-05-26 13:40:00 +0200
+
+
+Started GET "/sidekiq/images/status-sd8051fd480.png" for 127.0.0.1 at 2015-05-26 13:40:00 +0200
+
+
+Started GET "/sidekiq/busy" for 127.0.0.1 at 2015-05-26 13:40:00 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for 127.0.0.1 at 2015-05-26 13:40:00 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for 127.0.0.1 at 2015-05-26 13:40:00 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for 127.0.0.1 at 2015-05-26 13:40:00 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.fr.js" for 127.0.0.1 at 2015-05-26 13:40:00 +0200
+
+
+Started GET "/sidekiq/images/status-sd8051fd480.png" for 127.0.0.1 at 2015-05-26 13:40:00 +0200
+
+
+Started GET "/sidekiq/busy" for 127.0.0.1 at 2015-05-26 13:40:01 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for 127.0.0.1 at 2015-05-26 13:40:01 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for 127.0.0.1 at 2015-05-26 13:40:01 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.fr.js" for 127.0.0.1 at 2015-05-26 13:40:01 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for 127.0.0.1 at 2015-05-26 13:40:01 +0200
+
+
+Started GET "/sidekiq/images/status-sd8051fd480.png" for 127.0.0.1 at 2015-05-26 13:40:01 +0200
+
+
+Started GET "/sidekiq/busy" for 127.0.0.1 at 2015-05-26 13:40:02 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for 127.0.0.1 at 2015-05-26 13:40:02 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for 127.0.0.1 at 2015-05-26 13:40:02 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.fr.js" for 127.0.0.1 at 2015-05-26 13:40:02 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for 127.0.0.1 at 2015-05-26 13:40:02 +0200
+
+
+Started GET "/sidekiq/images/status-sd8051fd480.png" for 127.0.0.1 at 2015-05-26 13:40:02 +0200
+
+
+Started GET "/sidekiq/busy" for 127.0.0.1 at 2015-05-26 13:40:03 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for 127.0.0.1 at 2015-05-26 13:40:03 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for 127.0.0.1 at 2015-05-26 13:40:03 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for 127.0.0.1 at 2015-05-26 13:40:03 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.fr.js" for 127.0.0.1 at 2015-05-26 13:40:03 +0200
+
+
+Started GET "/sidekiq/images/status-sd8051fd480.png" for 127.0.0.1 at 2015-05-26 13:40:03 +0200
+
+
+Started GET "/sidekiq/busy" for 127.0.0.1 at 2015-05-26 13:40:03 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for 127.0.0.1 at 2015-05-26 13:40:03 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.fr.js" for 127.0.0.1 at 2015-05-26 13:40:03 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for 127.0.0.1 at 2015-05-26 13:40:03 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for 127.0.0.1 at 2015-05-26 13:40:03 +0200
+
+
+Started GET "/sidekiq/images/status-sd8051fd480.png" for 127.0.0.1 at 2015-05-26 13:40:03 +0200
+
+
+Started GET "/sidekiq/busy" for 127.0.0.1 at 2015-05-26 13:40:04 +0200
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for 127.0.0.1 at 2015-05-26 13:40:04 +0200
+
+
+Started GET "/sidekiq/stylesheets/application.css" for 127.0.0.1 at 2015-05-26 13:40:04 +0200
+
+
+Started GET "/sidekiq/javascripts/application.js" for 127.0.0.1 at 2015-05-26 13:40:04 +0200
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.fr.js" for 127.0.0.1 at 2015-05-26 13:40:04 +0200
+
+
+Started GET "/sidekiq/images/status-sd8051fd480.png" for 127.0.0.1 at 2015-05-26 13:40:04 +0200
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2015-05-26 13:40:14 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"hTJgajhDdotOS0WYepM6Hyeh2REvKuXJY/8vwXRqr5AOpvNMVY/Hz/JbK6YnYDD7U/80LrkwZ4ve0hqG4aS37g=="}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 24ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-26 13:40:14 +0200
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 226ms (Views: 222.5ms | ActiveRecord: 0.0ms)
+  [1m[36m (9.3ms)[0m  [1mCREATE TABLE "annonces" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "titre" varchar, "dateLastAnnonce" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "urlRecherche" varchar, "user_id" integer) [0m
+  [1m[35m (8.0ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nom" varchar, "prenom" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (10.3ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (8.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (11.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (11.5ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (10.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150522205026')
+  [1m[36m (10.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150428125423')[0m
+  [1m[35m (10.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150518080924')
+  [1m[36m (10.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150504081245')[0m
+  [1m[35m (10.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150428125900')
+  [1m[36m (10.0ms)[0m  [1mCREATE TABLE "annonces" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "titre" varchar, "dateLastAnnonce" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "urlRecherche" varchar, "user_id" integer) [0m
+  [1m[35m (10.1ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nom" varchar, "prenom" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (10.3ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (11.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (11.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (11.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (11.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150522205026')
+  [1m[36m (10.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150428125423')[0m
+  [1m[35m (10.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150518080924')
+  [1m[36m (10.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150504081245')[0m
+  [1m[35m (10.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150428125900')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m

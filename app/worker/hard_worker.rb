@@ -34,7 +34,7 @@ class HardWorker
 
               heure = heuredp[/\d{2}/]
 
-              if heure.to_i > annonce.dateLastAnnonce.hour
+              if heure.to_i > annonce.dateLastAnnonce.hour.to_i
                 annonce.update_column :dateLastAnnonce, DateTime.now
                 Mailer.nouvelleAnnonce(user, annonce.urlRecherche).deliver_now
               else
@@ -42,7 +42,7 @@ class HardWorker
 
                 minute = minutedp[/\d{2}/]
 
-                if minute.to_i > annonce.dateLastAnnonce.minute
+                if minute.to_i > annonce.dateLastAnnonce.minute.to_i
                   annonce.update_column :dateLastAnnonce, DateTime.now
                   Mailer.nouvelleAnnonce(user, annonce.urlRecherche).deliver_now
                 end
